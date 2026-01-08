@@ -35,6 +35,31 @@ export default function RickyRamHero({
 }: RickyRamHeroProps) {
   const reduceMotion = useReducedMotion();
   const [isHovered, setIsHovered] = React.useState(false);
+  const [underlineBase, setUnderlineBase] = React.useState(false);
+  const [showMegaCursor, setShowMegaCursor] = React.useState(false);
+  const [cursorPos, setCursorPos] = React.useState({ x: 0, y: 0 });
+  const lastScrollY = React.useRef(0);
+
+  React.useEffect(() => {
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      setUnderlineBase(currentY > lastScrollY.current);
+      lastScrollY.current = currentY;
+    };
+
+    const onWheel = (event: WheelEvent) => {
+      if (event.deltaY === 0) return;
+      setUnderlineBase(event.deltaY > 0);
+    };
+
+    lastScrollY.current = window.scrollY;
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("wheel", onWheel, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("wheel", onWheel);
+    };
+  }, []);
 
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
@@ -190,6 +215,24 @@ export default function RickyRamHero({
             transform: none;
           }
         }
+
+        .rickyramMegaCursor {
+          height: 64px;
+          width: 64px;
+          border-radius: 9999px;
+          border: 2px solid var(--hero-primary);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(0, 0, 0, 0.05);
+          backdrop-filter: blur(2px);
+        }
+
+        .rickyramMegaCursorIcon {
+          font-size: 24px;
+          color: var(--hero-primary);
+          line-height: 1;
+        }
       `}</style>
 
       <div className="rickyramHeroRoot relative">
@@ -208,7 +251,7 @@ export default function RickyRamHero({
           />
         </motion.div>
 
-        <div className="relative mx-auto flex min-h-[78vh] max-w-7xl flex-col justify-between px-4 pb-12 pt-16 md:min-h-[86vh] md:px-6 md:pb-16 md:pt-20">
+        <div className="relative mx-auto flex min-h-[100vh] max-w-7xl flex-col justify-between px-4 pb-12 pt-16 md:min-h-[86vh] md:px-6 md:pb-16 md:pt-20">
           <motion.p
             initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -229,9 +272,25 @@ export default function RickyRamHero({
               className="relative w-full select-none text-center"
             >
               <div className="relative">
-                <div className="rickyramOutline rickyramTopLine relative z-10 text-[14vw] font-semibold leading-[0.9] tracking-[-0.04em] text-[color:var(--stroke-color)] md:text-[8.5vw] lg:text-[7.4vw]">
-                  {headlineTop}
-                </div>
+                <Link
+                  href="/soluciones"
+                  aria-label={`${headlineTop} - Ver soluciones`}
+                  className="inline-block cursor-none"
+                  onPointerEnter={(event) => {
+                    if (event.pointerType === "touch") return;
+                    setShowMegaCursor(true);
+                    setCursorPos({ x: event.clientX, y: event.clientY });
+                  }}
+                  onPointerMove={(event) => {
+                    if (event.pointerType === "touch") return;
+                    setCursorPos({ x: event.clientX, y: event.clientY });
+                  }}
+                  onPointerLeave={() => setShowMegaCursor(false)}
+                >
+                  <h1 className="rickyramOutline rickyramTopLine relative z-10 cursor-pointer text-[14vw] font-semibold leading-[0.9] tracking-[-0.04em] text-[color:var(--stroke-color)] md:text-[8.5vw] lg:text-[7.4vw]">
+                    {headlineTop}
+                  </h1>
+                </Link>
                 <div className="rickyramOutline rickyramBottomLine relative z-50 mt-2 text-[10.5vw] font-semibold leading-[0.9] tracking-[-0.04em] text-[color:var(--hero-primary)] md:mt-0 md:text-[6.5vw] lg:text-[5.6vw]">
                   {headlineBottom}
                 </div>
@@ -260,31 +319,48 @@ export default function RickyRamHero({
           </div>
 
           <div className="mt-8 flex flex-col gap-6 md:mt-10 md:flex-row md:items-center md:justify-between">
-            <div className="text-sm text-muted-foreground">
+            <div
+              className={[
+                "text-center text-sm text-muted-foreground transition-[text-decoration-color] duration-200 md:text-left",
+                underlineBase ? "underline underline-offset-4" : "no-underline",
+              ].join(" ")}
+            >
               Base en Tijuana, Mexico.
             </div>
 
             
 
             <div className="flex flex-col gap-3 sm:flex-row md:hidden">
-              <Button asChild className="glow-btn">
-                <Link href={siteConfig.whatsapp}>Cotizar ahora</Link>
+              <Button asChild>
+                <Link href="/soluciones">Quiero un Sitio Web</Link>
               </Button>
-              <Button variant="secondary" asChild>
-                <Link href={siteConfig.agendaUrl}>Agendar llamada</Link>
+              <Button asChild className="glow-btn">
+                <Link href={siteConfig.whatsapp}>Necesito Branding</Link>
               </Button>
             </div>
 
             <div className="hidden items-center gap-3 md:flex">
-              <Button variant="secondary" asChild>
-                <Link href={siteConfig.agendaUrl}>Agendar llamada</Link>
+              <Button asChild>
+                <Link href="/soluciones">Quiero un Sitio Web</Link>
               </Button>
               <Button asChild className="glow-btn">
-                <Link href={siteConfig.whatsapp}>Cotizar ahora</Link>
+                <Link href={siteConfig.whatsapp}>Necesito Branding</Link>
               </Button>
             </div>
           </div>
         </div>
+        {showMegaCursor ? (
+          <div
+            className="pointer-events-none fixed left-0 top-0 z-[80] hidden md:block"
+            style={{
+              transform: `translate3d(${cursorPos.x}px, ${cursorPos.y}px, 0) translate(-50%, -50%)`,
+            }}
+          >
+            <div className="rickyramMegaCursor">
+              <span className="rickyramMegaCursorIcon">↗</span>
+            </div>
+          </div>
+        ) : null}
       </div>
     </section>
   );
