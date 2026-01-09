@@ -21,13 +21,13 @@ export const homeContent = {
     ],
   },
   solutions: {
-    title: "Tres formas de construir tu web (sin drama tecnico).",
+    title: "Tres formas de construir tu web.",
     intro:
-      "No todo negocio necesita lo mismo. Te guiamos con una analogia simple.",
+      "No todo negocio necesita lo mismo. Te guio para elegir la mejor tecnología para tí.",
     cards: [
       {
         title: "Astro",
-        subtitle: "Casa ligera prefabricada de lujo",
+        subtitle: "Ingeniería enfocada en rendimiento",
         text: "Ideal para sitios de marketing que necesitan velocidad, SEO y conversion sin complicaciones.",
         idealFor: "Landing, servicios, portafolio, campanas.",
         priceFrom: "$7,900 MXN",
@@ -35,15 +35,15 @@ export const homeContent = {
       },
       {
         title: "WordPress",
-        subtitle: "Casa modular con cuarto de herramientas",
+        subtitle: "Mucha flexibilidad y panel autoadministrable",
         text: "Perfecto si tu equipo quiere editar contenido facil y publicar seguido.",
-        idealFor: "Sitios con blog, catalogos simples, operacion diaria.",
+        idealFor: "Sitios con blog, catalogos simples, operacion diaria, escalable a ecommerce.",
         priceFrom: "$8,900 MXN",
         href: "/soluciones/wordpress",
       },
       {
         title: "Next.js",
-        subtitle: "Edificio a medida con ingenieria",
+        subtitle: "Funciones a medida y crecimiento tipo producto/app.",
         text: "Para experiencias premium: tiendas avanzadas, dashboards y webs escalables.",
         idealFor: "Producto digital, ecommerce headless, integraciones.",
         priceFrom: "$18,900 MXN",
@@ -52,7 +52,7 @@ export const homeContent = {
     ],
   },
   compare: {
-    title: "Cual te conviene? (version humana)",
+    title: "Ver comparativa rápida",
     columns: ["Astro", "WordPress", "Next.js"],
     rows: [
       {
