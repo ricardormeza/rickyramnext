@@ -1,7 +1,7 @@
 ﻿"use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import styles from "@/components/sections/RickyTechCards.module.css";
 
 type CardItem = {
@@ -15,14 +15,6 @@ type CardItem = {
 
 const cards: CardItem[] = [
   {
-    title: "Astro",
-    subtitle: "Ingeniería enfocada en rendimiento",
-    text: "Ideal para sitios de marketing que necesitan velocidad, SEO y conversión sin complicaciones.",
-    idealFor: "Landing, servicios, portafolio, campañas.",
-    priceFrom: "$7,900 MXN",
-    href: "/soluciones/astro",
-  },
-  {
     title: "WordPress",
     subtitle: "Mucha flexibilidad y panel autoadministrable",
     text: "Perfecto si tu equipo quiere editar contenido fácil y publicar seguido.",
@@ -30,6 +22,15 @@ const cards: CardItem[] = [
     priceFrom: "$8,900 MXN",
     href: "/soluciones/wordpress",
   },
+  {
+    title: "Astro",
+    subtitle: "Ingeniería enfocada en rendimiento",
+    text: "Ideal para sitios de marketing que necesitan velocidad, SEO y conversión sin complicaciones.",
+    idealFor: "Landing, servicios, portafolio, campañas.",
+    priceFrom: "$10,900 MXN",
+    href: "/soluciones/astro",
+  },
+  
   {
     title: "Next.js",
     subtitle: "Funciones a medida y crecimiento tipo producto/app.",
@@ -39,24 +40,6 @@ const cards: CardItem[] = [
     href: "/soluciones/nextjs",
   },
 ];
-
-const logos: Record<CardItem["title"], string> = {
-  Astro: "/images/astro-logo.webp",
-  WordPress: "/images/wordpress-logo.webp",
-  "Next.js": "/images/nextjs-logo.webp",
-};
-
-function TechIcon({ title }: { title: CardItem["title"] }) {
-  return (
-    <Image
-      src={logos[title]}
-      alt={`${title} logo`}
-      width={72}
-      height={72}
-      className={styles.face2Icon}
-    />
-  );
-}
 
 function gradientVars(title: CardItem["title"]) {
   if (title === "Astro")
@@ -69,8 +52,15 @@ function gradientVars(title: CardItem["title"]) {
 export default function RickyTechCards() {
   return (
     <div className={styles.container}>
-      {cards.map((c) => (
-        <div key={c.title} className={styles.card} style={gradientVars(c.title)}>
+      {cards.map((c, idx) => (
+        <motion.div
+          key={c.title}
+          className={styles.card}
+          style={gradientVars(c.title)}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 * (idx + 1) }}
+        >
           <div className={`${styles.face} ${styles.face1}`}>
             <div className={styles.content}>
               <h3 className={styles.title}>{c.title}</h3>
@@ -97,12 +87,10 @@ export default function RickyTechCards() {
 
           <div className={`${styles.face} ${styles.face2}`} aria-hidden>
             <div className={styles.face2Inner}>
-              <TechIcon title={c.title} />
               <div className={styles.face2Title}>{c.title}</div>
             </div></div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
 }
-

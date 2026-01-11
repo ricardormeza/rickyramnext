@@ -109,24 +109,17 @@
 .face2{
   background: linear-gradient(45deg, var(--g1), var(--g2));
   transition: height 0.5s ease, border-radius 0.5s ease;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
   height: 100%;
   border-radius: 16px;
 }
 
 .card:hover .face2{
-  height: 72px;
+  height: 42px;
   border-radius: 0 0 16px 16px;
-}
-
-.face2::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 52%;
-  height: 100%;
-  background: rgba(255,255,255,0.12);
-  border-radius: 16px 0 0 16px;
 }
 
 /* Logo + label */

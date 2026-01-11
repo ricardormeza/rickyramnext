@@ -4,9 +4,9 @@ export function QuickCompare() {
   const { compare } = homeContent;
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12 md:px-6">
+    <section className="mx-auto max-w-6xl px-4 py-12 mt-16 md:px-6">
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight md:text-4xl">
+        <h2 className="text-2xl text-center font-semibold tracking-tight md:text-4xl">
           {compare.title}
         </h2>
         <div className="overflow-hidden rounded-2xl border">
@@ -32,7 +32,7 @@ export function QuickCompare() {
             </div>
           ))}
         </div>
-        <p className="text-sm text-muted-foreground md:text-base">
+        <p className="text-sm text-center text-muted-foreground md:text-base">
           {compare.conclusion}
         </p>
       </div>

@@ -53,23 +53,23 @@ export const homeContent = {
   },
   compare: {
     title: "Ver comparativa rápida",
-    columns: ["Astro", "WordPress", "Next.js"],
+    columns: ["WordPress","Astro",  "Next.js"],
     rows: [
       {
         label: "Velocidad de carga",
-        values: ["Alta", "Media", "Alta"],
+        values: ["Media", "Alta", "Alta"],
       },
       {
         label: "Panel para editar contenido",
-        values: ["Limitado", "Completo", "Opcional"],
+        values: ["Completo", "Limitado", "Opcional"],
       },
       {
         label: "Ideal para",
-        values: ["Marketing", "Contenido", "Sistemas/escala"],
+        values: ["Contenido","Marketing", "Sistemas/escala"],
       },
       {
         label: "Complejidad",
-        values: ["Baja", "Media", "Alta"],
+        values: ["Media", "Alta", "Alta"],
       },
       {
         label: "Costo inicial",
@@ -81,7 +81,7 @@ export const homeContent = {
       },
     ],
     conclusion:
-      "Si tu meta es vender rapido, Astro. Si necesitas editar todo, WordPress. Si quieres construir producto, Next.js.",
+      "Si necesitas editar todo, WordPress. Si tu meta es vender rapido, Astro.  Si quieres construir producto escalable, Next.js.",
   },
   pricing: {
     title: "Paquetes listos para arrancar (Starter)",
@@ -89,31 +89,31 @@ export const homeContent = {
       "Precios claros, alcance definido y SEO basico incluido. Tracking se agrega cuando quieras medir en serio.",
     cards: [
       {
-        title: "Astro Starter",
-        bullets: [
-          "Landing: $7,900 - $12,900",
-          "Sitio 5-7 secciones: $14,900 - $24,900",
-          "PyME 10-12 secciones: $24,900 - $39,900",
-        ],
-        cta: "Ver paquetes Astro",
-        href: "/soluciones/astro",
-      },
-      {
         title: "WordPress Starter",
         bullets: [
-          "Landing: $8,900 - $14,900",
-          "Sitio 5-8 paginas: $19,900 - $34,900",
-          "PyME 10-15 paginas: $34,900 - $59,900",
+          "Landing: $6,900",
+          "Sitio 5 paginas: $9,900",
+          "PyME 10-15 paginas: $19,900",
         ],
         cta: "Ver paquetes WordPress",
         href: "/soluciones/wordpress",
       },
       {
+        title: "Astro Starter",
+        bullets: [
+          "Landing: $7,900",
+          "Sitio 5 páginas: $14,900",
+          "PyME 10-12 secciones: $24,900",
+        ],
+        cta: "Ver paquetes Astro",
+        href: "/soluciones/astro",
+      },
+      {
         title: "Next.js (Premium)",
         bullets: [
-          "Landing: $18,900 - $39,900",
-          "Sitio: $39,900 - $89,900",
-          "PyME: $89,900 - $179,900",
+          "Landing: $14,900",
+          "Sitio 3 páginas: $32,900",
+          "PyME 5 páginas: $49,900",
         ],
         cta: "Ver Next.js",
         href: "/soluciones/nextjs",
