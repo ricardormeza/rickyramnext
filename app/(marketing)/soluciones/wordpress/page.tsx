@@ -16,6 +16,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { FAQAccordion } from "@/components/sections/faq-accordion";
+import { ScrollReveal } from "@/components/sections/scroll-reveal";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -87,8 +88,8 @@ const pricingPlans = [
     description: "Para validar oferta rapido.",
     bullets: [
       "1 pagina en subdominio",
-      "Hasta 4 secciones",
-      "Mapa + redes",
+      "Hasta 5 secciones",
+      "Mapa + redes(2)",
       "Ideal para salir rapido",
     ],
     cta: "Empezar con Express",
@@ -119,6 +120,7 @@ const pricingPlans = [
       "WhatsApp + Maps",
       "2 formularios",
       "3 cuentas de correo",
+      "Hasta 3 enlaces a redes",
       "SEO base + seguridad esencial",
       "Hosting incluido 1er año",
     ],
@@ -131,11 +133,11 @@ const pricingPlans = [
     badge: "Para medir resultados",
     description: "Presencia con analitica basica.",
     bullets: [
-      "Sitio WordPress completo",
+      "8 a 10 paginas",
       "SEO basico + optimizacion",
       "GA basico (sin eventos avanzados)",
-      "OG basico para redes",
-      "4 cuentas de correo",
+      "Hasta 4 enlaces a redes",
+      "5 cuentas de correo",
       "Hosting incluido 1er año",
     ],
     cta: "Quiero Presencia Online",
@@ -156,7 +158,7 @@ const sitePlans = [
     label: "Paginas / Secciones",
     values: [
       "Hasta 4 secciones",
-      "One-page",
+      "Hasta 6 secciones",
       "Hasta 6 paginas",
       "Segun estructura",
     ],
@@ -172,7 +174,7 @@ const sitePlans = [
   },
   {
     label: "Formularios",
-    values: ["Basico", "1", "2", "Segun necesidad"],
+    values: ["-", "1", "2", "Segun necesidad"],
   },
   {
     label: "Integraciones",
@@ -180,7 +182,7 @@ const sitePlans = [
   },
   {
     label: "Correos profesionales",
-    values: ["-", "1", "3", "4"],
+    values: ["-", "1", "3", "5"],
   },
   {
     label: "SEO",
@@ -188,7 +190,7 @@ const sitePlans = [
   },
   {
     label: "Analitica",
-    values: ["-", "-", "-", "GA basico"],
+    values: ["-", "-", "GA4 Básico", "GA4 Básico"],
   },
   {
     label: "Ideal para",
@@ -275,23 +277,38 @@ export default function WordpressSolutionPage() {
   return (
     <main className="bg-background text-foreground">
       <section id="overview" className="mx-auto max-w-6xl px-4 pb-10 pt-12 md:px-6 md:pt-16">
-        <nav className="text-xs text-muted-foreground">
+        <nav
+          className="fade-up-immediate text-xs text-muted-foreground"
+          style={{ animationDelay: "0ms" }}
+        >
           <Link href="/">Inicio</Link> / <Link href="/soluciones">Soluciones</Link> / WordPress
         </nav>
         <div className="mt-6 grid items-center gap-10 md:grid-cols-2">
           <div className="space-y-5">
-            <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">
+            <h1
+              className="fade-up-immediate text-3xl font-semibold tracking-tight md:text-5xl"
+              style={{ animationDelay: "80ms" }}
+            >
               Sitios WordPress administrables
             </h1>
-            <p className="text-base text-muted-foreground md:text-lg">
+            <p
+              className="fade-up-immediate text-base text-muted-foreground md:text-lg"
+              style={{ animationDelay: "160ms" }}
+            >
               Si necesitas editar contenido facil, publicar en blog y operar tu sitio sin
               depender de un dev para cada cambio, WordPress es la opcion ideal.
             </p>
-            <p className="text-base text-muted-foreground md:text-lg">
+            <p
+              className="fade-up-immediate text-base text-muted-foreground md:text-lg"
+              style={{ animationDelay: "240ms" }}
+            >
               Incluye hosting administrado + SSL el primer año para que tu negocio no
               batalle con lo tecnico.
             </p>
-            <ul className="space-y-2 text-sm text-muted-foreground md:text-base">
+            <ul
+              className="fade-up-immediate space-y-2 text-sm text-muted-foreground md:text-base"
+              style={{ animationDelay: "320ms" }}
+            >
               <li className="flex items-center gap-2">
                 <CheckCircle2 className="h-5 w-5 text-primary" /> Panel editable
               </li>
@@ -302,41 +319,49 @@ export default function WordpressSolutionPage() {
                 <CheckCircle2 className="h-5 w-5 text-primary" /> Listo para blog y WooCommerce
               </li>
             </ul>
-            <div className="flex flex-wrap gap-3">
+            <div
+              className="fade-up-immediate flex flex-wrap gap-3"
+              style={{ animationDelay: "400ms" }}
+            >
               <Button asChild>
                 <Link href="#paquetes-y-precios">Ver paquetes</Link>
               </Button>
               <Button variant="secondary" asChild>
                 <Link href="#cotizar">Cotizar</Link>
               </Button>
-              <Link
-                href="#agendar"
-                className="text-sm font-semibold text-muted-foreground hover:text-primary"
-              >
-                Agendar llamada
-              </Link>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Ya tienes hosting o dominio? Me adapto a lo que ya tienes y sugiero
+            <p
+              className="fade-up-immediate text-sm text-muted-foreground"
+              style={{ animationDelay: "480ms" }}
+            >
+              ¿Ya tienes hosting o dominio? Me adapto a lo que ya tienes y sugiero
               optimizaciones de velocidad y seguridad.
             </p>
           </div>
-          <div className="relative">
+          <div
+            className="fade-up-immediate relative"
+            style={{ animationDelay: "560ms" }}
+          >
             <div className="rounded-3xl border bg-white p-6 shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold uppercase text-muted-foreground">
-                  WordPress Dashboard
+                  Wordpress
                 </span>
                 <BadgeCheck className="h-5 w-5 text-primary" />
               </div>
-              <div className="mt-6 grid gap-4">
+              <div className="mt-6">
                 <div className="rounded-2xl border bg-muted/40 p-4">
-                  <div className="text-sm font-semibold">Pagina publicada</div>
-                  <div className="mt-2 h-24 rounded-xl bg-gradient-to-br from-primary/15 to-cyan-400/10" />
-                </div>
-                <div className="rounded-2xl border bg-muted/40 p-4">
-                  <div className="text-sm font-semibold">Editor visual</div>
-                  <div className="mt-2 h-20 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200" />
+                  <div className="text-sm font-semibold">Wordpress</div>
+                  <div className="mt-2 w-full max-w-[500px] overflow-hidden rounded-xl">
+                    <Image
+                      src="/wordpress/hero2-wp.webp"
+                      alt="Wordpress dashboard"
+                      width={500}
+                      height={500}
+                      loading="lazy"
+                      className="aspect-square h-full w-full object-cover object-top"
+                    />
+                  </div>
                 </div>
               </div>
               <Image
@@ -351,23 +376,27 @@ export default function WordpressSolutionPage() {
         </div>
       </section>
 
-      <section className="border-y bg-muted/30">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 py-6 text-sm md:grid-cols-4 md:px-6">
-          {trustItems.map((item) => {
+      <section className="border-y pt-8 pb-8 border-[#1881ff] bg-muted/30 ">
+        <div className="mx-auto grid max-w-6xl  grid-cols-2 gap-4 px-4 py-6 text-sm md:grid-cols-4 md:px-6">
+          {trustItems.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div key={item.label} className="flex items-center gap-3">
+              <ScrollReveal
+                key={item.label}
+                className="fade-up flex items-center gap-3"
+                style={{ animationDelay: `${index * 80}ms` }}
+              >
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm">
                   <Icon className="h-5 w-5 text-primary" />
                 </div>
-                <span className="font-medium text-muted-foreground">{item.label}</span>
-              </div>
+                <span className="font-medium text-muted-foreground md:text-xl">{item.label}</span>
+              </ScrollReveal>
             );
           })}
         </div>
       </section>
 
-      <div className="sticky top-4 z-40 hidden lg:block">
+      <div className="sticky pt-8 top-4 z-40 hidden lg:block">
         <div className="mx-auto max-w-5xl px-4 md:px-6">
           <div className="mt-6 flex items-center justify-center gap-6 rounded-full border bg-white/90 px-6 py-3 text-sm font-medium text-muted-foreground shadow-sm backdrop-blur">
             <Link href="#overview" className="hover:text-primary">
@@ -397,7 +426,10 @@ export default function WordpressSolutionPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-12 md:px-6">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
-          <div className="space-y-4">
+          <ScrollReveal
+            className="fade-in-left space-y-4"
+            style={{ animationDelay: "0ms" }}
+          >
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
               Para quien es WordPress?
             </h2>
@@ -431,8 +463,11 @@ export default function WordpressSolutionPage() {
             <Link href="/soluciones" className="text-sm font-semibold text-primary">
               Ayudame a elegir
             </Link>
-          </div>
-          <div className="rounded-3xl border bg-white p-6 shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
+          </ScrollReveal>
+          <ScrollReveal
+            className="fade-in-right rounded-3xl border bg-white p-6 shadow-[0_18px_45px_rgba(15,23,42,0.12)]"
+            style={{ animationDelay: "80ms" }}
+          >
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="rounded-2xl border bg-muted/30 p-4 text-center">
                 <FileText className="mx-auto h-6 w-6 text-primary" />
@@ -447,7 +482,7 @@ export default function WordpressSolutionPage() {
                 <div className="mt-2 text-sm font-semibold">Vender</div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -461,26 +496,36 @@ export default function WordpressSolutionPage() {
           </p>
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {benefits.map((benefit) => (
-            <div
+          {benefits.map((benefit, index) => (
+            <ScrollReveal
               key={benefit.title}
-              className="rounded-2xl border bg-card p-5 text-sm text-muted-foreground"
+              className="fade-up rounded-2xl border bg-card p-5 text-sm text-muted-foreground"
+              style={{ animationDelay: `${index * 80}ms` }}
             >
               <div className="text-base font-semibold text-foreground">
                 {benefit.title}
               </div>
               <p className="mt-2">{benefit.text}</p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>
-
+      
+      <ScrollReveal
+                className="fade-up flex items-center gap-3"
+                style={{ animationDelay: `80ms` }}
+              >
       <section id="incluye" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
         <div className="grid gap-8 rounded-3xl border bg-card p-8 md:grid-cols-2 md:p-10">
           <div>
+            <ScrollReveal
+                className="fade-up flex items-center gap-3"
+                style={{ animationDelay: `80ms` }}
+              >
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
               Que incluye (base en planes anuales)
             </h2>
+            </ScrollReveal>
             <ul className="mt-6 space-y-3 text-sm text-muted-foreground md:text-base">
               {includeList.map((item) => (
                 <li key={item} className="flex items-start gap-2">
@@ -504,13 +549,15 @@ export default function WordpressSolutionPage() {
               Nota honesta: WordPress puede volverse pesado si se abusa de plugins.
               Aqui trabajamos con lo necesario y performance cuidado.
             </p>
-            <Link href="#add-ons" className="mt-4 inline-flex text-sm font-semibold text-primary">
+            <Link href="#add-ons" className="mt-4 inline-flex items-center justify-center rounded-full border border-border px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2mt-4 inline-flex text-sm font-semibold text-primary">
               Ver add-ons
             </Link>
           </div>
         </div>
       </section>
+      </ScrollReveal>
       <section id="paquetes-y-precios" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
+        
         <div className="space-y-3">
           <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
             Paquetes y precios
@@ -519,6 +566,10 @@ export default function WordpressSolutionPage() {
             Precios en MXN. La propuesta final depende de paginas, integraciones y contenido.
           </p>
         </div>
+        <ScrollReveal
+                className="fade-up flex items-center gap-3"
+                style={{ animationDelay: `80ms` }}
+              >
         <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {pricingPlans.map((plan) => (
             <div key={plan.title} className="rounded-2xl border bg-card p-5">
@@ -548,8 +599,13 @@ export default function WordpressSolutionPage() {
             </div>
           ))}
         </div>
+        </ScrollReveal>
       </section>
 
+      <ScrollReveal
+                className="fade-up flex items-center gap-3"
+                style={{ animationDelay: `80ms` }}
+              >
       <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
         <div className="rounded-3xl border bg-white">
           <div className="border-b px-6 py-4 text-sm font-semibold text-muted-foreground">
@@ -573,27 +629,9 @@ export default function WordpressSolutionPage() {
             </div>
           ))}
         </div>
-        <div className="mt-6 rounded-3xl border bg-white">
-          <div className="border-b px-6 py-4 text-sm font-semibold text-muted-foreground">
-            Planes de tienda (WooCommerce)
-          </div>
-          <div className="grid grid-cols-3 border-b bg-muted/40 text-sm font-semibold text-muted-foreground">
-            <div className="p-4">Caracteristica</div>
-            <div className="p-4 text-center">Mi Tienda Online</div>
-            <div className="p-4 text-center">Corporativo Elite</div>
-          </div>
-          {storePlans.map((row) => (
-            <div key={row.label} className="grid grid-cols-3 border-b text-sm">
-              <div className="p-4 font-medium">{row.label}</div>
-              {row.values.map((value, idx) => (
-                <div key={`${row.label}-${idx}`} className="p-4 text-center">
-                  {value}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+        
       </section>
+      </ScrollReveal>
 
       <section id="hosting" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
         <div className="rounded-3xl border bg-primary/10 p-8 md:p-10">
@@ -616,7 +654,7 @@ export default function WordpressSolutionPage() {
             Tiendas en linea con WooCommerce
           </h2>
           <p className="text-sm text-muted-foreground md:text-base">
-            Para vender con base solida y sin friccion.
+            Para vender con base solida y sin friccion.sss
           </p>
         </div>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
@@ -644,7 +682,7 @@ export default function WordpressSolutionPage() {
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold">Corporativo Elite</h3>
             </div>
-            <div className="mt-3 text-2xl font-semibold">$37,700 / año</div>
+            <div className="mt-3 text-2xl font-semibold">Desde $37,700 / año</div>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li>Diseño personalizado</li>
               <li>GA avanzado con eventos</li>
@@ -653,9 +691,30 @@ export default function WordpressSolutionPage() {
               <li>Hosting incluido 1er año</li>
             </ul>
             <Button className="mt-6" variant="secondary" asChild>
-              <Link href="#agendar">Armar propuesta corporativa</Link>
+              <Link href="#agendar">Armar propuesta según alcane</Link>
             </Button>
           </div>
+        </div>
+
+        <div className="mt-6 rounded-3xl border bg-white">
+          <div className="border-b px-6 py-4 text-sm font-semibold text-muted-foreground">
+            Planes de tienda (WooCommerce)
+          </div>
+          <div className="grid grid-cols-3 border-b bg-muted/40 text-sm font-semibold text-muted-foreground">
+            <div className="p-4">Caracteristica</div>
+            <div className="p-4 text-center">Mi Tienda Online</div>
+            <div className="p-4 text-center">Corporativo Elite</div>
+          </div>
+          {storePlans.map((row) => (
+            <div key={row.label} className="grid grid-cols-3 border-b text-sm">
+              <div className="p-4 font-medium">{row.label}</div>
+              {row.values.map((value, idx) => (
+                <div key={`${row.label}-${idx}`} className="p-4 text-center">
+                  {value}
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
