@@ -19,7 +19,7 @@ const cards: CardItem[] = [
     subtitle: "Mucha flexibilidad y panel autoadministrable",
     text: "Perfecto si tu equipo quiere editar contenido fácil y publicar seguido.",
     idealFor: "Sitios con blog, catálogos simples, operación diaria, escalable a ecommerce.",
-    priceFrom: "$8,900 MXN",
+    priceFrom: "$6,900 MXN",
     href: "/soluciones/wordpress",
   },
   {
@@ -27,16 +27,15 @@ const cards: CardItem[] = [
     subtitle: "Ingeniería enfocada en rendimiento",
     text: "Ideal para sitios de marketing que necesitan velocidad, SEO y conversión sin complicaciones.",
     idealFor: "Landing, servicios, portafolio, campañas.",
-    priceFrom: "$10,900 MXN",
+    priceFrom: "$7,900 MXN",
     href: "/soluciones/astro",
   },
-  
   {
     title: "Next.js",
     subtitle: "Funciones a medida y crecimiento tipo producto/app.",
     text: "Para experiencias premium: tiendas avanzadas, dashboards y webs escalables.",
-    idealFor: "Producto digital, ecommerce headless, integraciones.",
-    priceFrom: "$18,900 MXN",
+    idealFor: "Producto digital, ecommerce headless, integraciones, sitio tipo aplicaciones.",
+    priceFrom: "$14,900 MXN",
     href: "/soluciones/nextjs",
   },
 ];
@@ -94,3 +93,7 @@ export default function RickyTechCards() {
     </div>
   );
 }
+
+
+
+

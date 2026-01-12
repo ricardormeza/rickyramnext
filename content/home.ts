@@ -26,20 +26,20 @@ export const homeContent = {
       "No todo negocio necesita lo mismo. Te guio para elegir la mejor tecnología para tí.",
     cards: [
       {
-        title: "Astro",
-        subtitle: "Ingeniería enfocada en rendimiento",
-        text: "Ideal para sitios de marketing que necesitan velocidad, SEO y conversion sin complicaciones.",
-        idealFor: "Landing, servicios, portafolio, campanas.",
-        priceFrom: "$7,900 MXN",
-        href: "/soluciones/astro",
-      },
-      {
         title: "WordPress",
         subtitle: "Mucha flexibilidad y panel autoadministrable",
         text: "Perfecto si tu equipo quiere editar contenido facil y publicar seguido.",
         idealFor: "Sitios con blog, catalogos simples, operacion diaria, escalable a ecommerce.",
         priceFrom: "$8,900 MXN",
         href: "/soluciones/wordpress",
+      },
+      {
+        title: "Astro",
+        subtitle: "Ingeniería enfocada en rendimiento",
+        text: "Ideal para sitios de marketing que necesitan velocidad, SEO y conversion sin complicaciones.",
+        idealFor: "Landing, servicios, portafolio, campanas.",
+        priceFrom: "$7,900 MXN",
+        href: "/soluciones/astro",
       },
       {
         title: "Next.js",
@@ -84,7 +84,7 @@ export const homeContent = {
       "Si necesitas editar todo, WordPress. Si tu meta es vender rapido, Astro.  Si quieres construir producto escalable, Next.js.",
   },
   pricing: {
-    title: "Paquetes listos para arrancar (Starter)",
+    title: "Paquetes listos para arrancar",
     subtitle:
       "Precios claros, alcance definido y SEO basico incluido. Tracking se agrega cuando quieras medir en serio.",
     cards: [
@@ -130,13 +130,14 @@ export const homeContent = {
       "Titles y metas por pagina",
       "Estructura H1/H2 correcta",
       "Sitemap + robots",
-      "Open Graph para redes",
-      "Schema basico (Organization / LocalBusiness)",
+      "Google Search Console",
+      "Google Analytics (GA4)",
+      "Google tag manager",
       "Optimizacion base de performance",
       "Checklist de indexacion",
     ],
     note:
-      "SEO avanzado, tracking y campanas se agregan cuando tu negocio esta listo para escalar.",
+      "SEO avanzado, tracking y campañas se agregan cuando tu negocio esta listo para escalar.",
   },
   services: {
     title: "Cuando tu web ya esta viva, toca hacerla crecer",
@@ -147,18 +148,18 @@ export const homeContent = {
         title: "SEO mensual",
         description:
           "Posicionamiento, contenido y mejoras tecnicas para crecer.",
-        price: "Desde $6,900/mes",
+        price: "Desde $1,500/mes",
       },
       {
         title: "Google Ads",
         description:
           "Busqueda, performance y optimizacion semanal de campanas.",
-        price: "15% del gasto (min. $6,900/mes)",
+        price: "$4,500/mes",
       },
       {
         title: "Meta Ads",
         description: "Campanas para leads, ecommerce y remarketing.",
-        price: "Desde $5,900/mes",
+        price: "Desde $3,500/mes",
       },
       {
         title: "TikTok Ads",
@@ -173,7 +174,7 @@ export const homeContent = {
       {
         title: "Mantenimiento web",
         description: "Backups, updates y cambios mensuales.",
-        price: "Desde $1,490/mes",
+        price: "Desde $1,690/mes",
       },
       {
         title: "Ciberseguridad",
@@ -273,10 +274,10 @@ export const homeContent = {
     },
   ],
   finalCta: {
-    title: "Quieres un sitio que se vea pro y trabaje por tu negocio?",
+    title: "¿Quieres un sitio que se vea pro y trabaje por tu negocio?",
     text:
       "Dime que necesitas y te recomiendo el stack correcto con un plan claro.",
     primary: "Cotizar ahora",
-    secondary: "Agendar llamada",
+    secondary: "Agendar videollamada",
   },
 } as const;

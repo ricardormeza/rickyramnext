@@ -1,13 +1,35 @@
+﻿"use client";
+
+import { useState } from "react";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { MegaCursorIcon } from "@/components/ui/mega-cursor";
 import { homeContent } from "@/content/home";
 
 export function FAQAccordion() {
   const { faqs } = homeContent;
+  const [showMegaCursor, setShowMegaCursor] = useState(false);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+
+  const onPointerEnter = (event: React.PointerEvent<HTMLButtonElement>) => {
+    if (event.pointerType === "touch") return;
+    setShowMegaCursor(true);
+    setCursorPos({ x: event.clientX, y: event.clientY });
+  };
+
+  const onPointerMove = (event: React.PointerEvent<HTMLButtonElement>) => {
+    if (event.pointerType === "touch") return;
+    setCursorPos({ x: event.clientX, y: event.clientY });
+  };
+
+  const onPointerLeave = () => {
+    setShowMegaCursor(false);
+  };
 
   return (
     <section className="mx-auto max-w-4xl px-4 py-12 md:px-6">
@@ -19,11 +41,28 @@ export function FAQAccordion() {
       <Accordion type="single" collapsible className="mt-8">
         {faqs.map((faq, index) => (
           <AccordionItem key={faq.question} value={`faq-${index}`}>
-            <AccordionTrigger>{faq.question}</AccordionTrigger>
+            <AccordionTrigger
+              className="cursor-none"
+              onPointerEnter={onPointerEnter}
+              onPointerMove={onPointerMove}
+              onPointerLeave={onPointerLeave}
+            >
+              {faq.question}
+            </AccordionTrigger>
             <AccordionContent>{faq.answer}</AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
+      {showMegaCursor ? (
+        <div
+          className="pointer-events-none fixed left-0 top-0 z-[80] hidden md:block"
+          style={{
+            transform: `translate3d(${cursorPos.x}px, ${cursorPos.y}px, 0) translate(-50%, -50%)`,
+          }}
+        >
+          <MegaCursorIcon />
+        </div>
+      ) : null}
     </section>
   );
 }

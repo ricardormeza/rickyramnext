@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import * as React from "react";
 import Image from "next/image";
@@ -12,6 +12,7 @@ import {
 } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
+import { MegaCursorIcon } from "@/components/ui/mega-cursor";
 import { siteConfig } from "@/lib/site";
 
 type RickyRamHeroProps = {
@@ -216,23 +217,6 @@ export default function RickyRamHero({
           }
         }
 
-        .rickyramMegaCursor {
-          height: 64px;
-          width: 64px;
-          border-radius: 9999px;
-          border: 2px solid var(--hero-primary);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(0, 0, 0, 0.05);
-          backdrop-filter: blur(2px);
-        }
-
-        .rickyramMegaCursorIcon {
-          font-size: 24px;
-          color: var(--hero-primary);
-          line-height: 1;
-        }
       `}</style>
 
       <div className="rickyramHeroRoot relative">
@@ -258,7 +242,7 @@ export default function RickyRamHero({
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="-mt-2 text-center text-2xl font-semibold text-muted-foreground mb-8"
           >
-            👋 Hola, soy Ricky y soy freelance
+            ðŸ‘‹ Hola, soy Ricky y soy freelance
           </motion.p>
 
           <div
@@ -356,12 +340,11 @@ export default function RickyRamHero({
               transform: `translate3d(${cursorPos.x}px, ${cursorPos.y}px, 0) translate(-50%, -50%)`,
             }}
           >
-            <div className="rickyramMegaCursor">
-              <span className="rickyramMegaCursorIcon">↗</span>
-            </div>
+            <MegaCursorIcon className="border-[color:var(--hero-primary)] text-[color:var(--hero-primary)]" />
           </div>
         ) : null}
       </div>
     </section>
   );
 }
+

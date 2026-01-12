@@ -1,15 +1,40 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 import { homeContent } from "@/content/home";
 
 export function QuickCompare() {
   const { compare } = homeContent;
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+  const item = {
+    hidden: { opacity: 0, y: 16 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-12 mt-16 md:px-6">
-      <div className="space-y-4">
-        <h2 className="text-2xl text-center font-semibold tracking-tight md:text-4xl">
+      <motion.div
+        className="space-y-4"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <motion.h2
+          className="text-2xl text-center font-semibold tracking-tight md:text-4xl"
+          variants={item}
+        >
           {compare.title}
-        </h2>
-        <div className="overflow-hidden rounded-2xl border">
+        </motion.h2>
+        <motion.div className="overflow-hidden rounded-2xl border" variants={item}>
           <div className="grid grid-cols-4 bg-secondary/60 text-sm font-medium text-muted-foreground">
             <div className="p-4">Criterio</div>
             {compare.columns.map((col) => (
@@ -31,11 +56,14 @@ export function QuickCompare() {
               ))}
             </div>
           ))}
-        </div>
-        <p className="text-sm text-center text-muted-foreground md:text-base">
+        </motion.div>
+        <motion.p
+          className="text-sm text-center text-muted-foreground md:text-base"
+          variants={item}
+        >
           {compare.conclusion}
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
     </section>
   );
 }
