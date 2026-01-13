@@ -1,5 +1,6 @@
-import { ComingSoon } from "@/components/sections/coming-soon";
+import { SolutionTemplate } from "@/components/sections/solution-template";
+import { nextjsContent } from "@/content/solution/nextjs";
 
 export default function NextjsSolutionPage() {
-  return <ComingSoon title="Solucion Next.js en construccion" />;
+  return <SolutionTemplate hero={nextjsContent.hero} />;
 }
