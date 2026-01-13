@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/sections/scroll-reveal";
 import { cn } from "@/lib/utils";
+import { StickyPillNav } from "@/components/sections/sticky-pill-nav";
 
 type BreadcrumbItem = {
   label: string;
@@ -199,19 +200,7 @@ export function SolutionTemplate({
         </section>
       ) : null}
         {/* MENU DE PILDORA INICIO */}
-      {stickyNav?.length ? (
-        <div className="sticky top-20 z-40 hidden lg:block">
-          <div className="mx-auto max-w-5xl px-4 md:px-6">
-            <div className="mt-6 flex items-center justify-center gap-6 rounded-full border bg-white/90 px-6 py-3 text-sm font-medium text-muted-foreground shadow-sm backdrop-blur">
-              {stickyNav.map((item) => (
-                <Link key={item.href} href={item.href} className="hover:text-primary">
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      ) : null}
+      {stickyNav?.length ? <StickyPillNav items={stickyNav} /> : null}
 
       {children}
     </main>
