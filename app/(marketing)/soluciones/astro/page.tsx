@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BadgeCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { PackageTabs } from "@/components/sections/PackageTabs";
 import { SolutionTemplate } from "@/components/sections/solution-template";
 import { astroContent, astroMetadata } from "@/content/solution/astro";
 
@@ -26,6 +27,26 @@ export default function AstroSolutionPage() {
     cta,
   } = astroContent;
 
+  const packageImages: Record<string, string> = {
+    "Landing Starter": "/astro/astro-landing.webp",
+    "Sitio basico Starter": "/astro/astro-basico.webp",
+    "PyME Starter": "/astro/astro-pyme.webp",
+  };
+
+  const packageTabs = pricing.table.map((item) => {
+    const scopeCard = scopes.cards.find((card) =>
+      card.title.toLowerCase().startsWith(item.name.toLowerCase()),
+    );
+
+    return {
+      ...item,
+      bullets: scopeCard?.bullets ?? [],
+      ctaText: "Quiero comenzar",
+      href: "/contacto",
+      image: packageImages[item.name],
+    };
+  });
+
   const heroCard = hero.card ? (
     <div className="rounded-3xl border bg-white p-6 shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
       <div className="flex items-center justify-between">
@@ -38,14 +59,16 @@ export default function AstroSolutionPage() {
         <div className="rounded-2xl border bg-muted/40 p-4">
           <div className="text-sm font-semibold">{hero.card.title}</div>
           <div className="mt-2 w-full max-w-[500px] overflow-hidden rounded-xl">
-            <Image
-              src={hero.card.image.src}
-              alt={hero.card.image.alt}
-              width={500}
-              height={500}
-              loading="lazy"
-              className="aspect-square h-full w-full object-contain"
-            />
+            <video
+              className="aspect-square h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src="/astro/astro-video.mp4" type="video/mp4" />
+              Tu navegador no soporta video.
+            </video>
           </div>
         </div>
       </div>
@@ -79,7 +102,7 @@ export default function AstroSolutionPage() {
             <p className="text-sm text-muted-foreground md:text-base">{why.note}</p>
           </div>
           <div className="space-y-3">
-            <h3 className="text-lg font-semibold">{whoIsItFor.title}</h3>
+            <h3 className="text-lg font-semibold ">{whoIsItFor.title}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground md:text-base">
               {whoIsItFor.bullets.map((item) => (
                 <li key={item}>{item}</li>
@@ -108,7 +131,7 @@ export default function AstroSolutionPage() {
                 </li>
               ))}
             </ul>
-            <Link href={notFor.cta.href} className="text-sm font-semibold text-primary">
+            <Link href={notFor.cta.href} className="text-sm font-semibold text-primary inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
               {notFor.cta.label}
             </Link>
           </div>
@@ -116,10 +139,10 @@ export default function AstroSolutionPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+        <h2 className="text-2xl text-center text-primary font-semibold tracking-tight md:text-3xl">
           {canBuild.title}
         </h2>
-        <ul className="mt-4 space-y-2 text-sm text-muted-foreground md:text-base">
+        <ul className="mt-4 space-y-2 text-sm text-muted-foreground md:text-base text-center">
           {canBuild.bullets.map((item) => (
             <li key={item}>{item}</li>
           ))}
@@ -156,28 +179,15 @@ export default function AstroSolutionPage() {
 
       <section id="precios" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
         <div className="space-y-3">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+          <h2 className="text-2xl text-center font-semibold tracking-tight md:text-3xl">
             {pricing.title}
           </h2>
-          <p className="text-sm text-muted-foreground md:text-base">
+          <p className="text-sm text-center text-muted-foreground md:text-base">
             {pricing.description}
           </p>
         </div>
-        <div className="mt-6 overflow-hidden rounded-3xl border bg-white">
-          <div className="grid grid-cols-4 border-b bg-muted/40 text-sm font-semibold text-muted-foreground">
-            <div className="p-4">Paquete</div>
-            <div className="p-4">Ideal para</div>
-            <div className="p-4">Alcance recomendado</div>
-            <div className="p-4 text-right">Precio</div>
-          </div>
-          {pricing.table.map((row) => (
-            <div key={row.name} className="grid grid-cols-4 border-b text-sm">
-              <div className="p-4 font-medium">{row.name}</div>
-              <div className="p-4">{row.idealFor}</div>
-              <div className="p-4">{row.scope}</div>
-              <div className="p-4 text-right font-semibold">{row.price}</div>
-            </div>
-          ))}
+        <div className="mt-6">
+          <PackageTabs items={packageTabs} />
         </div>
         <div className="mt-6 space-y-2 text-sm text-muted-foreground md:text-base">
           <p className="font-semibold text-foreground">{pricing.pricingNotesTitle}</p>

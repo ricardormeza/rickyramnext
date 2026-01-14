@@ -17,6 +17,24 @@ type StickyPillNavProps = {
 export function StickyPillNav({ items }: StickyPillNavProps) {
   const [isPastHero, setIsPastHero] = useState(false);
 
+  const handleItemClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const href = event.currentTarget.getAttribute("href");
+    if (!href?.startsWith("#")) return;
+
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    event.preventDefault();
+    const prefersReduced = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    target.scrollIntoView({
+      behavior: prefersReduced ? "auto" : "smooth",
+      block: "start",
+    });
+  };
+
   useEffect(() => {
     const hero = document.getElementById("overview");
     if (!hero) return;
@@ -44,7 +62,12 @@ export function StickyPillNav({ items }: StickyPillNavProps) {
           )}
         >
           {items.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-primary">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="hover:text-primary"
+              onClick={handleItemClick}
+            >
               {item.label}
             </Link>
           ))}
