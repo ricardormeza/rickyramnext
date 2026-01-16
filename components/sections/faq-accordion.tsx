@@ -11,8 +11,17 @@ import {
 import { MegaCursorIcon } from "@/components/ui/mega-cursor";
 import { homeContent } from "@/content/home";
 
-export function FAQAccordion() {
-  const { faqs } = homeContent;
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+type FAQAccordionProps = {
+  faqs?: FaqItem[];
+};
+
+export function FAQAccordion({ faqs }: FAQAccordionProps) {
+  const items = faqs ?? homeContent.faqs;
   const [showMegaCursor, setShowMegaCursor] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
 
@@ -39,7 +48,7 @@ export function FAQAccordion() {
         </h2>
       </div>
       <Accordion type="single" collapsible className="mt-8">
-        {faqs.map((faq, index) => (
+        {items.map((faq, index) => (
           <AccordionItem key={faq.question} value={`faq-${index}`}>
             <AccordionTrigger
               className="cursor-none"

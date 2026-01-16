@@ -4,10 +4,12 @@ import { BadgeCheck, CheckCircle2, FileCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { FAQAccordion } from "@/components/sections/faq-accordion";
+import { PackageTabs } from "@/components/sections/PackageTabs";
 import { ScrollReveal } from "@/components/sections/scroll-reveal";
 import { SolutionTemplate } from "@/components/sections/solution-template";
 import { wordpressContent, wordpressMetadata } from "@/content/solution/wordpress";
 import { siteConfig } from "@/lib/site";
+import { ProcessSteps } from "@/components/sections/process-steps";
 
 export const metadata = wordpressMetadata;
 
@@ -27,10 +29,42 @@ export default function WordpressSolutionPage() {
     stores,
     process,
     addOns,
+    faqs,
     finalCta,
     quote,
     agendar,
   } = wordpressContent;
+
+  const packageImages: Record<string, string> = {
+    "Plan Express": "/wordpress/express-wordpress.png",
+    "Landing Start": "/wordpress/landing-star-wordpress.png",
+    "Sitio Profesional": "/wordpress/sitioProfesional-wordpress.png",
+    "Presencia Online": "/wordpress/presenciaOnline-wordpress.png",
+  };
+
+  const packageTabs = pricing.plans.map((plan) => ({
+    name: plan.title,
+    idealFor: plan.description,
+    price: plan.price,
+    bullets: plan.bullets,
+    ctaText: plan.cta,
+    href: plan.href,
+    image: packageImages[plan.title],
+  }));
+
+  const storePackageImages: Record<string, string> = {
+    "Mi Tienda Online": "/wordpress/wocoomerce-wordpress.png",
+    "Corporativo Elite": "/wordpress/corporativo-wordpress.png",
+  };
+
+  const storePackageTabs = stores.cards.map((card) => ({
+    name: card.title,
+    price: card.price,
+    bullets: card.bullets,
+    ctaText: card.cta.label,
+    href: card.cta.href,
+    image: storePackageImages[card.title],
+  }));
 
   const heroCard = (
     <div className="rounded-3xl border bg-white p-6 shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
@@ -185,45 +219,21 @@ export default function WordpressSolutionPage() {
 
       <section id="paquetes-y-precios" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
         <div className="space-y-3">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+          <h2 className="text-2xl text-center font-semibold tracking-tight md:text-3xl">
             {pricing.title}
           </h2>
-          <p className="text-sm text-muted-foreground md:text-base">
+          <p className="text-sm text-center md:mt-5 text-muted-foreground md:text-base">
             {pricing.description}
           </p>
         </div>
-        <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {pricing.plans.map((plan) => (
-            <div key={plan.title} className="rounded-2xl border bg-card p-5">
-              <div className="flex items-center justify-between">
-                <h3 className="text-base font-semibold">{plan.title}</h3>
-                {plan.badge ? (
-                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                    {plan.badge}
-                  </span>
-                ) : null}
-              </div>
-              <div className="mt-3 text-2xl font-semibold text-foreground">
-                {plan.price}
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">{plan.description}</p>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                {plan.bullets.map((bullet) => (
-                  <li key={bullet} className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button className="mt-5 w-full" asChild>
-                <Link href={plan.href}>{plan.cta}</Link>
-              </Button>
-            </div>
-          ))}
+        <div className="mt-6">
+          <PackageTabs items={packageTabs} />
         </div>
+        
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
+        <h3 className="font-semibold text-center mt-4 mb-4 md:text-xl">Tabla comparativa de planes de sitios Wordpress Starter</h3>
         <div className="rounded-3xl border bg-white">
           <div className="border-b px-6 py-4 text-sm font-semibold text-muted-foreground">
             Tabla comparativa de planes WordPress (sitio)
@@ -233,7 +243,7 @@ export default function WordpressSolutionPage() {
             <div className="p-4 text-center">Express</div>
             <div className="p-4 text-center">Landing</div>
             <div className="p-4 text-center">Profesional</div>
-            <div className="p-4 text-center">Presencia</div>
+            <div className="p-4 text-center">Presencia Online</div>
           </div>
           {sitePlans.map((row) => (
             <div key={row.label} className="grid grid-cols-5 border-b text-sm">
@@ -245,6 +255,10 @@ export default function WordpressSolutionPage() {
               ))}
             </div>
           ))}
+        </div>
+        <div className="mt-6">
+          <h3 id="tiendas" className="mt-6 font-semibold text-center mb-4">Tiendas en linea con WooCommerce</h3>
+          <PackageTabs items={storePackageTabs} />
         </div>
         <div className="mt-6 rounded-3xl border bg-white">
           <div className="border-b px-6 py-4 text-sm font-semibold text-muted-foreground">
@@ -282,66 +296,8 @@ export default function WordpressSolutionPage() {
         </div>
       </section>
 
-      <section id="tiendas" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            {stores.title}
-          </h2>
-          <p className="text-sm text-muted-foreground md:text-base">
-            {stores.description}
-          </p>
-        </div>
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {stores.cards.map((card) => (
-            <div key={card.title} className="rounded-2xl border bg-card p-6">
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold">{card.title}</h3>
-                {card.badge ? (
-                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                    {card.badge}
-                  </span>
-                ) : null}
-              </div>
-              <div className="mt-3 text-2xl font-semibold">{card.price}</div>
-              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                {card.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-              <Button
-                className="mt-6"
-                variant={card.cta.variant === "secondary" ? "secondary" : "default"}
-                asChild
-              >
-                <Link href={card.cta.href}>{card.cta.label}</Link>
-              </Button>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            {process.title}
-          </h2>
-          <p className="text-sm text-muted-foreground md:text-base">
-            {process.description}
-          </p>
-        </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-5">
-          {process.steps.map((step, index) => (
-            <div key={step} className="rounded-2xl border bg-card p-4">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                Paso {index + 1}
-              </div>
-              <div className="mt-3 text-sm font-medium text-foreground">{step}</div>
-            </div>
-          ))}
-        </div>
-        <Link href={process.link.href} className="mt-6 inline-flex text-sm font-semibold text-primary">
-          {process.link.label}
-        </Link>
+        <ProcessSteps />
       </section>
 
       <section id="add-ons" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
@@ -354,8 +310,8 @@ export default function WordpressSolutionPage() {
           </p>
         </div>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <details className="rounded-2xl border bg-card p-5" open>
-            <summary className="cursor-pointer text-base font-semibold">Add-ons (pago unico)</summary>
+          <div className="rounded-2xl border bg-card p-5">
+            <div className="text-base font-semibold">Add-ons (pago unico)</div>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               {addOns.addOns.map((item) => (
                 <li key={item} className="flex items-start gap-2">
@@ -364,9 +320,9 @@ export default function WordpressSolutionPage() {
                 </li>
               ))}
             </ul>
-          </details>
-          <details className="rounded-2xl border bg-card p-5">
-            <summary className="cursor-pointer text-base font-semibold">Recurrentes (mensual)</summary>
+          </div>
+          <div className="rounded-2xl border bg-card p-5">
+            <div className="text-base font-semibold">Recurrentes (mensual)</div>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               {addOns.recurring.map((item) => (
                 <li key={item} className="flex items-start gap-2">
@@ -375,7 +331,7 @@ export default function WordpressSolutionPage() {
                 </li>
               ))}
             </ul>
-          </details>
+          </div>
         </div>
         <Button className="mt-6" asChild>
           <Link href={addOns.cta.href}>{addOns.cta.label}</Link>
@@ -383,7 +339,7 @@ export default function WordpressSolutionPage() {
       </section>
 
       <section id="faq" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <FAQAccordion />
+        <FAQAccordion faqs={faqs} />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">

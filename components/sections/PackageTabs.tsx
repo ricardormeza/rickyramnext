@@ -9,8 +9,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export type PackageTabItem = {
   name: string;
-  idealFor: string;
-  scope: string;
+  idealFor?: string;
+  scope?: string;
   price: string;
   bullets?: string[];
   ctaText?: string;
@@ -118,20 +118,26 @@ export function PackageTabs({ items }: PackageTabsProps) {
                       {activeItem.name}
                     </h3>
                   </div>
-                  <ul className="mt-4 space-y-2 md:text-xl text-muted-foreground">
-                    <li>
-                      <span className="font-semibold text-foreground">
-                        Ideal para:
-                      </span>{" "}
-                      {activeItem.idealFor}
-                    </li>
-                    <li>
-                      <span className="font-semibold text-foreground">
-                        Alcance:
-                      </span>{" "}
-                      {activeItem.scope}
-                    </li>
-                  </ul>
+                  {activeItem.idealFor || activeItem.scope ? (
+                    <ul className="mt-4 space-y-2 md:text-xl text-muted-foreground">
+                      {activeItem.idealFor ? (
+                        <li>
+                          <span className="font-semibold text-foreground">
+                            Ideal para:
+                          </span>{" "}
+                          {activeItem.idealFor}
+                        </li>
+                      ) : null}
+                      {activeItem.scope ? (
+                        <li>
+                          <span className="font-semibold text-foreground">
+                            Alcance:
+                          </span>{" "}
+                          {activeItem.scope}
+                        </li>
+                      ) : null}
+                    </ul>
+                  ) : null}
                   {activeItem.bullets?.length ? (
                     <ul className="mt-4 list-disc space-y-2 pl-5 md:text-xl text-muted-foreground">
                       {activeItem.bullets.map((item, index) => (
