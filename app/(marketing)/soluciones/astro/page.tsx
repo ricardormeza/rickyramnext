@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { PackageTabs } from "@/components/sections/PackageTabs";
 import { SolutionTemplate } from "@/components/sections/solution-template";
 import { astroContent, astroMetadata } from "@/content/solution/astro";
+import { ProcessSteps } from "@/components/sections/process-steps";
+import { FAQAccordion } from "@/components/sections/faq-accordion";
 
 export default function AstroSolutionPage() {
   const {
@@ -131,7 +133,7 @@ export default function AstroSolutionPage() {
                 </li>
               ))}
             </ul>
-            <Link href={notFor.cta.href} className="text-sm font-semibold text-primary inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+            <Link href={notFor.cta.href} className="text-sm font-semibold inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-primary-foreground shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
               {notFor.cta.label}
             </Link>
           </div>
@@ -150,26 +152,26 @@ export default function AstroSolutionPage() {
       </section>
 
       <section id="que-incluye" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <div className="rounded-3xl border bg-card p-8 md:p-10">
+        <div className="rounded-3xl text-center border bg-card p-8 md:p-10">
           <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
             {includes.title}
           </h2>
-          <p className="mt-3 text-sm text-muted-foreground md:text-base">
+          <p className="mt-3 text-sm text-center text-muted-foreground md:text-base">
             {includes.includeLead}
           </p>
-          <ul className="mt-4 space-y-2 text-sm text-muted-foreground md:text-base">
+          <ul className="mt-4 space-y-2 text-sm text-centertext-muted-foreground md:text-base">
             {includes.includeList.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <h3 className="mt-6 text-lg font-semibold">{includes.seoTitle}</h3>
-          <ul className="mt-3 space-y-2 text-sm text-muted-foreground md:text-base">
+          <h3 className="mt-6 text-lg font-semibold text-center">{includes.seoTitle}</h3>
+          <ul className="mt-3 text-center space-y-2 text-sm text-muted-foreground md:text-base">
             {includes.seoList.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <h3 className="mt-6 text-lg font-semibold">{includes.notIncludedTitle}</h3>
-          <ul className="mt-3 space-y-2 text-sm text-muted-foreground md:text-base">
+          <h3 className="mt-6 text-lg font-semibold text-center">{includes.notIncludedTitle}</h3>
+          <ul className="mt-3 text-center space-y-2 text-sm text-muted-foreground md:text-base">
             {includes.notIncluded.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -182,7 +184,7 @@ export default function AstroSolutionPage() {
           <h2 className="text-2xl text-center font-semibold tracking-tight md:text-3xl">
             {pricing.title}
           </h2>
-          <p className="text-sm text-center text-muted-foreground md:text-base">
+          <p className="md:text-xl text-center text-muted-foreground">
             {pricing.description}
           </p>
         </div>
@@ -277,30 +279,13 @@ export default function AstroSolutionPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            {process.title}
-          </h2>
-          <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-muted-foreground md:text-base">
-            {process.steps.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ol>
-        </div>
+        <ProcessSteps />
       </section>
 
       <section id="faq" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">FAQ</h2>
-        <div className="mt-6 grid gap-4">
-          {faq.map((item) => (
-            <details key={item.question} className="rounded-2xl border bg-card p-5">
-              <summary className="cursor-pointer text-base font-semibold">
-                {item.question}
-              </summary>
-              <p className="mt-3 text-sm text-muted-foreground">{item.answer}</p>
-            </details>
-          ))}
-        </div>
+        {/* <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">FAQ</h2> */}
+        <FAQAccordion faqs={faq} />
+        
       </section>
 
       <section id="cotizar" className="mx-auto max-w-6xl px-4 pb-16 md:px-6">
@@ -319,10 +304,7 @@ export default function AstroSolutionPage() {
               <Link href={cta.secondaryCta.href}>{cta.secondaryCta.label}</Link>
             </Button>
           </div>
-          <div className="mt-6 text-sm text-muted-foreground">
-            <div>WhatsApp: {cta.whatsapp}</div>
-            <div>Correo: {cta.email}</div>
-          </div>
+          
         </div>
       </section>
     </SolutionTemplate>

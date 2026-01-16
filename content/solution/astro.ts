@@ -5,7 +5,7 @@ export const astroMetadata = {
   openGraph: {
     title: "Astro: sitios ultra rapidos que convierten | Rickyram.dev",
     description:
-      "La opcion ideal para marketing: performance, SEO basico, full responsive y alcance claro. Desde $7,900 MXN.",
+      "La opcion ideal para marketing: performance, SEO básico, full responsive y alcance claro. Desde $7,900 MXN.",
   },
 } as const;
 
@@ -103,30 +103,30 @@ export const astroContent = {
   canBuild: {
     title: "Que puedes construir con Astro",
     bullets: [
-      "Landing de campana (anuncios + WhatsApp + formulario).",
-      "Sitio de servicios (5-12 secciones: propuesta, servicios, proceso, testimonios, FAQ, contacto).",
+      "Landing de campaña digital (anuncios + WhatsApp + formulario).",
+      "Sitio de servicios (5-12 páginas: propuesta, servicios, proceso, testimonios, FAQ, contacto).",
       "Portafolio / marca personal.",
       "Micrositios para lanzamientos.",
       "Pagina de producto simple (sin ecommerce complejo).",
     ],
   },
   includes: {
-    title: "Que incluye (Starter)",
+    title: "Que incluye el Plan (Starter)",
     includeLead:
       "Los planes Starter incluyen lo necesario para lanzar bien, sin inflar el costo:",
     includeList: [
       "Sitio full responsive (mobile-first).",
       "Optimizacion base de performance (imagenes y carga).",
       "CTA y estructura orientada a conversion (WhatsApp / llamada / formulario).",
-      "Publicacion (deploy) y guia basica de uso/entrega.",
+      "Publicacion (deploy) y guia básica de uso/entrega.",
     ],
-    seoTitle: "SEO basico",
+    seoTitle: "SEO básico",
     seoList: [
       "Titles y metas por pagina",
       "Estructura H1/H2 correcta",
       "Sitemap.xml y robots.txt",
       "Open Graph (vista previa para redes)",
-      "Schema basico (Organization / LocalBusiness)",
+      "Schema básico (Organization / LocalBusiness)",
       "Checklist de indexacion (Search Console cuando aplique)",
     ],
     notIncludedTitle: "No incluye (pero se puede agregar)",
@@ -144,7 +144,7 @@ export const astroContent = {
     table: [
       {
         name: "Landing Starter",
-        idealFor: "Campanas, un servicio, validacion rapida",
+        idealFor: "Campñas, un servicio, validacion rapida",
         scope: "Hasta 6-8 bloques en 1 pagina",
         price: "Desde $7,900",
       },
@@ -158,7 +158,7 @@ export const astroContent = {
         name: "PyME Starter",
         idealFor: "Empresa con mas oferta y autoridad",
         scope: "8-10 Páginas + estructura de conversion",
-        price: "Desde $24,900",
+        price: "Desde $14,900",
       },
     ],
     pricingNotesTitle: "Que define el precio exacto dentro del rango",
@@ -166,7 +166,7 @@ export const astroContent = {
       "Cantidad de secciones reales y variaciones de layout.",
       "Si hay 1 idioma o multiidioma.",
       "Complejidad de formularios y captacion.",
-      "Nivel de personalizacion visual (basico vs muy a medida).",
+      "Nivel de personalizacion visual (básico vs muy a medida).",
       "Integraciones (calendario, CRM, automatizaciones, etc.).",
     ],
   },
@@ -188,17 +188,18 @@ export const astroContent = {
       {
         title: "Sitio basico Starter (alcance tipico)",
         bullets: [
-          "Home con 5-7 secciones",
-          "1-3 paginas extra simples (ej: Aviso de privacidad / Gracias / Contacto)",
-          "Formularios basicos",
+          "Hasta 5 páginas",
+          "1-3 páginas extra simples (ej: Aviso de privacidad / Gracias / Contacto)",
+          "1 Formularios básicos",
           "1-2 rondas de cambios (segun acuerdo)",
         ],
       },
       {
         title: "PyME Starter (alcance tipico)",
         bullets: [
-          "10-12 secciones (o paginas equivalentes)",
+          "10-12 páginas",
           "Estructura de conversion mas completa (mas CTA, mas prueba social)",
+          "2 Formularios básicos",
           "Preparacion para escalar a tracking/Ads/SEO mensual",
         ],
       },
@@ -219,23 +220,23 @@ export const astroContent = {
         title: "SEO",
         bullets: [
           "Auditoria SEO: $4,900 (emprendedor) / $12,900 (PyME) / $29,900 (empresa)",
-          "SEO mensual: $6,900 - $29,900 / mes",
+          "SEO mensual: desde $2,900 / mes",
         ],
       },
       {
         title: "Ads (cuando tu landing ya convierte)",
         bullets: [
-          "Setup Google Ads: $6,900 - $19,900",
-          "Setup Meta Ads: $4,900 - $14,900",
-          "Manejo mensual Google Ads: 15% del gasto (min. $6,900 / mes)",
-          "Manejo mensual Meta Ads: desde $5,900 / mes",
+          "Setup Google Ads: Desde $3,900",
+          "Setup Meta Ads: Desde $2,900",
+          "Manejo mensual Google Ads: cotizar segun alcance",
+          "Manejo mensual Meta Ads: cotizar segun alcance",
         ],
       },
       {
         title: "Operacion y cuidado",
         bullets: [
-          "Mantenimiento (Care): desde $1,490 / mes",
-          "Seguridad / monitoreo: $1,900 - $7,900 / mes (segun alcance)",
+          "Mantenimiento (Care): desde $890 / mes",
+          "Seguridad / monitoreo: Desde $1,900 / mes (segun alcance)",
         ],
       },
     ],
@@ -261,7 +262,7 @@ export const astroContent = {
     ],
   },
   tech: {
-    title: "Tech (sin marear) - que estas comprando realmente?",
+    title: "Tech (sin marear) - ¿Qué estas comprando realmente?",
     bullets: [
       "Sitio construido con Astro (enfocado en performance).",
       "Estilos modernos con Tailwind CSS.",
@@ -294,6 +295,11 @@ export const astroContent = {
         "En Starter no (para mantener el precio de arranque). Puedes agregarlo con Tracking Lite o Tracking Standard.",
     },
     {
+      question: "¿Qué es Astro y por qué lo recomiendas?",
+      answer:
+        "Astro es una forma moderna de construir sitios muy rápidos y con excelente base de SEO. Es ideal para **landings y sitios de marketing** donde importa que cargue en segundos, se vea premium y convierta mejor.",
+    },
+    {
       question: "Puedo tener blog con Astro?",
       answer:
         "Si, pero si quieres publicar facil sin tocar codigo, normalmente conviene WordPress como blog (headless) y Astro/Next para el front.",
@@ -307,6 +313,31 @@ export const astroContent = {
       question: "Puedo empezar con Astro y luego migrar a Next.js?",
       answer:
         "Si. De hecho es comun: comienzas con marketing rapido (Astro) y cuando el negocio exige mas funcionalidades, creces a Next.js.",
+    },
+    {
+      question: "¿Astro es “rápido de hacer” o lleva ingeniería real?",
+      answer:
+        "Lleva ingeniería real. La diferencia es que Astro está pensado para entregar velocidad, estructura y estabilidad sin cargar cosas innecesarias. Menos “peso”, más performance y menos mantenimiento.",
+    },
+    {
+      question: "¿Voy a poder editar el contenido yo mismo?",
+      answer:
+        "Depende del plan: - Sin CMS/panel: tú me mandas cambios (texto/fotos) y yo los aplico rápido. - Con CMS (opcional): sí puedes editar desde un panel (headless CMS) y tu sitio sigue siendo rápido. En la propuesta te digo claramente si incluye panel o no.",
+    },
+    {
+      question: "Si no tiene panel, ¿cada cambio me lo tienes que hacer tú?",
+      answer:
+        "Si eliges Astro sin CMS, sí: cambios de texto/imagen se gestionan conmigo (suele ser ideal cuando no cambias diario).  Si tu negocio publica seguido o lo maneja un equipo, recomiendo Astro + CMS o WordPress.",
+    },
+    {
+      question: "¿Astro sirve para SEO?",
+      answer:
+        "Sí. Astro normalmente arranca con una base técnica excelente: estructura limpia, velocidad, y control de metadatos.  De todos modos, el SEO fuerte depende de estrategia y contenido",
+    },
+    {
+      question: "¿Se puede hacer animación o efectos con Astro?",
+      answer:
+        "Sí. Astro permite animaciones y partes interactivas, pero se recomienda usarlas con criterio: bonito, moderno y rápido, sin sacrificar performance. Si quieres animaciones avanzadas, se define en alcance.",
     },
   ],
   cta: {
