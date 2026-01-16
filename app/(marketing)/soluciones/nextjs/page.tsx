@@ -1,10 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BadgeCheck } from "lucide-react";
+import { BadgeCheck, BarChart3, Bot, Megaphone, Search, Shield } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { PackageTabs } from "@/components/sections/PackageTabs";
+import { ScrollReveal } from "@/components/sections/scroll-reveal";
 import { SolutionTemplate } from "@/components/sections/solution-template";
 import { nextjsContent, nextjsMetadata } from "@/content/solution/nextjs";
+import { ProcessSteps } from "@/components/sections/process-steps";
+import { FAQAccordion } from "@/components/sections/faq-accordion";
 
 export const metadata = nextjsMetadata;
 
@@ -28,6 +32,42 @@ export default function NextjsSolutionPage() {
     cta,
   } = nextjsContent;
 
+  const packageImages: Record<string, string> = {
+    "Landing (custom)": "/next/landing-next.png",
+    "Sitio basico (custom)": "/next/sitioBasico-next.png",
+    "PyME (custom)": "/next/pyme-next.png",
+    "E-commerce headless": "/next/ecommerce-next.png",
+    "Dashboard / App MVP": "/next/dashboard-next.png",
+  };
+
+  const packageTabs = pricing.table.map((item) => {
+    const nameLower = item.name.toLowerCase();
+    const scopeCard = scopes.cards.find((card) => {
+      const titleLower = card.title.toLowerCase();
+      if (nameLower.includes("e-commerce") || nameLower.includes("dashboard")) {
+        return titleLower.includes("e-commerce") || titleLower.includes("dashboard");
+      }
+
+      return titleLower.startsWith(nameLower.replace(" (custom)", ""));
+    });
+
+    return {
+      ...item,
+      bullets: scopeCard?.bullets ?? [],
+      image: packageImages[item.name],
+      ctaText: "Quiero comenzar",
+      href: "/contacto",
+    };
+  });
+
+  const addOnIcons: Record<string, React.ElementType> = {
+    "Medicion (Analytics)": BarChart3,
+    SEO: Search,
+    "Ads (cuando ya hay tracking y oferta clara)": Megaphone,
+    "Automatizacion / Integraciones": Bot,
+    "Seguridad / Operacion": Shield,
+  };
+
   const heroCard = hero.card ? (
     <div className="rounded-3xl border bg-white p-6 shadow-[0_18px_45px_rgba(15,23,42,0.12)]">
       <div className="flex items-center justify-between">
@@ -38,16 +78,18 @@ export default function NextjsSolutionPage() {
       </div>
       <div className="mt-6">
         <div className="rounded-2xl border bg-muted/40 p-4">
-          <div className="text-sm font-semibold">{hero.card.title}</div>
+          {/* <div className="text-sm font-semibold">{hero.card.title}</div> */}
           <div className="mt-2 w-full max-w-[500px] overflow-hidden rounded-xl">
-            <Image
-              src={hero.card.image.src}
-              alt={hero.card.image.alt}
-              width={500}
-              height={500}
-              loading="lazy"
-              className="aspect-square h-full w-full object-contain"
-            />
+            <video
+              className="aspect-square h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src="/next/nextjs-video.mp4" type="video/mp4" />
+              Tu navegador no soporta video.
+            </video>
           </div>
         </div>
       </div>
@@ -110,130 +152,130 @@ export default function NextjsSolutionPage() {
                 </li>
               ))}
             </ul>
-            <Link href={notFor.cta.href} className="text-sm font-semibold text-primary">
-              {notFor.cta.label}
-            </Link>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-          {canBuild.title}
-        </h2>
-        <ul className="mt-4 space-y-2 text-sm text-muted-foreground md:text-base">
-          {canBuild.bullets.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+      <section className="text-muted-foreground">
+        <div className="mx-auto max-w-6xl px-4 py-12 md:px-6">
+          <div className="mb-10 flex w-full flex-col items-center text-center">
+            <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+              {canBuild.title}
+            </h2>
+          </div>
+          <div className="flex flex-wrap -m-4">
+            {canBuild.bullets.map((item, index) => (
+              <ScrollReveal
+                key={item}
+                className="fade-up flex w-full p-4 md:w-1/2 xl:w-1/3"
+                style={{ animationDelay: `${index * 90}ms` }}
+              >
+                <div className="h-full w-full rounded-lg border border-border bg-card p-6">
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <span className="text-sm font-semibold">{index + 1}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground">{item}</h3>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section id="que-incluye" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
         <div className="rounded-3xl border bg-card p-8 md:p-10">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            {includes.title}
-          </h2>
-          <p className="mt-3 text-sm text-muted-foreground md:text-base">
-            {includes.includeLead}
-          </p>
-          <ul className="mt-4 space-y-2 text-sm text-muted-foreground md:text-base">
-            {includes.includeList.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <h3 className="mt-6 text-lg font-semibold">{includes.seoTitle}</h3>
-          <ul className="mt-3 space-y-2 text-sm text-muted-foreground md:text-base">
-            {includes.seoList.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <h3 className="mt-6 text-lg font-semibold">{includes.notIncludedTitle}</h3>
-          <ul className="mt-3 space-y-2 text-sm text-muted-foreground md:text-base">
-            {includes.notIncluded.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section id="precios" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            {pricing.title}
-          </h2>
-          <p className="text-sm text-muted-foreground md:text-base">
-            {pricing.description}
-          </p>
-        </div>
-        <div className="mt-6 overflow-hidden rounded-3xl border bg-white">
-          <div className="grid grid-cols-4 border-b bg-muted/40 text-sm font-semibold text-muted-foreground">
-            <div className="p-4">Paquete</div>
-            <div className="p-4">Ideal para</div>
-            <div className="p-4">Alcance recomendado</div>
-            <div className="p-4 text-right">Precio</div>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border bg-white/80 px-6 pb-5 pt-6 md:col-span-2">
+              <h2 className="text-lg font-semibold text-foreground">
+                {includes.title}
+              </h2>
+              <p className="mt-3 text-sm text-muted-foreground md:text-base">
+                {includes.includeLead}
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground md:text-base">
+                {includes.includeList.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl border bg-white/80 px-6 pb-5 pt-6 md:col-span-1">
+              <h3 className="text-lg font-semibold text-foreground">
+                {includes.seoTitle}
+              </h3>
+              <ul className="mt-3 space-y-2 text-sm text-muted-foreground md:text-base">
+                {includes.seoList.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl border bg-white/80 px-6 pb-5 pt-6 md:col-span-1">
+              <h3 className="text-lg font-semibold text-foreground">
+                {includes.notIncludedTitle}
+              </h3>
+              <ul className="mt-3 space-y-2 text-sm text-muted-foreground md:text-base">
+                {includes.notIncluded.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-          {pricing.table.map((row) => (
-            <div key={row.name} className="grid grid-cols-4 border-b text-sm">
-              <div className="p-4 font-medium">{row.name}</div>
-              <div className="p-4">{row.idealFor}</div>
-              <div className="p-4">{row.scope}</div>
-              <div className="p-4 text-right font-semibold">{row.price}</div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-6 space-y-2 text-sm text-muted-foreground md:text-base">
-          <p className="font-semibold text-foreground">{pricing.pricingNotesTitle}</p>
-          <ul className="space-y-2">
-            {pricing.pricingNotes.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section id="alcances" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            {scopes.title}
-          </h2>
-          <p className="text-sm text-muted-foreground md:text-base">
-            {scopes.description}
-          </p>
-        </div>
-        <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {scopes.cards.map((card) => (
-            <div key={card.title} className="rounded-2xl border bg-card p-6">
-              <h3 className="text-base font-semibold">{card.title}</h3>
-              <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                {card.bullets.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <p className="mt-4 text-sm text-muted-foreground">{scopes.note}</p>
-      </section>
-
-      <section id="add-ons" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-          {addOns.title}
-        </h2>
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {addOns.sections.map((section) => (
-            <div key={section.title} className="rounded-2xl border bg-card p-6">
-              <h3 className="text-base font-semibold">{section.title}</h3>
-              <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                {section.bullets.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
+        <PackageTabs items={packageTabs} />
+      </section>
+
+      
+
+      
+
+      <section id="add-ons" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
+        <div className="mb-10 text-center">
+          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+            {addOns.title}
+          </h2>
+          <p className="mt-3 text-sm text-muted-foreground md:text-base">
+            {addOns.description}
+          </p>
+          <div className="mt-6 flex justify-center">
+            <div className="h-1 w-16 rounded-full bg-primary" />
+          </div>
+        </div>
+        <div className="flex flex-wrap -m-4">
+          {addOns.sections.map((section) => (
+            <div
+              key={section.title}
+              className="flex w-full flex-col items-center p-4 text-center md:w-1/2 xl:w-1/3"
+            >
+              <div className="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+                {addOnIcons[section.title] ? (
+                  (() => {
+                    const Icon = addOnIcons[section.title];
+                    return <Icon className="h-8 w-8" />;
+                  })()
+                ) : (
+                  <span className="text-sm font-semibold">
+                    {section.title.slice(0, 2).toUpperCase()}
+                  </span>
+                )}
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-foreground">
+                  {section.title}
+                </h3>
+                <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                  {section.bullets.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
         <div className="space-y-3">
           <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
             {structure.title}
@@ -252,46 +294,16 @@ export default function NextjsSolutionPage() {
             ))}
           </ul>
         </div>
-      </section>
+      </section> */}
+
+      
 
       <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            {tech.title}
-          </h2>
-          <ul className="space-y-2 text-sm text-muted-foreground md:text-base">
-            {tech.bullets.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            {process.title}
-          </h2>
-          <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-muted-foreground md:text-base">
-            {process.steps.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ol>
-        </div>
+        <ProcessSteps />
       </section>
 
       <section id="faq" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">FAQ</h2>
-        <div className="mt-6 grid gap-4">
-          {faq.map((item) => (
-            <details key={item.question} className="rounded-2xl border bg-card p-5">
-              <summary className="cursor-pointer text-base font-semibold">
-                {item.question}
-              </summary>
-              <p className="mt-3 text-sm text-muted-foreground">{item.answer}</p>
-            </details>
-          ))}
-        </div>
+          <FAQAccordion faqs={faq} />
       </section>
 
       <section id="cotizar" className="mx-auto max-w-6xl px-4 pb-16 md:px-6">
@@ -309,10 +321,6 @@ export default function NextjsSolutionPage() {
             <Button variant="secondary" asChild>
               <Link href={cta.secondaryCta.href}>{cta.secondaryCta.label}</Link>
             </Button>
-          </div>
-          <div className="mt-6 text-sm text-muted-foreground">
-            <div>WhatsApp: {cta.whatsapp}</div>
-            <div>Correo: {cta.email}</div>
           </div>
         </div>
       </section>

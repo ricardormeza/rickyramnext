@@ -59,7 +59,7 @@ export default function AstroSolutionPage() {
       </div>
       <div className="mt-6">
         <div className="rounded-2xl border bg-muted/40 p-4">
-          <div className="text-sm font-semibold">{hero.card.title}</div>
+          {/* <div className="text-sm font-semibold">{hero.card.title}</div> */}
           <div className="mt-2 w-full max-w-[500px] overflow-hidden rounded-xl">
             <video
               className="aspect-square h-full w-full object-cover"
