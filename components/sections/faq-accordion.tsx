@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Accordion,
@@ -24,6 +24,15 @@ export function FAQAccordion({ faqs }: FAQAccordionProps) {
   const items = faqs ?? homeContent.faqs;
   const [showMegaCursor, setShowMegaCursor] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   const onPointerEnter = (event: React.PointerEvent<HTMLButtonElement>) => {
     if (event.pointerType === "touch") return;

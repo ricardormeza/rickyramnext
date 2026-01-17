@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 
@@ -11,6 +12,16 @@ import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function MobileNav() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <Sheet>
       <SheetTrigger asChild>
