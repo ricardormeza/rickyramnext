@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ScrollReveal } from "@/components/sections/scroll-reveal";
 import { FAQAccordion } from "@/components/sections/faq-accordion";
 import { Button } from "@/components/ui/button";
-import type { ServiceContent } from "@/content/services/seo";
+import type { ServiceContent } from "@/content/services/types";
 
 type ServiceDetailTemplateProps = {
   content: ServiceContent;

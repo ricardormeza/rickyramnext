@@ -13,6 +13,11 @@ import { FAQAccordion } from "@/components/sections/faq-accordion";
 export const metadata = nextjsMetadata;
 
 export default function NextjsSolutionPage() {
+  type NotForItem = {
+    text: string;
+    link?: { label: string; href: string };
+    suffix?: string;
+  };
   const {
     hero,
     trustItems,
@@ -131,26 +136,22 @@ export default function NextjsSolutionPage() {
             </ul>
             <h3 className="text-lg font-semibold">{notFor.title}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground md:text-base">
-              {notFor.bullets.map((item, index) => (
-                <li key={`${item.text}-${index}`}>
-                  {item.text ? (
-                    <>
-                      {item.text}{" "}
-                      {item.link ? (
-                        <Link
-                          href={item.link.href}
-                          className="font-semibold text-primary"
-                        >
-                          {item.link.label}
-                        </Link>
-                      ) : null}
-                      {item.suffix ?? null}
-                    </>
-                  ) : (
-                    item.text
-                  )}
-                </li>
-              ))}
+            {(notFor.bullets as readonly NotForItem[]).map((item, index) => (
+              <li key={`${item.text}-${index}`}>
+                <>
+                  {item.text}{" "}
+                  {item.link ? (
+                    <Link
+                      href={item.link.href}
+                      className="font-semibold text-primary"
+                    >
+                      {item.link.label}
+                    </Link>
+                  ) : null}
+                  {item.suffix ?? null}
+                </>
+              </li>
+            ))}
             </ul>
           </div>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { easeOut, motion, useInView, useReducedMotion } from "framer-motion";
 import { Coffee, FileCode, Laugh, Rocket } from "lucide-react";
 
 type OrganicDividerProps = {
@@ -97,7 +97,7 @@ function StatCard({
       className="group px-6 py-6 text-center transition-colors hover:bg-white/45 dark:hover:bg-slate-900/40"
       initial={{ opacity: 0, y: 20 }}
       animate={active ? { opacity: 1, y: 0 } : undefined}
-      transition={{ duration: 0.6, ease: "easeOut", delay }}
+      transition={{ duration: 0.6, ease: easeOut, delay }}
     >
       <div className="flex flex-col items-center gap-3">
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/80 text-primary shadow-[0_10px_24px_rgba(15,23,42,0.08)] dark:bg-slate-900/60 transition-transform duration-200 ease-out hover:-translate-y-2">
@@ -117,7 +117,7 @@ function StatCard({
 export function OrganicDivider({ className }: OrganicDividerProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { amount: 0.3, once: true });
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useReducedMotion() ?? false;
   const formatter = useMemo(() => new Intl.NumberFormat("en-US"), []);
 
   return (

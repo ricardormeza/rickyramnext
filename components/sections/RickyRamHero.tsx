@@ -4,6 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
+  easeOut,
   motion,
   useMotionValue,
   useReducedMotion,
@@ -239,10 +240,10 @@ export default function RickyRamHero({
           <motion.p
             initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: easeOut }}
             className="-mt-2 text-center text-2xl font-semibold text-muted-foreground mb-8"
           >
-            ðŸ‘‹ Hola, soy Ricky y soy freelance
+            👋‹ Hola, soy Ricky y soy freelance
           </motion.p>
 
           <div

@@ -507,4 +507,4 @@ export const wordpressContent = {
       "Te digo cual plan te conviene y que add-ons valen la pena para tu objetivo.",
     cta: { label: "Agendar videollamada", href: "https://cal.com/" },
   },
-};
+} as const;

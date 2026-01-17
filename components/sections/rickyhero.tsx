@@ -3,6 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import {
+  easeOut,
   motion,
   useMotionValue,
   useSpring,
@@ -151,7 +152,7 @@ export default function RickyHero({
             <motion.p
               initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ duration: 0.5, ease: easeOut }}
               className="absolute left-1/2 top-[-28px] z-40 -translate-x-1/2 text-sm text-muted-foreground md:top-[-40px]"
             >
               👋 Hola, Soy Ricky y soy freelance
@@ -160,7 +161,7 @@ export default function RickyHero({
             <motion.div
               initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.6, ease: easeOut }}
               className="relative w-full select-none text-center"
             >
               <div className="relative z-10">
@@ -185,7 +186,7 @@ export default function RickyHero({
             <motion.div
               initial={reduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.05 }}
+              transition={{ duration: 0.7, ease: easeOut, delay: 0.05 }}
               style={reduceMotion ? undefined : { x: portraitX, y: portraitY }}
               className="pointer-events-none absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2"
             >

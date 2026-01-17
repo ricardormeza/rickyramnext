@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 import styles from "@/components/sections/RickyTechCards.module.css";
 
 type CardItem = {
@@ -58,7 +58,11 @@ export default function RickyTechCards() {
           style={gradientVars(c.title)}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 * (idx + 1) }}
+          transition={{
+            duration: 0.6,
+            ease: easeOut,
+            delay: 0.2 * (idx + 1),
+          }}
         >
           <div className={`${styles.face} ${styles.face1}`}>
             <div className={styles.content}>

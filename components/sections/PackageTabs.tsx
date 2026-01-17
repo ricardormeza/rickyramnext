@@ -3,7 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, easeOut, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -12,14 +12,14 @@ export type PackageTabItem = {
   idealFor?: string;
   scope?: string;
   price: string;
-  bullets?: string[];
+  bullets?: readonly string[];
   ctaText?: string;
   href?: string;
   image?: string;
 };
 
 type PackageTabsProps = {
-  items: PackageTabItem[];
+  items: readonly PackageTabItem[];
 };
 
 export function PackageTabs({ items }: PackageTabsProps) {
@@ -88,7 +88,7 @@ export function PackageTabs({ items }: PackageTabsProps) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+            transition={{ duration: 0.25, ease: easeOut }}
             className="mt-6"
             layout
           >

@@ -35,11 +35,11 @@ type StickyNavItem = {
 };
 
 type SolutionHero = {
-  breadcrumbs?: BreadcrumbItem[];
+  breadcrumbs?: readonly BreadcrumbItem[];
   title: string;
-  descriptions?: string[];
-  bullets?: string[];
-  ctas?: HeroCta[];
+  descriptions?: readonly string[];
+  bullets?: readonly string[];
+  ctas?: readonly HeroCta[];
   textLink?: HeroTextLink;
   note?: string;
   card?: ReactNode;
@@ -47,8 +47,8 @@ type SolutionHero = {
 
 type SolutionTemplateProps = {
   hero: SolutionHero;
-  trustItems?: TrustItem[];
-  stickyNav?: StickyNavItem[];
+  trustItems?: readonly TrustItem[];
+  stickyNav?: readonly StickyNavItem[];
   children?: ReactNode;
 };
 

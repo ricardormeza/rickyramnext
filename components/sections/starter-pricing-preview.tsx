@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useRef } from "react";
 import {
+  easeOut,
   motion,
   useAnimationFrame,
   useMotionValue,
@@ -22,7 +23,7 @@ function wrap(min: number, max: number, value: number) {
   return ((((value - min) % range) + range) % range) + min;
 }
 
-function MarqueeNotes({ notes }: { notes: string[] }) {
+function MarqueeNotes({ notes }: { notes: readonly string[] }) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -89,7 +90,7 @@ export function StarterPricingPreview() {
   };
   const item = {
     hidden: { opacity: 0, y: 16 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } },
   };
 
   return (

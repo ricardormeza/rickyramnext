@@ -11,7 +11,7 @@ type StickyPillNavItem = {
 };
 
 type StickyPillNavProps = {
-  items: StickyPillNavItem[];
+  items: readonly StickyPillNavItem[];
 };
 
 export function StickyPillNav({ items }: StickyPillNavProps) {

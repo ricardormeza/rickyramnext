@@ -17,7 +17,7 @@ type FaqItem = {
 };
 
 type FAQAccordionProps = {
-  faqs?: FaqItem[];
+  faqs?: readonly FaqItem[];
 };
 
 export function FAQAccordion({ faqs }: FAQAccordionProps) {

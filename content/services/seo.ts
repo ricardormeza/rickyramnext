@@ -1,4 +1,6 @@
-export const seoServiceContent = {
+import type { ServiceContent } from "./types";
+
+export const seoServiceContent: ServiceContent = {
   hero: {
     kicker: "SEO",
     title:
@@ -237,6 +239,4 @@ export const seoServiceContent = {
     { label: "Precios", href: "/precios" },
     { label: "Portafolio", href: "/portafolio" },
   ],
-} as const;
-
-export type ServiceContent = typeof seoServiceContent;
+};

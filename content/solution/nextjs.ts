@@ -232,6 +232,7 @@ export const nextjsContent = {
   },
   addOns: {
     title: "Add-ons recomendados (para escalar)",
+    description: "Opciones para escalar rendimiento y data sin rehacer tu web.",
     sections: [
       {
         title: "Medicion (Analytics)",
