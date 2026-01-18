@@ -15,6 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { MegaCursorIcon } from "@/components/ui/mega-cursor";
 import { siteConfig } from "@/lib/site";
+import ShinyText from "@/components/ui/ShinyText";
 
 type RickyRamHeroProps = {
   headlineTop: string;
@@ -242,8 +243,9 @@ export default function RickyRamHero({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: easeOut }}
             className="-mt-2 text-center text-2xl font-semibold text-muted-foreground mb-8"
-          >
-            👋‹ Hola, soy Ricky y soy freelance
+          >👋
+            <ShinyText text="Hola, soy Ricky y soy freelance" color="#1881ff" shineColor="#0023d1"/>
+            
           </motion.p>
 
           <div

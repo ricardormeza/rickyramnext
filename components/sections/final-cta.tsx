@@ -20,7 +20,7 @@ export function FinalCta() {
         </div>
         <div className="mt-6 flex flex-col gap-3 justify-center sm:flex-row">
           <Button asChild>
-            <Link href={siteConfig.whatsapp}>{finalCta.primary}</Link>
+            <Link href="/cotizar">{finalCta.primary}</Link>
           </Button>
           <Button
             variant="secondary"

@@ -1,0 +1,19 @@
+.textType {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.content {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+.cursor {
+  display: inline-block;
+  line-height: 1;
+}
+
+.cursorHidden {
+  opacity: 0;
+}

@@ -13,6 +13,8 @@ import RickyTechCards from "@/components/sections/RickyTechCards";
 import { OrganicDivider } from "@/components/sections/organic-divider";
 import { StarterIncludes } from "@/components/sections/starter-includes";
 import { StarterPricingPreview } from "@/components/sections/starter-pricing-preview";
+import ShinyText from "@/components/ui/ShinyText";
+import TextType from "@/components/ui/TextType";
 
 export default function SolucionesPage() {
   return (
@@ -27,13 +29,23 @@ export default function SolucionesPage() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mx-auto mt-4 max-w-[90%] text-2xl font-semibold tracking-tight text-foreground md:text-5xl font-black"
         >
-          <span className="text-[#1881ff]">Branding</span> potente y <span className="text-[#1881ff]">sitios web</span> que convierten en WordPress, Astro y
-          Next.js para negocios que quieren <span className="text-[#1881ff]">crecer</span>.
+          <ShinyText text="Branding potente y sitios web que convierten en WordPress, Astro y
+          Next.js para negocios que quieren crecer."
+          color="#1881ff"
+          shineColor="#000000"
+/>
+         
         </motion.h2>
       </section>
       <section className="mx-auto max-w-6xl px-4 py-12 text-center md:px-6">
         <h2 className="text-2xl font-semibold tracking-tight md:text-4xl">
-          Tres formas de construir tu web.
+         <TextType
+          text={["Tres formas de construir tu web.", "Elige la que mejor se adapte a ti.", "NEXT.JS", "ASTRO", "WORDPRESS"]}
+          typingSpeed={75}
+          pauseDuration={1500}
+          showCursor={true}
+          cursorCharacter="|"
+        />
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-muted-foreground md:text-2xl">
           No todo negocio necesita lo mismo. Te guio para elegir la mejor tecnología para ti.
