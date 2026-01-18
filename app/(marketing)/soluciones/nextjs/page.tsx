@@ -9,6 +9,7 @@ import { SolutionTemplate } from "@/components/sections/solution-template";
 import { nextjsContent, nextjsMetadata } from "@/content/solution/nextjs";
 import { ProcessSteps } from "@/components/sections/process-steps";
 import { FAQAccordion } from "@/components/sections/faq-accordion";
+import ShinyText from "@/components/ui/ShinyText";
 
 export const metadata = nextjsMetadata;
 
@@ -116,9 +117,13 @@ export default function NextjsSolutionPage() {
     </div>
   ) : null;
 
+  const heroTitle = (
+    <ShinyText text={hero.title} color="#0b1220" shineColor="#d4af37" />
+  );
+
   return (
     <SolutionTemplate
-      hero={{ ...hero, card: heroCard }}
+      hero={{ ...hero, title: heroTitle, card: heroCard }}
       trustItems={trustItems}
       stickyNav={stickyNav}
     >

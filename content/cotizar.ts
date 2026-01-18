@@ -41,7 +41,13 @@ const slugify = (value: string) =>
     .replace(/(^-|-$)/g, "");
 
 const buildWebsitePlans = (
-  plans: Array<{ title?: string; name?: string; price?: string; description?: string; idealFor?: string }>
+  plans: readonly {
+    title?: string;
+    name?: string;
+    price?: string;
+    description?: string;
+    idealFor?: string;
+  }[]
 ) =>
   plans.map((plan) => {
     const title = plan.title ?? plan.name ?? "";
@@ -54,8 +60,8 @@ const buildWebsitePlans = (
   });
 
 const buildServicePlans = (content: {
-  audit?: { title: string; lead?: string; prices?: string[] };
-  plans?: { cards: Array<{ title: string; subtitle?: string; price?: string }> };
+  audit?: { title: string; lead?: string; prices?: readonly string[] };
+  plans?: { cards: readonly { title: string; subtitle?: string; price?: string }[] };
 }) => {
   const audit = content.audit
     ? [
@@ -94,12 +100,16 @@ export const cotizarCatalog: CotizarCategory[] = [
         label: "WordPress",
         plans: [
           ...buildWebsitePlans(wordpressContent.pricing.plans),
-          ...wordpressContent.stores.cards.map((card) => ({
-            id: slugify(card.title),
-            title: card.title,
-            price: card.price,
-            description: card.badge ?? card.bullets?.[0],
-          })),
+          ...wordpressContent.stores.cards.map((card) => {
+            const badge = "badge" in card ? card.badge : undefined;
+            const bullet = "bullets" in card ? card.bullets?.[0] : undefined;
+            return {
+              id: slugify(card.title),
+              title: card.title,
+              price: card.price,
+              description: badge ?? bullet,
+            };
+          }),
         ],
       },
       {

@@ -36,7 +36,7 @@ type StickyNavItem = {
 
 type SolutionHero = {
   breadcrumbs?: readonly BreadcrumbItem[];
-  title: string;
+  title: ReactNode;
   descriptions?: readonly string[];
   bullets?: readonly string[];
   ctas?: readonly HeroCta[];

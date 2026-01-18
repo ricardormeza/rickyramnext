@@ -10,6 +10,7 @@ import { SolutionTemplate } from "@/components/sections/solution-template";
 import { wordpressContent, wordpressMetadata } from "@/content/solution/wordpress";
 import { siteConfig } from "@/lib/site";
 import { ProcessSteps } from "@/components/sections/process-steps";
+import ShinyText from "@/components/ui/ShinyText";
 
 export const metadata = wordpressMetadata;
 
@@ -98,9 +99,13 @@ export default function WordpressSolutionPage() {
     </div>
   );
 
+  const heroTitle = (
+    <ShinyText text={hero.title} color="#0b1220" shineColor="#21759b" />
+  );
+
   return (
     <SolutionTemplate
-      hero={{ ...hero, card: heroCard }}
+      hero={{ ...hero, title: heroTitle, card: heroCard }}
       trustItems={trustItems}
       stickyNav={stickyNav}
     >

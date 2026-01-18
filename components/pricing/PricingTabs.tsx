@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, easeOut, motion, useReducedMotion } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { PricingCard, type PricingCardData } from "@/components/pricing/PricingCard";
@@ -50,7 +50,7 @@ export function PricingTabs({ items }: PricingTabsProps) {
         initial: { opacity: 0, y: 14 },
         animate: { opacity: 1, y: 0 },
         exit: { opacity: 0, y: -10 },
-        transition: { duration: 0.28, ease: "easeOut" },
+        transition: { duration: 0.28, ease: easeOut },
       };
 
   const updateUrl = React.useCallback(

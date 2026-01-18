@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Suspense } from "react";
 import { CotizarInlineCta } from "@/components/pricing/CotizarInlineCta";
 import { cotizarCatalog, findCotizarSelection } from "@/content/cotizar";
 
@@ -45,10 +46,12 @@ export default function CotizarPage({
         </div>
 
         <div className="mt-12 rounded-3xl border bg-card/80 p-6 shadow-sm backdrop-blur md:p-8">
-          <CotizarInlineCta
-            categories={cotizarCatalog}
-            initialSelection={initialSelection}
-          />
+          <Suspense fallback={<div className="text-sm text-muted-foreground">Cargando...</div>}>
+            <CotizarInlineCta
+              categories={cotizarCatalog}
+              initialSelection={initialSelection}
+            />
+          </Suspense>
         </div>
       </section>
     </main>

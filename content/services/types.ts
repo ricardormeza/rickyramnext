@@ -3,12 +3,12 @@ export type ServiceContent = {
     kicker: string;
     title: string;
     lead: string;
-    ctas: { label: string; href: string }[];
+    ctas: readonly { label: string; href: string }[];
   };
   forWho: {
     title: string;
-    bullets: string[];
-    notFor: string[];
+    bullets: readonly string[];
+    notFor: readonly string[];
   };
   labels: {
     notForTitle: string;
@@ -24,41 +24,41 @@ export type ServiceContent = {
     contactTitle: string;
     internalLinksTitle: string;
   };
-  layers: { title: string; bullets: string[] }[];
-  deliverables: string[];
+  layers: readonly { title: string; bullets: readonly string[] }[];
+  deliverables: readonly string[];
   audit: {
     id: string;
     title: string;
     lead: string;
-    prices: string[];
-    includes: string[];
+    prices: readonly string[];
+    includes: readonly string[];
     cta: { label: string; href: string };
   };
   plans: {
     id: string;
     title: string;
     lead: string;
-    cards: {
+    cards: readonly {
       title: string;
       subtitle: string;
-      bullets: string[];
+      bullets: readonly string[];
       price: string;
     }[];
   };
-  requirements: string[];
-  addOns: { title: string; items: string[] }[];
-  processSteps: string[];
-  faqs: { question: string; answer: string }[];
+  requirements: readonly string[];
+  addOns: readonly { title: string; items: readonly string[] }[];
+  processSteps: readonly string[];
+  faqs: readonly { question: string; answer: string }[];
   finalCta: {
     id: string;
     title: string;
-    bullets: string[];
+    bullets: readonly string[];
     primary: string;
     secondary: string;
   };
   contact: {
     id: string;
-    items: { label: string; value: string }[];
+    items: readonly { label: string; value: string }[];
   };
-  internalLinks: { label: string; href: string }[];
+  internalLinks: readonly { label: string; href: string }[];
 };

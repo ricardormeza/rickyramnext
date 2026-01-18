@@ -55,7 +55,7 @@ export const wordpressContent = {
     },
   },
   trustItems: [
-    { icon: Server, label: "Hosting + SSL 1er a¤o" },
+    { icon: Server, label: "Hosting + SSL 1er año" },
     { icon: Globe, label: "Responsive" },
     { icon: Search, label: "SEO base" },
     { icon: LifeBuoy, label: "Soporte / guia de uso" },

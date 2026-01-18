@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import { preciosContent } from "@/content/pricing";
 import { PricingInlineCta } from "@/components/pricing/PricingInlineCta";
 import { PricingTabs } from "@/components/pricing/PricingTabs";
@@ -111,7 +112,9 @@ export default function PreciosPage({
               {preciosContent.tabs.note}
             </p>
           </div>
-          <PricingTabs items={preciosContent.tabs.items} />
+          <Suspense fallback={<div className="text-sm text-muted-foreground">Cargando...</div>}>
+            <PricingTabs items={preciosContent.tabs.items} />
+          </Suspense>
         </div>
       </section>
 
@@ -245,10 +248,14 @@ export default function PreciosPage({
             </p>
           </div>
           <div className="mt-6">
-            <PricingInlineCta
-              items={preciosContent.tabs.items}
-              initialSelection={initialSelection}
-            />
+            <Suspense
+              fallback={<div className="text-sm text-muted-foreground">Cargando...</div>}
+            >
+              <PricingInlineCta
+                items={preciosContent.tabs.items}
+                initialSelection={initialSelection}
+              />
+            </Suspense>
           </div>
         </div>
       </section>

@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { PricingForm } from "@/components/pricing/PricingForm";
+import type { PricingCardData } from "@/components/pricing/PricingCard";
 import type { PricingSelection } from "@/components/pricing/types";
 import type { PricingTabItem } from "@/components/pricing/PricingTabs";
 import { cn } from "@/lib/utils";
@@ -25,7 +26,17 @@ export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaPr
   const searchParamsRef = React.useRef(searchParams);
   const firstTab = items[0]?.id ?? "";
   const [tabId, setTabId] = React.useState(initialSelection?.tab ?? firstTab);
-  const [tech, setTech] = React.useState(initialSelection?.tech ?? "");
+  const allowedTechs = React.useMemo(
+    () => ["Astro", "WordPress", "Next.js"] as const,
+    []
+  );
+  const getInitialTech = (value?: string): PricingCardData["tech"] | "" =>
+    allowedTechs.includes(value as PricingCardData["tech"])
+      ? (value as PricingCardData["tech"])
+      : "";
+  const [tech, setTech] = React.useState<PricingCardData["tech"] | "">(
+    getInitialTech(initialSelection?.tech)
+  );
   const [plan, setPlan] = React.useState(initialSelection?.plan ?? "");
 
   const tabItem = React.useMemo(
@@ -166,7 +177,7 @@ export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaPr
           <select
             value={tech}
             onChange={(event) => {
-              setTech(event.target.value);
+              setTech(event.target.value as PricingCardData["tech"]);
               setPlan("");
             }}
             className={inputStyles}

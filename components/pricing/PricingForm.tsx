@@ -24,7 +24,7 @@ const formSchema = z.object({
   email: z.string().email("Correo invalido."),
   whatsapp: z.string().min(7, "WhatsApp invalido."),
   giro: z.enum(giroOptions, {
-    errorMap: () => ({ message: "Selecciona un giro." }),
+    message: "Selecciona un giro.",
   }),
   comentario: z.string().max(800).optional(),
   tab: z.string().optional(),
