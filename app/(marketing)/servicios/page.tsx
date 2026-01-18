@@ -20,7 +20,7 @@ const hero = {
     "Tu web puede verse bien y aun asi no vender. Estos servicios convierten tu sitio en un canal real de crecimiento: trafico, leads, ventas, medicion y estabilidad.",
   ctas: [
     { label: "Agendar llamada (15 min)", href: "#agendar" },
-    { label: "Solicitar cotizacion", href: "#cotizar" },
+    { label: "Solicitar cotizacion", href: "/cotizar?tab=servicios" },
     { label: "Ver paquetes mensuales", href: "#paquetes-mensuales" },
   ],
 };
@@ -485,7 +485,7 @@ export default function ServiciosPage() {
                 {card.price}
               </p>
               <Button className="mt-4" asChild>
-                <Link href="#cotizar">{card.cta}</Link>
+                <Link href="/cotizar?tab=servicios">{card.cta}</Link>
               </Button>
             </div>
           ))}
@@ -551,7 +551,7 @@ export default function ServiciosPage() {
           </ul>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild>
-              <Link href="#cotizar">{finalCta.primary}</Link>
+              <Link href="/cotizar?tab=servicios">{finalCta.primary}</Link>
             </Button>
             <Button variant="secondary" asChild>
               <Link href="#agendar">{finalCta.secondary}</Link>

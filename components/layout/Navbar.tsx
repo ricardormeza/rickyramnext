@@ -31,7 +31,7 @@ export function Navbar() {
             <Link href={siteConfig.agendaUrl}>Agendar llamada</Link>
           </Button>
           <Button asChild>
-            <Link href={siteConfig.whatsapp}>Cotizar</Link>
+            <Link href="/cotizar">Cotizar</Link>
           </Button>
         </div>
 

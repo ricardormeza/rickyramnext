@@ -25,7 +25,7 @@ export const astroContent = {
       "Desde $7,900 MXN (paquetes Starter).",
     ],
     ctas: [
-      { label: "Cotizar Astro", href: "#cotizar" },
+      { label: "Cotizar Astro", href: "/cotizar" },
       { label: "Ver precios", href: "#precios", variant: "secondary" },
       { label: "Ver que incluye", href: "#que-incluye", variant: "secondary" },
     ],
@@ -49,7 +49,7 @@ export const astroContent = {
     { label: "Alcances", href: "#alcances" },
     { label: "Add-ons", href: "#add-ons" },
     { label: "FAQ", href: "#faq" },
-    { label: "Cotizar", href: "#cotizar" },
+    { label: "Cotizar", href: "/cotizar" },
   ],
   trustItems: [
     { icon: Server, label: "Hosting + SSL 1er año" },
@@ -97,7 +97,7 @@ export const astroContent = {
     ],
     cta: {
       label: "Agendar llamada",
-      href: "#cotizar",
+      href: "/cotizar",
     },
   },
   canBuild: {
@@ -350,3 +350,4 @@ export const astroContent = {
     email: "contacto@rickyram.dev",
   },
 } as const;
+

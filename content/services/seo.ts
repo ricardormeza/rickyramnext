@@ -103,7 +103,7 @@ export const seoServiceContent: ServiceContent = {
       "Lista priorizada de acciones (quick wins + roadmap).",
       "Recomendaciones de medici\u00f3n (GA4/GTM si hace falta).",
     ],
-    cta: { label: "Solicitar auditor\u00eda", href: "#cotizar" },
+    cta: { label: "Solicitar auditor\u00eda", href: "/cotizar?tab=servicios&tech=seo&plan=auditoria-seo-pago-unico" },
   },
   plans: {
     id: "planes",
@@ -240,3 +240,4 @@ export const seoServiceContent: ServiceContent = {
     { label: "Portafolio", href: "/portafolio" },
   ],
 };
+

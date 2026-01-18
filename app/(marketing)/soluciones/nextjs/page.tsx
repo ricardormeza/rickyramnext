@@ -45,6 +45,14 @@ export default function NextjsSolutionPage() {
     "Dashboard / App MVP": "/next/dashboard-next.png",
   };
 
+  const packageLinks: Record<string, string> = {
+    "Landing (custom)": "/cotizar?tab=web&tech=nextjs&plan=landing-custom",
+    "Sitio basico (custom)": "/cotizar?tab=web&tech=nextjs&plan=sitio-basico-custom",
+    "PyME (custom)": "/cotizar?tab=web&tech=nextjs&plan=pyme-custom",
+    "E-commerce headless": "/cotizar?tab=web&tech=nextjs&plan=e-commerce-headless",
+    "Dashboard / App MVP": "/cotizar?tab=web&tech=nextjs&plan=dashboard-app-mvp",
+  };
+
   const packageTabs = pricing.table.map((item) => {
     const nameLower = item.name.toLowerCase();
     const scopeCard = scopes.cards.find((card) => {
@@ -61,7 +69,7 @@ export default function NextjsSolutionPage() {
       bullets: scopeCard?.bullets ?? [],
       image: packageImages[item.name],
       ctaText: "Quiero comenzar",
-      href: "/contacto",
+      href: packageLinks[item.name] ?? "/cotizar",
     };
   });
 
@@ -328,3 +336,4 @@ export default function NextjsSolutionPage() {
     </SolutionTemplate>
   );
 }
+

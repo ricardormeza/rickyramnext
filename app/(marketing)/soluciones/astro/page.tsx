@@ -40,6 +40,12 @@ export default function AstroSolutionPage() {
     "PyME Starter": "/astro/astro-pyme.webp",
   };
 
+  const packageLinks: Record<string, string> = {
+    "Landing Starter": "/cotizar?tab=web&tech=astro&plan=landing-starter",
+    "Sitio basico Starter": "/cotizar?tab=web&tech=astro&plan=sitio-basico-starter",
+    "PyME Starter": "/cotizar?tab=web&tech=astro&plan=pyme-starter",
+  };
+
   const packageTabs = pricing.table.map((item) => {
     const scopeCard = scopes.cards.find((card) =>
       card.title.toLowerCase().startsWith(item.name.toLowerCase()),
@@ -49,7 +55,7 @@ export default function AstroSolutionPage() {
       ...item,
       bullets: scopeCard?.bullets ?? [],
       ctaText: "Quiero comenzar",
-      href: "/contacto",
+      href: packageLinks[item.name] ?? "/cotizar",
       image: packageImages[item.name],
     };
   });
@@ -313,3 +319,4 @@ export default function AstroSolutionPage() {
 }
 
 export const metadata = astroMetadata;
+

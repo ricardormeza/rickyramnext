@@ -26,7 +26,7 @@ export const nextjsContent = {
       "Desde $18,900 MXN (landing custom). Proyectos avanzados: a cotizar.",
     ],
     ctas: [
-      { label: "Cotizar Next.js", href: "#cotizar" },
+      { label: "Cotizar Next.js", href: "/cotizar" },
       { label: "Ver precios", href: "#precios", variant: "secondary" },
       { label: "Ver que incluye", href: "#que-incluye", variant: "secondary" },
     ],
@@ -50,7 +50,7 @@ export const nextjsContent = {
     { label: "Alcances", href: "#alcances" },
     { label: "Add-ons", href: "#add-ons" },
     { label: "FAQ", href: "#faq" },
-    { label: "Cotizar", href: "#cotizar" },
+    { label: "Cotizar", href: "/cotizar" },
   ],
   trustItems: [
     { icon: Server, label: "Full responsive" },
@@ -97,7 +97,7 @@ export const nextjsContent = {
         text: "Tu presupuesto es ajustado y no necesitas funciones especiales (Next tiene mas ingenieria).",
       },
     ],
-    cta: { label: "Agendar llamada", href: "#cotizar" },
+    cta: { label: "Agendar llamada", href: "/cotizar" },
   },
   canBuild: {
     title: "Que puedes construir con Next.js",
@@ -414,3 +414,4 @@ export const nextjsContent = {
     email: "contacto@rickyram.dev",
   },
 } as const;
+

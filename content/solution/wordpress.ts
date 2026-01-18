@@ -38,9 +38,8 @@ export const wordpressContent = {
     ],
     ctas: [
       { label: "Ver paquetes", href: "#paquetes-y-precios" },
-      { label: "Cotizar", href: "#cotizar", variant: "secondary" },
+      { label: "Cotizar", href: "/cotizar", variant: "secondary" },
     ],
-    textLink: { label: "Agendar llamada", href: "#agendar" },
     note: "Ya tienes hosting o dominio? Me adapto a lo que ya tienes y sugiero optimizaciones de velocidad y seguridad.",
     card: {
       badgeLabel: "Wordpress",
@@ -68,7 +67,7 @@ export const wordpressContent = {
     { label: "Tiendas", href: "#tiendas" },
     { label: "Add-ons", href: "#add-ons" },
     { label: "FAQ", href: "#faq" },
-    { label: "Cotizar", href: "#cotizar" },
+
   ],
   whoIsItFor: {
     title: "Para quien es WordPress?",
@@ -128,12 +127,12 @@ export const wordpressContent = {
   includes: {
     title: "Que incluye (base en planes anuales)",
     includeList: [
-      "Dise¤o profesional (a medida o plantilla premium optimizada)",
+      "Diseño profesional (a medida o plantilla premium optimizada)",
       "WordPress + configuracion base",
       "Responsive (movil / tablet / escritorio)",
       "Integracion WhatsApp + Maps (cuando aplique)",
       "Formularios (segun plan)",
-      "Hosting administrado + SSL el primer a¤o",
+      "Hosting administrado + SSL el primer año",
       "Correo profesional (segun plan)",
       "SEO base (titles/metas, estructura Hs, sitemap/robots, OG basico)",
     ],
@@ -163,11 +162,11 @@ export const wordpressContent = {
           "Ideal para tener presencia digital",
         ],
         cta: "Empezar con Express",
-        href: "/soluciones/wordpress?plan=express#cotizar",
+        href: "/cotizar?tab=web&tech=wordpress&plan=plan-express",
       },
       {
         title: "Landing Start",
-        price: "$5,000 / año",
+        price: "$5,900 / año",
         description: "Landing con SEO base.",
         bullets: [
           "One-page",
@@ -178,11 +177,11 @@ export const wordpressContent = {
           "Hosting administrado incluido 1er a¤o",
         ],
         cta: "Quiero mi Landing",
-        href: "/soluciones/wordpress?plan=landing#cotizar",
+        href: "/cotizar?tab=web&tech=wordpress&plan=landing-start",
       },
       {
         title: "Sitio Profesional",
-        price: "$8,000 / año",
+        price: "$7,900 / año",
         badge: "Mas elegido",
         description: "El balance ideal para negocios.",
         bullets: [
@@ -195,7 +194,7 @@ export const wordpressContent = {
           "Hosting administrado incluido 1er año",
         ],
         cta: "Elegir Sitio Profesional",
-        href: "/soluciones/wordpress?plan=profesional#cotizar",
+        href: "/cotizar?tab=web&tech=wordpress&plan=sitio-profesional",
       },
       {
         title: "Presencia Online",
@@ -204,27 +203,27 @@ export const wordpressContent = {
         description: "Presencia con analitíca básica.",
         bullets: [
           "Diseño semi custom o plantilla optimizada",
-          "Hasta 12 páginas",
+          "Hasta 8 páginas",
           "SEO basico + optimizacion",
-          "Hasta 4 formularios",
+          "Hasta 3 formularios",
           "GA basico (sin eventos avanzados)",
           "Integracion para Redes Sociales",
           "4 cuentas de correo",
           "Hosting administrado incluido 1er año",
         ],
         cta: "Quiero Presencia Online",
-        href: "/soluciones/wordpress?plan=presencia#cotizar",
+        href: "/cotizar?tab=web&tech=wordpress&plan=presencia-online",
       },
     ],
   },
   sitePlans: [
     {
       label: "Precio",
-      values: ["$450/mes", "$5,000/año", "$8,000/año", "$10,500/año"],
+      values: ["$450/mes", "$5,900/año", "$7,900/año", "$10,500/año"],
     },
     {
       label: "Tipo",
-      values: ["1 pagina", "1 Página", "Sitio multipáginas", "Sitio multipáginas + analitica"],
+      values: ["1 pagina", "1 Página", "Hasta 6 Páginas", "Hasta 8 Páginas"],
     },
     {
       label: "Páginas / Secciones",
@@ -232,7 +231,7 @@ export const wordpressContent = {
         "Hasta 4 secciones",
         "One-page con hasta 6 secciones",
         "Hasta 6 páginas",
-        "Hasta 12 páginas",
+        "Hasta 8 páginas",
       ],
     },
     {
@@ -254,7 +253,7 @@ export const wordpressContent = {
     },
     {
       label: "Correos profesionales con dominio y capacidad de hasta 3GB",
-      values: ["-", "1", "3", "4"],
+      values: ["-", "-", "2", "3"],
     },
     {
       label: "SEO",
@@ -289,7 +288,7 @@ export const wordpressContent = {
     },
     {
       label: "Productos (carga inicial)",
-      values: ["Hasta 15 productos", "Definido por alcance"],
+      values: ["Hasta 12 productos", "Definido por alcance"],
     },
     {
       label: "Diseño",
@@ -301,7 +300,7 @@ export const wordpressContent = {
     },
     {
       label: "Analitica",
-      values: ["GA avanzado con eventos", "GA avanzado con eventos"],
+      values: ["GA Básico", "GA Básico con eventos"],
     },
     {
       label: "Marketing/Contenido",
@@ -320,7 +319,7 @@ export const wordpressContent = {
     title: "Hosting administrado + SSL incluidos el primer año",
     description:
       "Si ya tienes hosting o dominio, me adapto y te propongo optimizaciones de performance, cache y seguridad.",
-    cta: { label: "Cotizar sin complicaciones", href: "#cotizar" },
+    cta: { label: "Cotizar sin complicaciones", href: "/cotizar" },
   },
   stores: {
     title: "Tiendas en linea con WooCommerce",
@@ -333,16 +332,20 @@ export const wordpressContent = {
         bullets: [
           "Incluye Presencia Online +",
           "Tienda WooCommerce",
-          "Hasta 15 productos (carga inicial)",
+          "Hasta 12 productos (carga inicial)",
           "SEO avanzado (base)",
-          "GA avanzado con eventos (segun alcance)",
+          "GA Básico con eventos (segun alcance)",
           "Hosting incluido 1er año",
+          "1 Cuenta de correo de 3GB",
         ],
-        cta: { label: "Cotizar mi tienda", href: "#cotizar" },
+        cta: {
+          label: "Cotizar mi tienda",
+          href: "/cotizar?tab=web&tech=wordpress&plan=mi-tienda-online",
+        },
       },
       {
         title: "Corporativo Elite",
-        price: "$37,700 / año",
+        price: "Desde $37,700 / año",
         bullets: [
           "Diseño personalizado",
           "GA avanzado con eventos",
@@ -350,7 +353,11 @@ export const wordpressContent = {
           "Publicidad digital (segun acuerdo)",
           "Hosting incluido 1er año",
         ],
-        cta: { label: "Armar propuesta corporativa", href: "#agendar", variant: "secondary" },
+        cta: {
+          label: "Armar propuesta corporativa",
+          href: "/cotizar?tab=web&tech=wordpress&plan=corporativo-elite",
+          variant: "secondary",
+        },
       },
     ],
   },
@@ -386,7 +393,7 @@ export const wordpressContent = {
       "Manejo de Ads: 15% del gasto (min. $6,900 / mes)",
       "Analitica + reporting: $2,900 - $12,900 / mes",
     ],
-    cta: { label: "Armar paquete a medida", href: "#cotizar" },
+    cta: { label: "Armar paquete a medida", href: "/cotizar" },
   },
   faqs: [
     {
@@ -478,28 +485,8 @@ export const wordpressContent = {
   finalCta: {
     title: "Dime que necesitas y te propongo el plan ideal",
     description: "Cotiza en minutos y recibe una propuesta clara.",
-    primaryCta: { label: "Solicitar cotizacion", href: "#cotizar" },
+    primaryCta: { label: "Solicitar cotizacion", href: "/cotizar" },
     secondaryCta: { label: "Agendar llamada", href: "#agendar" },
-  },
-  quote: {
-    title: "Cotizar",
-    description: "Cuentame que quieres construir y te propongo el paquete ideal.",
-    fields: {
-      name: "Nombre",
-      email: "Email",
-      project: "Tipo de sitio, secciones, objetivo...",
-    },
-    submitLabel: "Solicitar cotizacion",
-    whatsappLabel: "Cotizar por WhatsApp",
-    note: "Respuesta en 24-48h habiles. Si ya tienes hosting, lo reviso contigo.",
-    sidebarTitle: "Datos para cotizar",
-    sidebarList: [
-      "Tipo: landing / sitio / blog / tienda",
-      "Secciones aproximadas",
-      "Objetivo: leads / ventas / agenda / contenido",
-      "¿Necesitas blog o productos?",
-      "¿Ya tienes dominio/hosting?",
-    ],
   },
   agendar: {
     title: "¿Lo vemos en 15 minutos?",
@@ -508,3 +495,10 @@ export const wordpressContent = {
     cta: { label: "Agendar videollamada", href: "https://cal.com/" },
   },
 } as const;
+
+
+
+
+
+
+

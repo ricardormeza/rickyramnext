@@ -81,7 +81,7 @@ export function MobileNav() {
               <Link href={siteConfig.agendaUrl}>Agendar llamada</Link>
             </Button>
             <Button className="w-full" asChild>
-              <Link href={siteConfig.whatsapp}>Cotizar</Link>
+              <Link href="/cotizar">Cotizar</Link>
             </Button>
           </div>
         </div>

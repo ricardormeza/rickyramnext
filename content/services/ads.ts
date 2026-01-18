@@ -112,7 +112,7 @@ export const adsServiceContent: ServiceContent = {
       "Revisión de conversion tracking (GA4/GTM), atribución y calidad de datos.",
       "Lista priorizada: quick wins (1–7 días) + roadmap (30 días).",
     ],
-    cta: { label: "Solicitar auditoría", href: "#cotizar" },
+    cta: { label: "Solicitar auditoría", href: "/cotizar?tab=servicios&tech=ads&plan=auditoria-de-google-ads-pago-unico" },
   },
 
   plans: {
@@ -280,6 +280,7 @@ export const adsServiceContent: ServiceContent = {
     { label: "Portafolio", href: "/portafolio" },
   ],
 };
+
 
 
 

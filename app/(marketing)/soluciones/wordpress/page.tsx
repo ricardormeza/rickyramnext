@@ -31,7 +31,6 @@ export default function WordpressSolutionPage() {
     addOns,
     faqs,
     finalCta,
-    quote,
     agendar,
   } = wordpressContent;
 
@@ -333,85 +332,13 @@ export default function WordpressSolutionPage() {
             </ul>
           </div>
         </div>
-        <Button className="mt-6" asChild>
-          <Link href={addOns.cta.href}>{addOns.cta.label}</Link>
-        </Button>
       </section>
 
       <section id="faq" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
         <FAQAccordion faqs={faqs} />
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <div className="rounded-3xl border bg-card p-8 text-center md:p-12">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            {finalCta.title}
-          </h2>
-          <p className="mt-3 text-sm text-muted-foreground md:text-base">
-            {finalCta.description}
-          </p>
-          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button asChild>
-              <Link href={finalCta.primaryCta.href}>{finalCta.primaryCta.label}</Link>
-            </Button>
-            <Button
-              variant="secondary"
-              className="border border-primary text-primary hover:bg-primary hover:text-white"
-              asChild
-            >
-              <Link href={finalCta.secondaryCta.href}>{finalCta.secondaryCta.label}</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <section id="cotizar" className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <div className="grid gap-8 rounded-3xl border bg-card p-8 md:grid-cols-2 md:p-10">
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-              {quote.title}
-            </h2>
-            <p className="mt-3 text-sm text-muted-foreground md:text-base">
-              {quote.description}
-            </p>
-            <form className="mt-6 space-y-4">
-              <input
-                type="text"
-                name="name"
-                placeholder={quote.fields.name}
-                className="w-full rounded-xl border bg-white px-4 py-3 text-sm"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder={quote.fields.email}
-                className="w-full rounded-xl border bg-white px-4 py-3 text-sm"
-              />
-              <textarea
-                name="project"
-                rows={4}
-                placeholder={quote.fields.project}
-                className="w-full rounded-xl border bg-white px-4 py-3 text-sm"
-              />
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <Button type="submit">{quote.submitLabel}</Button>
-                <Button variant="secondary" asChild>
-                  <Link href={siteConfig.whatsapp}>{quote.whatsappLabel}</Link>
-                </Button>
-              </div>
-            </form>
-            <p className="mt-4 text-xs text-muted-foreground">{quote.note}</p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold">{quote.sidebarTitle}</h3>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              {quote.sidebarList.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+      
 
       <section id="agendar" className="mx-auto max-w-6xl px-4 pb-16 md:px-6">
         <div className="rounded-3xl border bg-primary/10 p-8 md:p-10">

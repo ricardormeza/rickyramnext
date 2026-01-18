@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { PricingForm } from "@/components/pricing/PricingForm";
 import type { PricingSelection } from "@/components/pricing/types";
 import type { PricingTabItem } from "@/components/pricing/PricingTabs";
@@ -18,6 +19,9 @@ const inputStyles =
   "mt-2 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
 export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const hasAppliedParams = React.useRef(false);
   const firstTab = items[0]?.id ?? "";
   const [tabId, setTabId] = React.useState(initialSelection?.tab ?? firstTab);
   const [tech, setTech] = React.useState(initialSelection?.tech ?? "");
@@ -68,6 +72,65 @@ export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaPr
         price: selectedCard.price,
       }
     : undefined;
+
+  const updateUrl = React.useCallback(
+    (nextSelection: PricingSelection | undefined) => {
+      if (!nextSelection) return;
+      const nextTab = nextSelection.tab;
+      const nextTech = normalizeTech(nextSelection.tech);
+      const nextPlan = nextSelection.plan;
+      const currentTab = searchParams?.get("tab");
+      const currentTech = searchParams?.get("tech");
+      const currentPlan = searchParams?.get("plan");
+
+      if (currentTab === nextTab && currentTech === nextTech && currentPlan === nextPlan) {
+        return;
+      }
+
+      const params = new URLSearchParams(searchParams?.toString());
+      params.set("tab", nextTab);
+      params.set("tech", nextTech);
+      params.set("plan", nextPlan);
+      router.replace(`?${params.toString()}`, { scroll: false });
+    },
+    [router, searchParams]
+  );
+
+  React.useEffect(() => {
+    if (hasAppliedParams.current) return;
+    const tabParam = searchParams?.get("tab");
+    const techParam = searchParams?.get("tech");
+    const planParam = searchParams?.get("plan");
+    if (!tabParam || !techParam || !planParam) {
+      hasAppliedParams.current = true;
+      return;
+    }
+
+    const matchedTab = items.find((item) => item.id === tabParam);
+    if (!matchedTab) {
+      hasAppliedParams.current = true;
+      return;
+    }
+
+    const normalizedTech = normalizeTech(techParam);
+    const techCards = matchedTab.cards.filter(
+      (card) => normalizeTech(card.tech) === normalizedTech
+    );
+    const matchedCard = techCards.find((card) => card.plan === planParam);
+
+    if (techCards.length) {
+      setTabId(matchedTab.id);
+      setTech(techCards[0].tech);
+      setPlan(matchedCard?.plan ?? techCards[0].plan);
+    }
+
+    hasAppliedParams.current = true;
+  }, [items, searchParams]);
+
+  React.useEffect(() => {
+    if (!hasAppliedParams.current || !selection) return;
+    updateUrl(selection);
+  }, [selection, updateUrl]);
 
   return (
     <div className="space-y-6">

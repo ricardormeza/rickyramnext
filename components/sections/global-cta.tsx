@@ -17,7 +17,7 @@ export function GlobalCta() {
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
           <Button asChild>
-            <Link href={siteConfig.whatsapp}>Cotizar ahora</Link>
+            <Link href="/cotizar">Cotizar ahora</Link>
           </Button>
           <Button
             variant="secondary"
