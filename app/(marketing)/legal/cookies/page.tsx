@@ -1,3 +1,5 @@
+import { CookieSettingsButton } from "@/components/legal/CookieSettingsButton";
+
 export default function CookiesPage() {
   return (
     <main className="mx-auto max-w-4xl px-6 py-16 text-foreground">
@@ -217,6 +219,10 @@ export default function CookiesPage() {
           <p>Si tienes dudas sobre cookies o privacidad, contáctanos en:</p>
           <p>Correo: [contacto@rickyram.dev]</p>
           <p>WhatsApp: [663 101 6627]</p>
+        </div>
+
+        <div className="pt-2">
+          <CookieSettingsButton />
         </div>
       </section>
     </main>
