@@ -27,7 +27,11 @@ export function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          <Button variant="ghost" asChild>
+          <Button
+            variant="outline"
+            className="border-primary text-primary hover:bg-primary/10 hover:text-primary"
+            asChild
+          >
             <Link href={siteConfig.agendaUrl}>Agendar llamada</Link>
           </Button>
           <Button asChild>

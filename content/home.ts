@@ -91,8 +91,8 @@ export const homeContent = {
       {
         title: "WordPress Starter",
         bullets: [
-          "Landing: $6,900",
-          "Sitio 5 paginas: $9,900",
+          "Landing: $5,900",
+          "Sitio 5 paginas: $7,900",
           "PyME 10-15 paginas: $19,900",
         ],
         cta: "Ver paquetes WordPress",

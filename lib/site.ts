@@ -4,7 +4,7 @@ export const siteConfig = {
   whatsapp: "https://wa.me/526631016627",
   whatsappDisplay: "663 101 6627",
   email: "contacto@rickyram.dev",
-  agendaUrl: "https://cal.com/",
+  agendaUrl: "/Agendar-llamada",
   socials: {
     facebook: "https://web.facebook.com/rickyramweb",
     instagram: "https://www.instagram.com/rickyram.dev/",

@@ -22,6 +22,7 @@ export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaPr
   const router = useRouter();
   const searchParams = useSearchParams();
   const hasAppliedParams = React.useRef(false);
+  const searchParamsRef = React.useRef(searchParams);
   const firstTab = items[0]?.id ?? "";
   const [tabId, setTabId] = React.useState(initialSelection?.tab ?? firstTab);
   const [tech, setTech] = React.useState(initialSelection?.tech ?? "");
@@ -79,21 +80,22 @@ export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaPr
       const nextTab = nextSelection.tab;
       const nextTech = normalizeTech(nextSelection.tech);
       const nextPlan = nextSelection.plan;
-      const currentTab = searchParams?.get("tab");
-      const currentTech = searchParams?.get("tech");
-      const currentPlan = searchParams?.get("plan");
+      const paramsSnapshot = searchParamsRef.current;
+      const currentTab = paramsSnapshot?.get("tab");
+      const currentTech = paramsSnapshot?.get("tech");
+      const currentPlan = paramsSnapshot?.get("plan");
 
       if (currentTab === nextTab && currentTech === nextTech && currentPlan === nextPlan) {
         return;
       }
 
-      const params = new URLSearchParams(searchParams?.toString());
+      const params = new URLSearchParams(paramsSnapshot?.toString());
       params.set("tab", nextTab);
       params.set("tech", nextTech);
       params.set("plan", nextPlan);
       router.replace(`?${params.toString()}`, { scroll: false });
     },
-    [router, searchParams]
+    [router]
   );
 
   React.useEffect(() => {
@@ -131,6 +133,10 @@ export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaPr
     if (!hasAppliedParams.current || !selection) return;
     updateUrl(selection);
   }, [selection, updateUrl]);
+
+  React.useEffect(() => {
+    searchParamsRef.current = searchParams;
+  }, [searchParams]);
 
   return (
     <div className="space-y-6">
