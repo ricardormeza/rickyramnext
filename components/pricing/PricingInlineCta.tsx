@@ -1,0 +1,144 @@
+"use client";
+
+import * as React from "react";
+import { PricingForm } from "@/components/pricing/PricingForm";
+import type { PricingSelection } from "@/components/pricing/types";
+import type { PricingTabItem } from "@/components/pricing/PricingTabs";
+import { cn } from "@/lib/utils";
+
+const normalizeTech = (tech: string) =>
+  tech.toLowerCase().replace(".", "").replace(/\s+/g, "");
+
+type PricingInlineCtaProps = {
+  items: readonly PricingTabItem[];
+  initialSelection?: PricingSelection | null;
+};
+
+const inputStyles =
+  "mt-2 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
+
+export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaProps) {
+  const firstTab = items[0]?.id ?? "";
+  const [tabId, setTabId] = React.useState(initialSelection?.tab ?? firstTab);
+  const [tech, setTech] = React.useState(initialSelection?.tech ?? "");
+  const [plan, setPlan] = React.useState(initialSelection?.plan ?? "");
+
+  const tabItem = React.useMemo(
+    () => items.find((item) => item.id === tabId) ?? items[0],
+    [items, tabId]
+  );
+
+  const techOptions = React.useMemo(() => {
+    if (!tabItem) return [];
+    return Array.from(new Set(tabItem.cards.map((card) => card.tech)));
+  }, [tabItem]);
+
+  React.useEffect(() => {
+    if (!tabItem) return;
+    if (!tech || !techOptions.includes(tech)) {
+      setTech(techOptions[0] ?? "");
+    }
+  }, [tabItem, tech, techOptions]);
+
+  const planOptions = React.useMemo(() => {
+    if (!tabItem || !tech) return [];
+    return tabItem.cards.filter((card) => card.tech === tech);
+  }, [tabItem, tech]);
+
+  React.useEffect(() => {
+    if (!planOptions.length) return;
+    if (!plan || !planOptions.some((card) => card.plan === plan)) {
+      setPlan(planOptions[0]?.plan ?? "");
+    }
+  }, [plan, planOptions]);
+
+  const selectedCard = React.useMemo(() => {
+    if (!tabItem || !tech || !plan) return null;
+    return tabItem.cards.find(
+      (card) => normalizeTech(card.tech) === normalizeTech(tech) && card.plan === plan
+    );
+  }, [plan, tabItem, tech]);
+
+  const selection: PricingSelection | undefined = selectedCard
+    ? {
+        tab: tabItem?.id ?? "",
+        tech: selectedCard.tech,
+        plan: selectedCard.plan,
+        title: selectedCard.title,
+        price: selectedCard.price,
+      }
+    : undefined;
+
+  return (
+    <div className="space-y-6">
+      <div className="grid gap-4 md:grid-cols-3">
+        <label className="text-sm font-semibold text-foreground">
+          Tipo de proyecto
+          <select
+            value={tabId}
+            onChange={(event) => {
+              const nextTab = event.target.value;
+              setTabId(nextTab);
+              setTech("");
+              setPlan("");
+            }}
+            className={inputStyles}
+          >
+            {items.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.label}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className="text-sm font-semibold text-foreground">
+          Tecnologia
+          <select
+            value={tech}
+            onChange={(event) => {
+              setTech(event.target.value);
+              setPlan("");
+            }}
+            className={inputStyles}
+          >
+            {techOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className="text-sm font-semibold text-foreground">
+          Plan
+          <select
+            value={plan}
+            onChange={(event) => setPlan(event.target.value)}
+            className={cn(inputStyles, !planOptions.length && "opacity-70")}
+          >
+            {planOptions.map((option) => (
+              <option key={option.plan} value={option.plan}>
+                {option.title}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      <PricingForm
+        selectedPlan={selection}
+        defaultValues={
+          selection
+            ? {
+                tab: selection.tab,
+                tech: selection.tech,
+                plan: selection.plan,
+              }
+            : undefined
+        }
+        variant="inline"
+      />
+    </div>
+  );
+}
