@@ -9,7 +9,7 @@ export default function ContactoPage() {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14980704.286144285!2d-102.62050004999999!3d23.554126900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xae6493d7e71d6001%3A0x86a4ea7aa65d1a38!2sDise%C3%B1o%20de%20sitios%20web%20%7C%20RickyRam.dev!5e0!3m2!1ses!2smx!4v1768721729321!5m2!1ses!2smx"
               width="100%"
               height="100%"
-              style={{ border: 0, filter: "grayscale(1) contrast(1.2) opacity(0.4)" }}
+              style={{ border: 0, }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -17,9 +17,9 @@ export default function ContactoPage() {
             />
             <div className="relative flex w-full flex-wrap rounded-2xl bg-card/95 p-6 shadow-lg backdrop-blur">
               <div className="w-full space-y-2 px-4 pb-6 lg:w-1/2 lg:pb-0">
-                <h2 className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
+                <h1 className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
                   Contacto
-                </h2>
+                </h1>
                 <p className="text-sm text-muted-foreground">
                   Tijuana, Baja California, Mexico.
                 </p>
@@ -80,7 +80,7 @@ export default function ContactoPage() {
           </div>
 
           <div className="flex w-full flex-col bg-background md:ml-auto md:w-1/2 md:py-8 lg:w-1/3">
-            <h2 className="mb-1 text-lg font-semibold text-foreground">Escribeme</h2>
+            <h2 className="mb-1 text-lg font-semibold text-foreground">Escríbeme</h2>
             <p className="mb-6 text-sm text-muted-foreground">
               Respuesta en menos de 48 horas habiles.
             </p>

@@ -29,11 +29,11 @@ export default function SolucionesPage() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mx-auto mt-4 max-w-[90%] text-2xl font-semibold tracking-tight text-foreground md:text-5xl font-black"
         >
-          <ShinyText text="Branding potente y sitios web que convierten en WordPress, Astro y
-          Next.js para negocios que quieren crecer."
-          color="#1881ff"
-          shineColor="#000000"
-/>
+          <ShinyText
+            text="Branding potente y sitios web que convierten en WordPress, Astro y Next.js para negocios que quieren crecer."
+            color="#1881ff"
+            shineColor="#000000"
+          />
          
         </motion.h2>
       </section>

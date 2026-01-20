@@ -179,7 +179,7 @@ export const homeContent = {
       {
         title: "Ciberseguridad",
         description: "Hardening, monitoreo y auditorias.",
-        price: "Desde $3,900/mes",
+        price: "Desde $2,900/mes",
       },
       {
         title: "Chatbots + Automatizacion",
@@ -196,6 +196,7 @@ export const homeContent = {
       {
         title: "Proyecto GGJ Contabilidad",
         stack: "Astro",
+        href: "https://ggjcontabilidad.com/",
         bullets: [
           "Objetivo: leads para servicios",
           "Rediseño + performance + SEO basico",
@@ -205,6 +206,7 @@ export const homeContent = {
       {
         title: "Proyecto Unete",
         stack: "WordPress",
+        href: "#proyecto",
         bullets: [
           "Objetivo: contenido editable",
           "Arquitectura + UX + formularios",
@@ -214,6 +216,7 @@ export const homeContent = {
       {
         title: "Proyecto Rickyram",
         stack: "Next.js",
+        href: "#proyecto",
         bullets: [
           "Objetivo: web premium",
           "UI kit + animaciones + SEO tecnico",
@@ -243,7 +246,7 @@ export const homeContent = {
   },
   faqs: [
     {
-      question: "Que tecnologia me conviene?",
+      question: "¿Qué tecnologia me conviene?",
       answer:
         "Si quieres vender rapido con maxima velocidad: Astro. Si necesitas editar contenido facil: WordPress. Si necesitas funciones a medida: Next.js.",
     },

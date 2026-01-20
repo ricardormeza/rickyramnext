@@ -24,28 +24,35 @@ const projects: Project[] = [
     description: "Despacho contable + SEO + Redes",
     image: "/portafolio/ggjcontabilidad1.webp",
     tags: ["WordPress"],
-    href: "#",
+    href: "https://ggjcontabilidad.com/",
   },
   {
     title: "Unete Psic.Yeimy",
     description: "Sitio web + SEO + GA4",
     image: "/portafolio/bienestarunete2.webp",
     tags: ["WordPress"],
-    href: "#",
+    href: "https://bienestar-unete.com/",
   },
   {
     title: "Casa del migrante en Tijuana",
     description: "Hardening + sitio web + GA4",
     image: "/portafolio/casadelmigrantetijuana3.webp",
     tags: ["WordPress"],
-    href: "#",
+    href: "https://casadelmigrantetijuana.com/",
   },
   {
     title: "FashionRC",
     description: "Card digital + SEO",
     image: "/portafolio/fashionrc4.webp",
     tags: ["WordPress"],
-    href: "#",
+    href: "https://fashionrc.shop/",
+  },
+  {
+    title: "Rickyram Tienda",
+    description: "E-commerce + SEO",
+    image: "/portafolio/Portafolio-tienda-woocomerce.png",
+    tags: ["Woocomerce"],
+    href: "https://rickyram.top/",
   },
 ];
 
@@ -120,6 +127,8 @@ export function PortfolioPreview() {
                 <Link
                   href={project.href}
                   className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white text-slate-900 shadow-[0_18px_50px_rgba(15,23,42,0.18)] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={`Abrir ${project.title}`}
                 >
                   <div className="relative h-48 w-full overflow-hidden sm:h-56">
