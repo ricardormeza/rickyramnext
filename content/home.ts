@@ -92,8 +92,8 @@ export const homeContent = {
         title: "WordPress Starter",
         bullets: [
           "Landing: $5,900",
-          "Sitio 5 paginas: $7,900",
-          "PyME 10-15 paginas: $19,900",
+          "Sitio 6 páginas: $7,900",
+          "PyME 10-12 páginas: $12,900",
         ],
         cta: "Ver paquetes WordPress",
         href: "/soluciones/wordpress",
@@ -101,9 +101,9 @@ export const homeContent = {
       {
         title: "Astro Starter",
         bullets: [
-          "Landing: $7,900",
-          "Sitio 5 páginas: $14,900",
-          "PyME 10-12 secciones: $24,900",
+          "Landing: $6,900",
+          "Sitio 6 páginas: $8,900",
+          "PyME 10-12 secciones: $14,900",
         ],
         cta: "Ver paquetes Astro",
         href: "/soluciones/astro",
@@ -111,9 +111,9 @@ export const homeContent = {
       {
         title: "Next.js (Premium)",
         bullets: [
-          "Landing: $14,900",
-          "Sitio 3 páginas: $32,900",
-          "PyME 5 páginas: $49,900",
+          "Landing: $12,900",
+          "Sitio 7 páginas: $16,900",
+          "PyME 10 páginas: Desde $22,900",
         ],
         cta: "Ver Next.js",
         href: "/soluciones/nextjs",
@@ -148,7 +148,7 @@ export const homeContent = {
         title: "SEO mensual",
         description:
           "Posicionamiento, contenido y mejoras tecnicas para crecer.",
-        price: "Desde $1,500/mes",
+        price: "Desde $3,500/mes",
       },
       {
         title: "Google Ads",
@@ -174,12 +174,12 @@ export const homeContent = {
       {
         title: "Mantenimiento web",
         description: "Backups, updates y cambios mensuales.",
-        price: "Desde $1,690/mes",
+        price: "Desde $1,250/mes",
       },
       {
         title: "Ciberseguridad",
         description: "Hardening, monitoreo y auditorias.",
-        price: "Desde $1,900/mes",
+        price: "Desde $3,900/mes",
       },
       {
         title: "Chatbots + Automatizacion",

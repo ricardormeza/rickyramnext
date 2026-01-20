@@ -191,7 +191,7 @@ const monthlyPackages = {
         "Tracking basico (si no existe)",
         "Reporte mensual + mejoras puntuales",
       ],
-      price: "Desde $6,900 MXN / mes",
+      price: "Desde $5,900 MXN / mes",
       cta: "Cotizar Growth Starter",
     },
     {
