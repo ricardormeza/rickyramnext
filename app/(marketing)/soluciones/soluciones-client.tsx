@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { BlogPreview } from "@/components/sections/blog-preview";
+import { BlogPreview, type BlogPreviewPost } from "@/components/sections/blog-preview";
 import { FAQAccordion } from "@/components/sections/faq-accordion";
 import { FinalCta } from "@/components/sections/final-cta";
 import { PortfolioPreview } from "@/components/sections/portfolio-preview";
@@ -16,7 +16,11 @@ import { StarterPricingPreview } from "@/components/sections/starter-pricing-pre
 import ShinyText from "@/components/ui/ShinyText";
 import TextType from "@/components/ui/TextType";
 
-export default function SolucionesClient() {
+type SolucionesClientProps = {
+  blogPosts: BlogPreviewPost[];
+};
+
+export default function SolucionesClient({ blogPosts }: SolucionesClientProps) {
   return (
     <>
       <section className="mx-auto max-w-6xl px-4 pb-6 pt-12 text-center md:px-6 md:pt-16">
@@ -63,7 +67,7 @@ export default function SolucionesClient() {
       <StarterIncludes />
       <ServicesPreviewGrid />
       <PortfolioPreview />
-      <BlogPreview />
+      <BlogPreview posts={blogPosts} />
       <ProcessSteps />
       <FAQAccordion />
       <FinalCta />

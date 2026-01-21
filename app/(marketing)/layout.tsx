@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/shared/site-header";
 import { SiteFooter } from "@/components/shared/site-footer";
 import { GlobalCta } from "@/components/sections/global-cta";
 import { ScrollToTop } from "@/components/shared/scroll-to-top";
+import { BotAssist } from "@/components/shared/bot-assist";
 
 type MarketingLayoutProps = {
   children: ReactNode;
@@ -22,6 +23,7 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
       <main className="flex-1">{children}</main>
       {hideFooter ? null : <GlobalCta />}
       {hideFooter ? null : <SiteFooter />}
+      <BotAssist />
       <ScrollToTop />
     </div>
   );

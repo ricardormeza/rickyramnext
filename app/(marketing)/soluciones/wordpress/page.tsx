@@ -260,51 +260,55 @@ export default function WordpressSolutionPage() {
 
       <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
         <h3 className="font-semibold text-center mt-4 mb-4 md:text-xl">Tabla comparativa de planes de sitios Wordpress Starter</h3>
-        <div className="rounded-3xl border bg-white">
-          <div className="border-b px-6 py-4 text-sm font-semibold text-muted-foreground">
-            Tabla comparativa de planes WordPress (sitio)
-          </div>
-          <div className="grid grid-cols-5 border-b bg-muted/40 text-sm font-semibold text-muted-foreground">
-            <div className="p-4">Caracteristica</div>
-            <div className="p-4 text-center">Express</div>
-            <div className="p-4 text-center">Landing</div>
-            <div className="p-4 text-center">Profesional</div>
-            <div className="p-4 text-center">Presencia Online</div>
-          </div>
-          {sitePlans.map((row) => (
-            <div key={row.label} className="grid grid-cols-5 border-b text-sm">
-              <div className="p-4 font-medium">{row.label}</div>
-              {row.values.map((value, idx) => (
-                <div key={`${row.label}-${idx}`} className="p-4 text-center">
-                  {value}
-                </div>
-              ))}
+        <div className="overflow-x-auto rounded-3xl border bg-white">
+          <div className="min-w-[720px]">
+            <div className="border-b px-6 py-4 text-sm font-semibold text-muted-foreground">
+              Tabla comparativa de planes WordPress (sitio)
             </div>
-          ))}
+            <div className="grid grid-cols-5 border-b bg-muted/40 text-sm font-semibold text-muted-foreground">
+              <div className="p-4">Caracteristica</div>
+              <div className="p-4 text-center">Express</div>
+              <div className="p-4 text-center">Landing</div>
+              <div className="p-4 text-center">Profesional</div>
+              <div className="p-4 text-center">Presencia Online</div>
+            </div>
+            {sitePlans.map((row) => (
+              <div key={row.label} className="grid grid-cols-5 border-b text-sm">
+                <div className="p-4 font-medium">{row.label}</div>
+                {row.values.map((value, idx) => (
+                  <div key={`${row.label}-${idx}`} className="p-4 text-center">
+                    {value}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
         <div className="mt-6">
           <h3 id="tiendas" className="mt-6 font-semibold text-center mb-4">Tiendas en linea con WooCommerce</h3>
           <PackageTabs items={storePackageTabs} />
         </div>
-        <div className="mt-6 rounded-3xl border bg-white">
-          <div className="border-b px-6 py-4 text-sm font-semibold text-muted-foreground">
-            Planes de tienda (WooCommerce)
-          </div>
-          <div className="grid grid-cols-3 border-b bg-muted/40 text-sm font-semibold text-muted-foreground">
-            <div className="p-4">Caracteristica</div>
-            <div className="p-4 text-center">Mi Tienda Online</div>
-            <div className="p-4 text-center">Corporativo Elite</div>
-          </div>
-          {storePlans.map((row) => (
-            <div key={row.label} className="grid grid-cols-3 border-b text-sm">
-              <div className="p-4 font-medium">{row.label}</div>
-              {row.values.map((value, idx) => (
-                <div key={`${row.label}-${idx}`} className="p-4 text-center">
-                  {value}
-                </div>
-              ))}
+        <div className="mt-6 overflow-x-auto rounded-3xl border bg-white">
+          <div className="min-w-[560px]">
+            <div className="border-b px-6 py-4 text-sm font-semibold text-muted-foreground">
+              Planes de tienda (WooCommerce)
             </div>
-          ))}
+            <div className="grid grid-cols-3 border-b bg-muted/40 text-sm font-semibold text-muted-foreground">
+              <div className="p-4">Caracteristica</div>
+              <div className="p-4 text-center">Mi Tienda Online</div>
+              <div className="p-4 text-center">Corporativo Elite</div>
+            </div>
+            {storePlans.map((row) => (
+              <div key={row.label} className="grid grid-cols-3 border-b text-sm">
+                <div className="p-4 font-medium">{row.label}</div>
+                {row.values.map((value, idx) => (
+                  <div key={`${row.label}-${idx}`} className="p-4 text-center">
+                    {value}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
