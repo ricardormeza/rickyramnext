@@ -267,11 +267,9 @@ export function ServiceDetailTemplate({ content }: ServiceDetailTemplateProps) {
         </section>
       </ScrollReveal>
 
-      <ScrollReveal {...getRevealProps(9)}>
-        <section className="mx-auto max-w-6xl px-4 md:px-6">
-          <FAQAccordion faqs={faqs} />
-        </section>
-      </ScrollReveal>
+      <section className="mx-auto max-w-6xl px-4 md:px-6">
+        <FAQAccordion faqs={faqs} />
+      </section>
 
       <ScrollReveal {...getRevealProps(10)}>
         <section id={finalCta.id} className="mx-auto max-w-6xl px-4 md:px-6">
