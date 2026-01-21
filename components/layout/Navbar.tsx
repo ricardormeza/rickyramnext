@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { NavMegaMenu } from "@/components/layout/NavMegaMenu";
+import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { siteConfig } from "@/lib/site";
 
 export function Navbar() {
@@ -27,6 +28,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
           <Button
             variant="outline"
             className="border-primary text-primary hover:bg-primary/10 hover:text-primary"
@@ -39,7 +41,10 @@ export function Navbar() {
           </Button>
         </div>
 
-        <MobileNav />
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <MobileNav />
+        </div>
       </div>
     </header>
   );
