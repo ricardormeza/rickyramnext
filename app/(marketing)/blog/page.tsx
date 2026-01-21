@@ -48,16 +48,21 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  const posts = await wpFetch<WPPost[]>(
-    "/posts",
-    {
-      per_page: 9,
-      _embed: 1,
-      orderby: "date",
-      order: "desc",
-    },
-    { revalidate: 300 }
-  );
+  let posts: WPPost[] = [];
+  try {
+    posts = await wpFetch<WPPost[]>(
+      "/posts",
+      {
+        per_page: 9,
+        _embed: 1,
+        orderby: "date",
+        order: "desc",
+      },
+      { revalidate: 300 }
+    );
+  } catch {
+    posts = [];
+  }
 
   return (
     <section className="body-font text-gray-600">

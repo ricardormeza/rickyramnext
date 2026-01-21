@@ -39,15 +39,19 @@ function truncate(text: string, maxLength: number) {
 
 async function getPostBySlug(slug?: string) {
   if (!slug) return null;
-  const posts = await wpFetch<WPPost[]>(
-    "/posts",
-    {
-      slug,
-      _embed: 1,
-    },
-    { revalidate: 300 }
-  );
-  return posts[0] ?? null;
+  try {
+    const posts = await wpFetch<WPPost[]>(
+      "/posts",
+      {
+        slug,
+        _embed: 1,
+      },
+      { revalidate: 300 }
+    );
+    return posts[0] ?? null;
+  } catch {
+    return null;
+  }
 }
 
 async function resolveSlug(
@@ -58,41 +62,45 @@ async function resolveSlug(
 }
 
 async function getSidebarData(postId?: number) {
-  const [recentPosts, categories, tags] = await Promise.all([
-    wpFetch<WPPost[]>(
-      "/posts",
-      {
-        per_page: 4,
-        _embed: 1,
-        orderby: "date",
-        order: "desc",
-        ...(postId ? { exclude: postId } : {}),
-      },
-      { revalidate: 300 }
-    ),
-    wpFetch<WPTerm[]>(
-      "/categories",
-      {
-        per_page: 8,
-        orderby: "count",
-        order: "desc",
-        hide_empty: true,
-      },
-      { revalidate: 300 }
-    ),
-    wpFetch<WPTerm[]>(
-      "/tags",
-      {
-        per_page: 12,
-        orderby: "count",
-        order: "desc",
-        hide_empty: true,
-      },
-      { revalidate: 300 }
-    ),
-  ]);
+  try {
+    const [recentPosts, categories, tags] = await Promise.all([
+      wpFetch<WPPost[]>(
+        "/posts",
+        {
+          per_page: 4,
+          _embed: 1,
+          orderby: "date",
+          order: "desc",
+          ...(postId ? { exclude: postId } : {}),
+        },
+        { revalidate: 300 }
+      ),
+      wpFetch<WPTerm[]>(
+        "/categories",
+        {
+          per_page: 8,
+          orderby: "count",
+          order: "desc",
+          hide_empty: true,
+        },
+        { revalidate: 300 }
+      ),
+      wpFetch<WPTerm[]>(
+        "/tags",
+        {
+          per_page: 12,
+          orderby: "count",
+          order: "desc",
+          hide_empty: true,
+        },
+        { revalidate: 300 }
+      ),
+    ]);
 
-  return { recentPosts, categories, tags };
+    return { recentPosts, categories, tags };
+  } catch {
+    return { recentPosts: [], categories: [], tags: [] };
+  }
 }
 
 export async function generateMetadata({
