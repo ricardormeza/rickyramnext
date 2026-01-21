@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ComingSoon } from "@/components/sections/coming-soon";
+import { PortfolioPreview } from "@/components/sections/portfolio-preview";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -24,5 +24,5 @@ export const metadata: Metadata = {
 };
 
 export default function PortafolioPage() {
-  return <ComingSoon title="Portafolio en construccion" />;
+  return <PortfolioPreview />;
 }

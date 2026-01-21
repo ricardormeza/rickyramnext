@@ -69,7 +69,10 @@ export function PortfolioPreview() {
     <section className="w-full min-h-[80vh] bg-primary text-white">
       <div className="mx-auto max-w-6xl px-4 pb-6 pt-12 md:px-6 md:pt-16">
         <div className="space-y-3 text-center">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-4xl">
+          <h1 className="text-2xl font-semibold tracking-tight md:text-4xl">
+            Portafolio
+          </h1>
+          <h2 className="text-lg font-semibold tracking-tight md:text-2xl">
             Trabajo real, Resultados reales.
           </h2>
           <p className="text-sm text-white/70 md:text-base">
