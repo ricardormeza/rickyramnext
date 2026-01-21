@@ -34,16 +34,21 @@ function getFeaturedMedia(post: WPPost) {
 }
 
 export default async function SolucionesPage() {
-  const posts = await wpFetch<WPPost[]>(
-    "/posts",
-    {
-      per_page: 3,
-      _embed: 1,
-      orderby: "date",
-      order: "desc",
-    },
-    { revalidate: 300 }
-  );
+  let posts: WPPost[] = [];
+  try {
+    posts = await wpFetch<WPPost[]>(
+      "/posts",
+      {
+        per_page: 3,
+        _embed: 1,
+        orderby: "date",
+        order: "desc",
+      },
+      { revalidate: 300 }
+    );
+  } catch {
+    posts = [];
+  }
 
   const blogPosts = posts.map((post) => {
     const media = getFeaturedMedia(post);
