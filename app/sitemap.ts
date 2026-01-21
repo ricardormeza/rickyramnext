@@ -53,8 +53,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const [posts, categories, tags] = await Promise.all([
       fetchAll<WPPost>("/posts", { _embed: 1 }),
-      fetchAll<WPTerm>("/categories", { hide_empty: true }),
-      fetchAll<WPTerm>("/tags", { hide_empty: true }),
+      fetchAll<WPTerm>("/categories", { hide_empty: 1 }),
+      fetchAll<WPTerm>("/tags", { hide_empty: 1 }),
     ]);
 
     posts.forEach((post) => {
