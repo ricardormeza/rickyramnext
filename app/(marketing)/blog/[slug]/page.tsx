@@ -127,6 +127,12 @@ export async function generateMetadata({
       type: "article",
       images: media?.source_url ? [{ url: media.source_url }] : undefined,
     },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: media?.source_url ? [media.source_url] : undefined,
+    },
   };
 }
 

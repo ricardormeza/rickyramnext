@@ -1,11 +1,11 @@
 export const astroMetadata = {
-  title: "Sitios web en Astro ultra rapidos (SEO-ready) | Rickyram.dev",
+  title: "Sitios web en Astro ultra rápidos (SEO-ready) | Rickyram.dev",
   description:
-    "Creamos landings y sitios corporativos en Astro: velocidad brutal, seguridad y SEO basico incluido. Paquetes Starter desde $7,900 MXN. Ideal para marketing, servicios y campanas.",
+    "Creamos landings y sitios corporativos en Astro: velocidad brutal, seguridad y SEO básico incluido. Paquetes Starter desde $7,900 MXN. Ideal para marketing, servicios y campañas.",
   openGraph: {
-    title: "Astro: sitios ultra rapidos que convierten | Rickyram.dev",
+    title: "Astro: sitios ultra rápidos que convierten | Rickyram.dev",
     description:
-      "La opcion ideal para marketing: performance, SEO básico, full responsive y alcance claro. Desde $7,900 MXN.",
+      "La opción ideal para marketing: performance, SEO básico, full responsive y alcance claro. Desde $7,900 MXN.",
   },
 } as const;
 
@@ -145,11 +145,11 @@ export const astroContent = {
       {
         name: "Landing Starter",
         idealFor: "Campñas, un servicio, validacion rapida",
-        scope: "Hasta 6-8 bloques en 1 pagina",
+        scope: "Hasta 6-8 bloques en 1 página",
         price: "Desde $7,900",
       },
       {
-        name: "Sitio basico Starter",
+        name: "Sitio Básico Starter",
         idealFor: "Negocio de servicios",
         scope: "4-5 Páginas (Inicio, Somos, Servicios, Contacto)",
         price: "Desde $9,900",
@@ -178,28 +178,30 @@ export const astroContent = {
       {
         title: "Landing Starter (alcance tipico)",
         bullets: [
-          "1 pagina",
-          "6-8 bloques (hero, beneficios, servicios, prueba social, FAQ, contacto)",
+          "1 Página",
+          "6-8 Bloques (hero, beneficios, servicios, prueba social, FAQ, contacto)",
           "1 formulario simple o boton a WhatsApp",
           "1 idioma",
           "1 ronda de cambios + 1 ronda de correcciones",
         ],
       },
       {
-        title: "Sitio basico Starter (alcance tipico)",
+        title: "Sitio Básico Starter (alcance tipico)",
         bullets: [
-          "Hasta 5 páginas",
+          "Hasta 5 a 6 páginas",
           "1-3 páginas extra simples (ej: Aviso de privacidad / Gracias / Contacto)",
           "1 Formularios básicos",
+          "1 idioma",
           "1-2 rondas de cambios (segun acuerdo)",
         ],
       },
       {
         title: "PyME Starter (alcance tipico)",
         bullets: [
-          "10-12 páginas",
+          "10-12 Páginas",
           "Estructura de conversion mas completa (mas CTA, mas prueba social)",
           "2 Formularios básicos",
+          "1 idioma",
           "Preparacion para escalar a tracking/Ads/SEO mensual",
         ],
       },

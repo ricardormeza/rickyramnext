@@ -1,3 +1,30 @@
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Contacto",
+  description:
+    "Contáctanos para cotizar tu sitio web, SEO o campañas. Respuesta en menos de 48 horas.",
+  alternates: {
+    canonical: "/contacto",
+  },
+  openGraph: {
+    title: "Contacto",
+    description:
+      "Contáctanos para cotizar tu sitio web, SEO o campañas. Respuesta en menos de 48 horas.",
+    url: `${siteConfig.siteUrl}/contacto`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contacto",
+    description:
+      "Contáctanos para cotizar tu sitio web, SEO o campañas. Respuesta en menos de 48 horas.",
+  },
+};
+
 export default function ContactoPage() {
   return (
     <main>

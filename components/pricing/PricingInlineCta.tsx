@@ -23,6 +23,7 @@ export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaPr
   const router = useRouter();
   const searchParams = useSearchParams();
   const hasAppliedParams = React.useRef(false);
+  const hasUserInteracted = React.useRef(false);
   const searchParamsRef = React.useRef(searchParams);
   const firstTab = items[0]?.id ?? "";
   const [tabId, setTabId] = React.useState(initialSelection?.tab ?? firstTab);
@@ -141,7 +142,7 @@ export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaPr
   }, [items, searchParams]);
 
   React.useEffect(() => {
-    if (!hasAppliedParams.current || !selection) return;
+    if (!hasAppliedParams.current || !selection || !hasUserInteracted.current) return;
     updateUrl(selection);
   }, [selection, updateUrl]);
 
@@ -157,6 +158,7 @@ export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaPr
           <select
             value={tabId}
             onChange={(event) => {
+              hasUserInteracted.current = true;
               const nextTab = event.target.value;
               setTabId(nextTab);
               setTech("");
@@ -177,6 +179,7 @@ export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaPr
           <select
             value={tech}
             onChange={(event) => {
+              hasUserInteracted.current = true;
               setTech(event.target.value as PricingCardData["tech"]);
               setPlan("");
             }}
@@ -194,7 +197,10 @@ export function PricingInlineCta({ items, initialSelection }: PricingInlineCtaPr
           Plan
           <select
             value={plan}
-            onChange={(event) => setPlan(event.target.value)}
+            onChange={(event) => {
+              hasUserInteracted.current = true;
+              setPlan(event.target.value);
+            }}
             className={cn(inputStyles, !planOptions.length && "opacity-70")}
           >
             {planOptions.map((option) => (

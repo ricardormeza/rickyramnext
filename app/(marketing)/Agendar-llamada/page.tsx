@@ -1,26 +1,28 @@
-"use client";
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site";
+import AgendarLlamadaClient from "./agendar-llamada-client";
 
-import { useEffect } from "react";
-import Cal, { getCalApi } from "@calcom/embed-react";
+export const metadata: Metadata = {
+  title: "Agendar llamada",
+  description: "Agenda una videollamada corta para definir tu proyecto.",
+  alternates: {
+    canonical: "/Agendar-llamada",
+  },
+  openGraph: {
+    title: "Agendar llamada",
+    description: "Agenda una videollamada corta para definir tu proyecto.",
+    url: `${siteConfig.siteUrl}/Agendar-llamada`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Agendar llamada",
+    description: "Agenda una videollamada corta para definir tu proyecto.",
+  },
+};
 
 export default function AgendarLlamadaPage() {
-  useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({ namespace: "assessment" });
-      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
-    })();
-  }, []);
-
-  return (
-    <main className="min-h-screen px-4 py-8">
-      <div className="h-[calc(100vh-8rem)] w-full">
-        <Cal
-          namespace="assessment"
-          calLink="ricardo-ramirez-meza-ye8kuu/assessment"
-          style={{ width: "100%", height: "100%", overflow: "scroll" }}
-          config={{ layout: "month_view" }}
-        />
-      </div>
-    </main>
-  );
+  return <AgendarLlamadaClient />;
 }

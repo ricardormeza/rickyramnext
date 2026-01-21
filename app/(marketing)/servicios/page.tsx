@@ -12,6 +12,32 @@ import {
 import { FAQAccordion } from "@/components/sections/faq-accordion";
 import { Button } from "@/components/ui/button";
 import { ProcessSteps } from "@/components/sections/process-steps";
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Servicios para crecer tu web",
+  description:
+    "SEO, Ads, Analítica, Automatización y Ciberseguridad para convertir tu web en un canal real de crecimiento.",
+  alternates: {
+    canonical: "/servicios",
+  },
+  openGraph: {
+    title: "Servicios para crecer tu web",
+    description:
+      "SEO, Ads, Analítica, Automatización y Ciberseguridad para convertir tu web en un canal real de crecimiento.",
+    url: `${siteConfig.siteUrl}/servicios`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Servicios para crecer tu web",
+    description:
+      "SEO, Ads, Analítica, Automatización y Ciberseguridad para convertir tu web en un canal real de crecimiento.",
+  },
+};
 
 const hero = {
   title:

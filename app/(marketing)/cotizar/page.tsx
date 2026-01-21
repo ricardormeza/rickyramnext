@@ -3,11 +3,30 @@ import Image from "next/image";
 import { Suspense } from "react";
 import { CotizarInlineCta } from "@/components/pricing/CotizarInlineCta";
 import { cotizarCatalog, findCotizarSelection } from "@/content/cotizar";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Cotizar sitio web | Elige tecnologia y paquete",
   description:
     "Selecciona el tipo de proyecto, tecnologia y plan. Recibe una cotizacion clara para tu sitio web.",
+  alternates: {
+    canonical: "/cotizar",
+  },
+  openGraph: {
+    title: "Cotizar sitio web | Elige tecnologia y paquete",
+    description:
+      "Selecciona el tipo de proyecto, tecnologia y plan. Recibe una cotizacion clara para tu sitio web.",
+    url: `${siteConfig.siteUrl}/cotizar`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cotizar sitio web | Elige tecnologia y paquete",
+    description:
+      "Selecciona el tipo de proyecto, tecnologia y plan. Recibe una cotizacion clara para tu sitio web.",
+  },
 };
 
 export default function CotizarPage({

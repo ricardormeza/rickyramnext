@@ -17,9 +17,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
+  metadataBase: new URL(siteConfig.siteUrl),
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
   description:
     "Sitios web en Astro, WordPress y Next.js para negocios que buscan performance y conversion.",
+  openGraph: {
+    type: "website",
+    url: siteConfig.siteUrl,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    title: siteConfig.name,
+    description:
+      "Sitios web en Astro, WordPress y Next.js para negocios que buscan performance y conversion.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description:
+      "Sitios web en Astro, WordPress y Next.js para negocios que buscan performance y conversion.",
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang={siteConfig.locale} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >

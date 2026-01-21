@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { BadgeCheck, CheckCircle2, FileCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -8,11 +9,32 @@ import { PackageTabs } from "@/components/sections/PackageTabs";
 import { ScrollReveal } from "@/components/sections/scroll-reveal";
 import { SolutionTemplate } from "@/components/sections/solution-template";
 import { wordpressContent, wordpressMetadata } from "@/content/solution/wordpress";
-import { siteConfig } from "@/lib/site";
 import { ProcessSteps } from "@/components/sections/process-steps";
 import ShinyText from "@/components/ui/ShinyText";
+import { siteConfig } from "@/lib/site";
 
-export const metadata = wordpressMetadata;
+export const metadata: Metadata = {
+  title: wordpressMetadata.title,
+  description: wordpressMetadata.description,
+  alternates: {
+    canonical: "/soluciones/wordpress",
+  },
+  openGraph: {
+    title: wordpressMetadata.openGraph?.title ?? wordpressMetadata.title,
+    description:
+      wordpressMetadata.openGraph?.description ?? wordpressMetadata.description,
+    url: `${siteConfig.siteUrl}/soluciones/wordpress`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: wordpressMetadata.openGraph?.title ?? wordpressMetadata.title,
+    description:
+      wordpressMetadata.openGraph?.description ?? wordpressMetadata.description,
+  },
+};
 
 export default function WordpressSolutionPage() {
   const {

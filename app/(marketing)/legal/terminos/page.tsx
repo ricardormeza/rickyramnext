@@ -1,3 +1,27 @@
+import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Terminos y condiciones",
+  description: "Terminos de uso y contratacion de servicios en Rickyram.dev.",
+  alternates: {
+    canonical: "/legal/terminos",
+  },
+  openGraph: {
+    title: "Terminos y condiciones",
+    description: "Terminos de uso y contratacion de servicios en Rickyram.dev.",
+    url: `${siteConfig.siteUrl}/legal/terminos`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terminos y condiciones",
+    description: "Terminos de uso y contratacion de servicios en Rickyram.dev.",
+  },
+};
+
 export default function TerminosPage() {
   return (
     <main className="mx-auto max-w-4xl px-6 py-16 text-foreground">

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,6 +13,7 @@ import {
 } from "@/components/ui/card";
 import { sanitizeWpHtml, stripHtml, wpFetch } from "@/src/lib/wordpress";
 import type { WPPost } from "@/src/types/wp";
+import { siteConfig } from "@/lib/site";
 
 const dateFormatter = new Intl.DateTimeFormat("es-MX", {
   dateStyle: "medium",
@@ -20,6 +22,30 @@ const dateFormatter = new Intl.DateTimeFormat("es-MX", {
 function getFeaturedMedia(post: WPPost) {
   return post._embedded?.["wp:featuredmedia"]?.[0];
 }
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Guias, estrategias y aprendizajes reales para mejorar performance, SEO y conversion.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "Blog",
+    description:
+      "Guias, estrategias y aprendizajes reales para mejorar performance, SEO y conversion.",
+    url: `${siteConfig.siteUrl}/blog`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog",
+    description:
+      "Guias, estrategias y aprendizajes reales para mejorar performance, SEO y conversion.",
+  },
+};
 
 export default async function BlogPage() {
   const posts = await wpFetch<WPPost[]>(

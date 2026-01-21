@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { BadgeCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import { astroContent, astroMetadata } from "@/content/solution/astro";
 import { ProcessSteps } from "@/components/sections/process-steps";
 import { FAQAccordion } from "@/components/sections/faq-accordion";
 import ShinyText from "@/components/ui/ShinyText";
+import { siteConfig } from "@/lib/site";
 
 export default function AstroSolutionPage() {
   type NotForItem = {
@@ -37,13 +39,13 @@ export default function AstroSolutionPage() {
 
   const packageImages: Record<string, string> = {
     "Landing Starter": "/astro/astro-landing.webp",
-    "Sitio basico Starter": "/astro/astro-basico.webp",
+    "Sitio Básico Starter": "/astro/astro-basico.webp",
     "PyME Starter": "/astro/astro-pyme.webp",
   };
 
   const packageLinks: Record<string, string> = {
     "Landing Starter": "/cotizar?tab=web&tech=astro&plan=landing-starter",
-    "Sitio basico Starter": "/cotizar?tab=web&tech=astro&plan=sitio-basico-starter",
+    "Sitio Básico Starter": "/cotizar?tab=web&tech=astro&plan=sitio-basico-starter",
     "PyME Starter": "/cotizar?tab=web&tech=astro&plan=pyme-starter",
   };
 
@@ -256,41 +258,6 @@ export default function AstroSolutionPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            {structure.title}
-          </h2>
-          <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-muted-foreground md:text-base">
-            {structure.landingSteps.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ol>
-          <p className="pt-4 text-sm text-muted-foreground md:text-base">
-            {structure.pymeIntro}
-          </p>
-          <ul className="mt-2 space-y-2 text-sm text-muted-foreground md:text-base">
-            {structure.pymeBullets.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            {tech.title}
-          </h2>
-          <ul className="space-y-2 text-sm text-muted-foreground md:text-base">
-            {tech.bullets.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p className="text-sm text-muted-foreground md:text-base">{tech.note}</p>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 pb-12 md:px-6">
         <ProcessSteps />
       </section>
 
@@ -323,5 +290,24 @@ export default function AstroSolutionPage() {
   );
 }
 
-export const metadata = astroMetadata;
+export const metadata: Metadata = {
+  title: astroMetadata.title,
+  description: astroMetadata.description,
+  alternates: {
+    canonical: "/soluciones/astro",
+  },
+  openGraph: {
+    title: astroMetadata.openGraph?.title ?? astroMetadata.title,
+    description: astroMetadata.openGraph?.description ?? astroMetadata.description,
+    url: `${siteConfig.siteUrl}/soluciones/astro`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: astroMetadata.openGraph?.title ?? astroMetadata.title,
+    description: astroMetadata.openGraph?.description ?? astroMetadata.description,
+  },
+};
 

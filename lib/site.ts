@@ -1,5 +1,7 @@
 export const siteConfig = {
   name: "Rickyram.dev",
+  siteUrl: "https://rickyram.dev",
+  locale: "es-MX",
   city: "Tijuana",
   whatsapp: "https://wa.me/526631016627",
   whatsappDisplay: "663 101 6627",

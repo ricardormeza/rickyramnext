@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { BadgeCheck, BarChart3, Bot, Megaphone, Search, Shield } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -10,8 +11,28 @@ import { nextjsContent, nextjsMetadata } from "@/content/solution/nextjs";
 import { ProcessSteps } from "@/components/sections/process-steps";
 import { FAQAccordion } from "@/components/sections/faq-accordion";
 import ShinyText from "@/components/ui/ShinyText";
+import { siteConfig } from "@/lib/site";
 
-export const metadata = nextjsMetadata;
+export const metadata: Metadata = {
+  title: nextjsMetadata.title,
+  description: nextjsMetadata.description,
+  alternates: {
+    canonical: "/soluciones/nextjs",
+  },
+  openGraph: {
+    title: nextjsMetadata.openGraph?.title ?? nextjsMetadata.title,
+    description: nextjsMetadata.openGraph?.description ?? nextjsMetadata.description,
+    url: `${siteConfig.siteUrl}/soluciones/nextjs`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: nextjsMetadata.openGraph?.title ?? nextjsMetadata.title,
+    description: nextjsMetadata.openGraph?.description ?? nextjsMetadata.description,
+  },
+};
 
 export default function NextjsSolutionPage() {
   type NotForItem = {
@@ -40,7 +61,7 @@ export default function NextjsSolutionPage() {
 
   const packageImages: Record<string, string> = {
     "Landing (custom)": "/next/landing-next.png",
-    "Sitio basico (custom)": "/next/sitioBasico-next.png",
+    "Sitio Básico (custom)": "/next/sitioBasico-next.png",
     "PyME (custom)": "/next/pyme-next.png",
     "E-commerce headless": "/next/ecommerce-next.png",
     "Dashboard / App MVP": "/next/dashboard-next.png",
@@ -48,7 +69,7 @@ export default function NextjsSolutionPage() {
 
   const packageLinks: Record<string, string> = {
     "Landing (custom)": "/cotizar?tab=web&tech=nextjs&plan=landing-custom",
-    "Sitio basico (custom)": "/cotizar?tab=web&tech=nextjs&plan=sitio-basico-custom",
+    "Sitio básico (custom)": "/cotizar?tab=web&tech=nextjs&plan=sitio-basico-custom",
     "PyME (custom)": "/cotizar?tab=web&tech=nextjs&plan=pyme-custom",
     "E-commerce headless": "/cotizar?tab=web&tech=nextjs&plan=e-commerce-headless",
     "Dashboard / App MVP": "/cotizar?tab=web&tech=nextjs&plan=dashboard-app-mvp",

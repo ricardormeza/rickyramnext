@@ -9,13 +9,13 @@ import {
 } from "lucide-react";
 
 export const wordpressMetadata = {
-  title: "Sitios WordPress administrables en Mexico | Webs a medida, blog y WooCommerce",
+  title: "Sitios WordPress administrables en México | Webs a medida, blog y WooCommerce",
   description:
-    "Desarrollo de sitios WordPress rapidos, administrables y listos para crecer. Incluye hosting administrado + SSL el primer a¤o. Paquetes desde $450/mes o $5,000/año.",
+    "Desarrollo de sitios WordPress rápidos, administrables y listos para crecer. Incluye hosting administrado + SSL el primer año. Paquetes desde $450/mes o $5,000/año.",
   openGraph: {
-    title: "WordPress administrable + hosting incluido 1er a¤o",
+    title: "WordPress administrable + hosting incluido 1er año",
     description:
-      "Sitios WordPress con dise¤o profesional, SEO base y opcion a tienda WooCommerce. Hosting administrado + SSL el primer a¤o.",
+      "Sitios WordPress con diseño profesional, SEO base y opción a tienda WooCommerce. Hosting administrado + SSL el primer año.",
   },
 } as const;
 

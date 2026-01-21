@@ -7,10 +7,27 @@ import { PricingInlineCta } from "@/components/pricing/PricingInlineCta";
 import { PricingTabs } from "@/components/pricing/PricingTabs";
 import { Button } from "@/components/ui/button";
 import type { PricingSelection } from "@/components/pricing/types";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: preciosContent.seo.title,
   description: preciosContent.seo.description,
+  alternates: {
+    canonical: "/precios",
+  },
+  openGraph: {
+    title: preciosContent.seo.title,
+    description: preciosContent.seo.description,
+    url: `${siteConfig.siteUrl}/precios`,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: preciosContent.seo.title,
+    description: preciosContent.seo.description,
+  },
 };
 
 const normalizeTech = (tech: string) =>
