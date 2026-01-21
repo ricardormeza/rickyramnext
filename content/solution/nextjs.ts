@@ -23,7 +23,7 @@ export const nextjsContent = {
     descriptions: [
       "Si tu proyecto necesita funcionalidades a medida, integraciones, experiencia tipo app y una base lista para crecer, Next.js es la opcion mas potente.",
       "Next.js es ideal para: webs premium, sistemas/dashboards, portales, e-commerce avanzado (headless) e integraciones con herramientas de negocio.",
-      "Desde $18,900 MXN (landing custom). Proyectos avanzados: a cotizar.",
+      "Desde $12,900 MXN (landing starter). Proyectos avanzados: a cotizar.",
     ],
     ctas: [
       { label: "Cotizar Next.js", href: "/cotizar" },

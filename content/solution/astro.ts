@@ -22,7 +22,7 @@ export const astroContent = {
     descriptions: [
       "Si tu objetivo es vender servicios, captar leads o lanzar campanas con una web que cargue en un parpadeo, Astro es el camino corto y efectivo.",
       "Astro es perfecto para sitios tipo marketing: landing pages, paginas de servicios, portafolios y sitios corporativos donde la prioridad es velocidad + claridad + conversiones.",
-      "Desde $7,900 MXN (paquetes Starter).",
+      "Desde $6,900 MXN (paquetes Starter).",
     ],
     ctas: [
       { label: "Cotizar Astro", href: "/cotizar" },
