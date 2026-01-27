@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { PricingSelection } from "@/components/pricing/types";
+import { Turnstile, type TurnstileHandle } from "@/components/security/Turnstile";
 
 const giroOptions = [
   "salud",
@@ -58,6 +59,11 @@ export function PricingForm({
     "idle"
   );
   const [toast, setToast] = React.useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = React.useState<string | null>(null);
+  const [turnstileError, setTurnstileError] = React.useState<string | null>(null);
+  const [turnstileReset, setTurnstileReset] = React.useState(0);
+  const turnstileRef = React.useRef<TurnstileHandle | null>(null);
+  const pendingValuesRef = React.useRef<FormValues | null>(null);
 
   const baseDefaults = React.useMemo<FormValues>(
     () => ({
@@ -89,15 +95,39 @@ export function PricingForm({
     form.reset(baseDefaults);
     setStatus("idle");
     setToast(null);
+    setTurnstileToken(null);
+    setTurnstileError(null);
+    setTurnstileReset((value) => value + 1);
+    pendingValuesRef.current = null;
   }, [baseDefaults, form, resetSignal]);
 
-  const onSubmit = form.handleSubmit(async () => {
+  const sendLead = async (values: FormValues, token: string) => {
     setStatus("loading");
     setToast(null);
+    setTurnstileError(null);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 900));
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "pricing",
+          ...values,
+          token,
+          page: typeof window !== "undefined" ? window.location.href : undefined,
+          variant,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
       setStatus("success");
       setToast("Solicitud enviada. Te respondemos pronto.");
+      setTurnstileToken(null);
+      pendingValuesRef.current = null;
+      setTurnstileReset((value) => value + 1);
+      form.reset(baseDefaults);
       setTimeout(() => {
         setToast(null);
         onSuccess?.();
@@ -106,6 +136,17 @@ export function PricingForm({
       setStatus("error");
       setToast("No se pudo enviar. Intenta de nuevo.");
     }
+  };
+
+  const onSubmit = form.handleSubmit(async (values) => {
+    if (!turnstileToken) {
+      pendingValuesRef.current = values;
+      setTurnstileError(null);
+      turnstileRef.current?.execute();
+      return;
+    }
+
+    await sendLead(values, turnstileToken);
   });
 
   return (
@@ -225,6 +266,33 @@ export function PricingForm({
           <input type="hidden" {...form.register("tab")} />
           <input type="hidden" {...form.register("tech")} />
           <input type="hidden" {...form.register("plan")} />
+
+          <div className="space-y-2">
+            <Turnstile
+              ref={turnstileRef}
+              onVerify={(token) => {
+                setTurnstileToken(token);
+                if (pendingValuesRef.current) {
+                  const values = pendingValuesRef.current;
+                  sendLead(values, token);
+                }
+              }}
+              onExpire={() => {
+                setTurnstileToken(null);
+                pendingValuesRef.current = null;
+              }}
+              onError={() => {
+                setTurnstileError("No se pudo validar. Intenta de nuevo.");
+                pendingValuesRef.current = null;
+              }}
+              resetSignal={turnstileReset}
+              size="invisible"
+              action="pricing"
+            />
+            {turnstileError ? (
+              <span className="block text-xs text-rose-500">{turnstileError}</span>
+            ) : null}
+          </div>
         </fieldset>
 
         <Button type="submit" size="lg" className="w-full">

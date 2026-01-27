@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
+import { ContactForm } from "@/components/forms/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -111,65 +112,7 @@ export default function ContactoPage() {
             <p className="mb-6 text-sm text-muted-foreground">
               Respuesta en menos de 48 horas habiles.
             </p>
-            <form className="space-y-4">
-              <div className="relative">
-                <label htmlFor="name" className="text-sm text-muted-foreground">
-                  Nombre
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="mt-2 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm outline-none transition focus-visible:ring-2 focus-visible:ring-primary/30"
-                />
-              </div>
-              <div className="relative">
-                <label htmlFor="email" className="text-sm text-muted-foreground">
-                  Correo
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="mt-2 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm outline-none transition focus-visible:ring-2 focus-visible:ring-primary/30"
-                />
-              </div>
-              <div className="relative">
-                <label htmlFor="phone" className="text-sm text-muted-foreground">
-                  Telefono
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  className="mt-2 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm outline-none transition focus-visible:ring-2 focus-visible:ring-primary/30"
-                />
-              </div>
-              <div className="relative">
-                <label htmlFor="message" className="text-sm text-muted-foreground">
-                  Mensaje
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  required
-                  className="mt-2 w-full resize-none rounded-xl border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm outline-none transition focus-visible:ring-2 focus-visible:ring-primary/30"
-                />
-              </div>
-              <button
-                type="submit"
-                className="inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
-              >
-                Enviar mensaje
-              </button>
-              <p className="text-xs text-muted-foreground">
-                Al enviar aceptas que nos pongamos en contacto contigo.
-              </p>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>
