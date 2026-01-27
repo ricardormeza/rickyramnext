@@ -315,8 +315,6 @@ export default function RickyRamHero({
               Base en Tijuana, Mexico.
             </div>
 
-            
-
             <div className="flex flex-col gap-3 sm:flex-row md:hidden">
               <Button asChild>
                 <Link href="/soluciones">Quiero un Sitio Web</Link>
@@ -331,7 +329,7 @@ export default function RickyRamHero({
                 <Link href="/soluciones">Quiero un Sitio Web</Link>
               </Button>
               <Button asChild className="glow-btn">
-                <Link href={siteConfig.whatsapp}>Necesito Branding</Link>
+                <Link href="/cotizar">Cotizar</Link>
               </Button>
             </div>
           </div>

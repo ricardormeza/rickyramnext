@@ -216,7 +216,7 @@ export function PricingTabs({ items }: PricingTabsProps) {
           }
         }}
       >
-        <SheetContent className="w-full max-w-full sm:max-w-lg">
+        <SheetContent className="w-full max-w-full overflow-y-auto sm:max-w-lg">
           <motion.div
             initial={reduceMotion ? { opacity: 0 } : { opacity: 0, x: 40 }}
             animate={
