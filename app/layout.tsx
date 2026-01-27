@@ -58,7 +58,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          {/* aqui va el gtm */}
           <GTM />
+          {/* aca termina el gtm */}
           <CookieBanner />
         </ThemeProvider>
       </body>
