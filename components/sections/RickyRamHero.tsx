@@ -312,7 +312,7 @@ export default function RickyRamHero({
                 underlineBase ? "underline underline-offset-4" : "no-underline",
               ].join(" ")}
             >
-              Base en Tijuana, Mexico.
+              Base en Mexico.
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row md:hidden">
