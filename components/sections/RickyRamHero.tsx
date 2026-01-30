@@ -312,7 +312,7 @@ export default function RickyRamHero({
                 underlineBase ? "underline underline-offset-4" : "no-underline",
               ].join(" ")}
             >
-              Base en Mexico.
+              Base en México.
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row md:hidden">
