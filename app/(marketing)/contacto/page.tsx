@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { ContactPageTracking } from "@/components/analytics/ContactPageTracking";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { siteConfig } from "@/lib/site";
 
@@ -66,6 +67,7 @@ export default function ContactoPage() {
 
   return (
     <main>
+      <ContactPageTracking />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -110,6 +112,8 @@ export default function ContactoPage() {
                   </h2>
                   <a
                     href="mailto:contacto@rickyram.dev"
+                    data-contact-click="email"
+                    data-contact-location="contacto"
                     className="text-sm text-primary hover:underline"
                   >
                     contacto@rickyram.dev
@@ -119,7 +123,12 @@ export default function ContactoPage() {
                   <h2 className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground">
                     Teléfono
                   </h2>
-                  <a href="tel:6631016627" className="text-sm text-primary hover:underline">
+                  <a
+                    href="tel:6631016627"
+                    data-contact-click="phone"
+                    data-contact-location="contacto"
+                    className="text-sm text-primary hover:underline"
+                  >
                     6631016627
                   </a>
                 </div>
@@ -132,6 +141,8 @@ export default function ContactoPage() {
                       href="https://web.facebook.com/rickyramweb"
                       target="_blank"
                       rel="noreferrer"
+                      data-contact-click="facebook"
+                      data-contact-location="contacto"
                       className="text-foreground/80 hover:text-primary"
                     >
                       Facebook
@@ -140,6 +151,8 @@ export default function ContactoPage() {
                       href="https://www.instagram.com/rickyram.dev/"
                       target="_blank"
                       rel="noreferrer"
+                      data-contact-click="instagram"
+                      data-contact-location="contacto"
                       className="text-foreground/80 hover:text-primary"
                     >
                       Instagram
@@ -148,6 +161,8 @@ export default function ContactoPage() {
                       href="https://www.linkedin.com/in/ricardo-ramirez-meza/"
                       target="_blank"
                       rel="noreferrer"
+                      data-contact-click="linkedin"
+                      data-contact-location="contacto"
                       className="text-foreground/80 hover:text-primary"
                     >
                       LinkedIn

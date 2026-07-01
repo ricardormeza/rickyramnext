@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Turnstile, type TurnstileHandle } from "@/components/security/Turnstile";
+import { pushDataLayerEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
@@ -29,6 +30,7 @@ export function ContactForm() {
   const [resetSignal, setResetSignal] = React.useState(0);
   const turnstileRef = React.useRef<TurnstileHandle | null>(null);
   const pendingValuesRef = React.useRef<FormValues | null>(null);
+  const hasStartedRef = React.useRef(false);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -63,6 +65,12 @@ export function ContactForm() {
 
       setStatus("success");
       setToast("Mensaje enviado. Te respondemos pronto.");
+      pushDataLayerEvent({
+        event: "generate_lead",
+        form_name: "contacto",
+        form_type: "contact",
+        lead_channel: "website",
+      });
       form.reset();
       setTurnstileToken(null);
       pendingValuesRef.current = null;
@@ -71,6 +79,11 @@ export function ContactForm() {
     } catch {
       setStatus("error");
       setToast("No se pudo enviar. Intenta de nuevo.");
+      pushDataLayerEvent({
+        event: "contact_form_error",
+        form_name: "contacto",
+        form_type: "contact",
+      });
     }
   };
 
@@ -101,7 +114,21 @@ export function ContactForm() {
         </div>
       ) : null}
 
-      <form className="space-y-4" onSubmit={onSubmit}>
+      <form
+        className="space-y-4"
+        onSubmit={onSubmit}
+        onFocusCapture={() => {
+          if (hasStartedRef.current) return;
+          hasStartedRef.current = true;
+          pushDataLayerEvent({
+            event: "form_start",
+            form_name: "contacto",
+            form_type: "contact",
+          });
+        }}
+        data-form-name="contacto"
+        data-form-type="contact"
+      >
         <fieldset disabled={status === "loading"} className="space-y-4">
           <div className="relative">
             <label htmlFor="name" className="text-sm text-muted-foreground">
@@ -188,6 +215,12 @@ export function ContactForm() {
               onError={() => {
                 setTurnstileError("No se pudo validar. Intenta de nuevo.");
                 pendingValuesRef.current = null;
+                pushDataLayerEvent({
+                  event: "contact_form_error",
+                  form_name: "contacto",
+                  form_type: "contact",
+                  error_type: "turnstile",
+                });
               }}
               resetSignal={resetSignal}
               className="mt-2"
