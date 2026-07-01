@@ -79,16 +79,9 @@ export default function ContactoPage() {
       <section className="relative text-muted-foreground">
         <div className="container mx-auto flex flex-wrap px-6 py-16 sm:flex-nowrap">
           <div className="relative mb-8 flex items-end justify-start overflow-hidden rounded-3xl bg-muted/60 p-8 sm:mr-10 sm:mb-0 md:w-1/2 lg:w-2/3">
-            <iframe
-              title="Mapa RickyRam.dev"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14980704.286144285!2d-102.62050004999999!3d23.554126900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xae6493d7e71d6001%3A0x86a4ea7aa65d1a38!2sDise%C3%B1o%20de%20sitios%20web%20%7C%20RickyRam.dev!5e0!3m2!1ses!2smx!4v1768721729321!5m2!1ses!2smx"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 h-full w-full"
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(24,129,255,0.22),transparent_42%),linear-gradient(135deg,rgba(24,129,255,0.12),rgba(15,23,42,0.04))]"
             />
             <div className="relative flex w-full flex-wrap rounded-2xl bg-card/95 p-6 shadow-lg backdrop-blur">
               <div className="w-full space-y-2 px-4 pb-6 lg:w-1/2 lg:pb-0">
@@ -104,6 +97,16 @@ export default function ContactoPage() {
                 <p className="text-sm text-muted-foreground">
                   Tijuana, Baja California, Mexico.
                 </p>
+                <a
+                  href="https://www.google.com/maps/place/Dise%C3%B1o+de+sitios+web+%7C+RickyRam.dev/"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-contact-click="map"
+                  data-contact-location="contacto"
+                  className="inline-flex pt-2 text-sm text-primary hover:underline"
+                >
+                  Ver ubicacion en Google Maps
+                </a>
               </div>
               <div className="w-full space-y-4 px-4 lg:w-1/2">
                 <div>
