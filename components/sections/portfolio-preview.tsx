@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Keyboard, Navigation } from "swiper/modules";
@@ -16,6 +16,10 @@ type Project = {
   image: string;
   tags: string[];
   href: string;
+};
+
+type PortfolioPreviewProps = {
+  headingAs?: "h1" | "h2";
 };
 
 const projects: Project[] = [
@@ -44,7 +48,7 @@ const projects: Project[] = [
     title: "FashionRC",
     description: "Card digital + SEO",
     image: "/portafolio/fashionrc4.webp",
-    tags: ["WordPress"],
+    tags: ["WordPress", "SEO"],
     href: "https://fashionrc.shop/",
   },
   {
@@ -54,29 +58,68 @@ const projects: Project[] = [
     tags: ["Woocomerce"],
     href: "https://rickyram.top/",
   },
+  {
+    title: "CESFOM",
+    description: "Implementación + asesoría técnica + Sitio web ",
+    image: "/portafolio/1cesfom.webp",
+    tags: ["Web", "Infraestructura", "GA4"],
+    href: "https://cesfom.org/",
+  },
+  {
+    title: "Xanath Laboratorios",
+    description: "Sitio web + Google My Business",
+    image: "/portafolio/1xanathlab.webp",
+    tags: ["Web", "SEO"],
+    href: "https://laboratoriosxanath.com/",
+  },
+  {
+    title: "Noguez y Asociados",
+    description: "Sitio web profesional",
+    image: "/portafolio/noguezyasociados.webp",
+    tags: ["Web", "Implementación de Diseño"],
+    href: "https://noguezyasociados.com.mx/",
+  },
+  {
+    title: "Yoffi MKT",
+    description: "Sitio web de Marketing digital en Veracruz",
+    image: "/portafolio/yoffimktDos.webp",
+    tags: ["Marketing", "SEO", "GA4"],
+    href: "https://yoffimkt.com/",
+  },
+  {
+    title: "Directorio Veracruz",
+    description: "Directorio digital en Veracruz",
+    image: "/portafolio/1dir-ver.webp",
+    tags: ["Marketing", "GA4", "Nextjs", "Google Cloud Platform", "Cloudflare"],
+    href: "https://directoriover.com.mx/",
+  },
 ];
 
-export function PortfolioPreview() {
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
-  const [navReady, setNavReady] = useState(false);
-
-  useEffect(() => {
-    setNavReady(true);
-  }, []);
+export function PortfolioPreview({
+  headingAs: Heading = "h1",
+}: PortfolioPreviewProps) {
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
+  const [navElements, setNavElements] = useState<{
+    prevEl: HTMLButtonElement | null;
+    nextEl: HTMLButtonElement | null;
+  }>({
+    prevEl: null,
+    nextEl: null,
+  });
 
   return (
     <section className="w-full min-h-[80vh] bg-primary text-white">
       <div className="mx-auto max-w-6xl px-4 pb-6 pt-12 md:px-6 md:pt-16">
         <div className="space-y-3 text-center">
-          <h1 className="text-2xl font-semibold tracking-tight md:text-4xl">
+          <Heading className="text-2xl font-semibold tracking-tight md:text-4xl">
             Portafolio
-          </h1>
+          </Heading>
           <h2 className="text-lg font-semibold tracking-tight md:text-2xl">
             Trabajo real, Resultados reales.
           </h2>
           <p className="text-sm text-white/70 md:text-base">
-            Performance, UX y estrategia.
+            Una selección de sitios web y soluciones digitales creadas para mejorar la presencia online, comunicar mejor cada marca y conectar con sus clientes. Cada proyecto combina diseño, estrategia y tecnología según las necesidades reales del negocio.
           </p>
         </div>
       </div>
@@ -84,7 +127,12 @@ export function PortfolioPreview() {
       <div className="relative overflow-hidden pb-12 pt-14">
         <div className="absolute right-6 top-0 z-10 hidden items-center gap-3 md:flex">
           <button
-            ref={prevRef}
+            ref={(node) => {
+              prevRef.current = node;
+              setNavElements((current) =>
+                current.prevEl === node ? current : { ...current, prevEl: node }
+              );
+            }}
             type="button"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-white/70 bg-white/10 text-white transition hover:bg-white/20"
             aria-label="Anterior"
@@ -92,7 +140,12 @@ export function PortfolioPreview() {
             <CircleArrowLeft size={22} />
           </button>
           <button
-            ref={nextRef}
+            ref={(node) => {
+              nextRef.current = node;
+              setNavElements((current) =>
+                current.nextEl === node ? current : { ...current, nextEl: node }
+              );
+            }}
             type="button"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-white/70 bg-white/10 text-white transition hover:bg-white/20"
             aria-label="Siguiente"
@@ -101,15 +154,15 @@ export function PortfolioPreview() {
           </button>
         </div>
 
-        {navReady ? (
+        {navElements.prevEl && navElements.nextEl ? (
           <Swiper
             modules={[Navigation, A11y, Keyboard]}
-            navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+            navigation={navElements}
             onBeforeInit={(swiper) => {
               const navigation = swiper.params.navigation;
               if (navigation && typeof navigation !== "boolean") {
-                navigation.prevEl = prevRef.current;
-                navigation.nextEl = nextRef.current;
+                navigation.prevEl = navElements.prevEl;
+                navigation.nextEl = navElements.nextEl;
               }
             }}
             keyboard={{ enabled: true }}

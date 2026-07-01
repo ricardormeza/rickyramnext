@@ -139,7 +139,7 @@ export function ContactForm() {
 
           <div className="relative">
             <label htmlFor="phone" className="text-sm text-muted-foreground">
-              Telefono
+              Teléfono
             </label>
             <input
               type="tel"
