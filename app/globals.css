@@ -129,6 +129,30 @@ body {
   --fill-color: var(--primary);
 }
 
+.home-v2-surface {
+  background-image:
+    radial-gradient(circle at top left, rgba(24, 129, 255, 0.28), transparent 34%),
+    radial-gradient(circle at 78% 22%, rgba(56, 189, 248, 0.18), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(11, 18, 32, 0.14), transparent 32%),
+    linear-gradient(180deg, rgba(241, 245, 255, 0.9) 0%, rgba(232, 241, 255, 0.92) 58%, rgba(217, 233, 255, 0.98) 100%);
+}
+
+.dark .home-v2-surface {
+  background-image:
+    radial-gradient(circle at top left, rgba(24, 129, 255, 0.22), transparent 34%),
+    radial-gradient(circle at 78% 22%, rgba(56, 189, 248, 0.14), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.38), transparent 34%),
+    linear-gradient(180deg, rgba(6, 10, 18, 0.96) 0%, rgba(9, 15, 28, 0.94) 58%, rgba(11, 18, 32, 0.98) 100%);
+}
+
+.home-v2-surface-fade {
+  background-image: linear-gradient(180deg, rgba(217, 233, 255, 0) 0%, rgba(197, 221, 255, 0.7) 100%);
+}
+
+.dark .home-v2-surface-fade {
+  background-image: linear-gradient(180deg, rgba(11, 18, 32, 0) 0%, rgba(24, 129, 255, 0.16) 100%);
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;

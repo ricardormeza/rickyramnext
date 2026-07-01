@@ -223,11 +223,11 @@ export default function HomeV2Page() {
       <section className="relative overflow-hidden">
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(24,129,255,0.28),transparent_34%),radial-gradient(circle_at_78%_22%,rgba(56,189,248,0.18),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(11,18,32,0.14),transparent_32%),linear-gradient(180deg,rgba(241,245,255,0.9)_0%,rgba(232,241,255,0.92)_58%,rgba(217,233,255,0.98)_100%)]"
+          className="home-v2-surface absolute inset-0"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(180deg,rgba(217,233,255,0)_0%,rgba(197,221,255,0.7)_100%)]"
+          className="home-v2-surface-fade absolute inset-x-0 bottom-0 h-24"
         />
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 md:px-6 md:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <ScrollReveal className="fade-in-left">
@@ -350,7 +350,7 @@ export default function HomeV2Page() {
         </div>
       </section>
 
-      <section className="bg-muted/40 py-16 bg-[radial-gradient(circle_at_top_left,rgba(24,129,255,0.28),transparent_34%),radial-gradient(circle_at_78%_22%,rgba(56,189,248,0.18),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(11,18,32,0.14),transparent_32%),linear-gradient(180deg,rgba(241,245,255,0.9)_0%,rgba(232,241,255,0.92)_58%,rgba(217,233,255,0.98)_100%)]">
+      <section className="home-v2-surface bg-muted/40 py-16">
         <div className="mx-auto max-w-6xl px-4 md:px-6 m-16">
           <div className="max-w-3xl">
             <ScrollReveal className="fade-up">
