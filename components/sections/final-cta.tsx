@@ -20,17 +20,39 @@ export function FinalCta() {
         </div>
         <div className="mt-6 flex flex-col gap-3 justify-center sm:flex-row">
           <Button asChild>
-            <Link href="/cotizar">{finalCta.primary}</Link>
+            <Link
+              href="/cotizar"
+              data-cta="cotizar"
+              data-cta-location="final-cta"
+              data-service-name="desarrollo-web"
+              data-service-slug="soluciones"
+            >
+              {finalCta.primary}
+            </Link>
           </Button>
           <Button
             variant="secondary"
             className="border border-primary text-primary hover:bg-primary hover:text-white"
             asChild
           >
-            <Link href={siteConfig.agendaUrl}>{finalCta.secondary}</Link>
+            <Link
+              href={siteConfig.agendaUrl}
+              data-cta="agendar"
+              data-cta-location="final-cta"
+              data-service-name="desarrollo-web"
+              data-service-slug="soluciones"
+            >
+              {finalCta.secondary}
+            </Link>
           </Button>
           <Button variant="link" asChild>
-            <Link href={siteConfig.whatsapp}>
+            <Link
+              href={siteConfig.whatsapp}
+              data-cta="whatsapp"
+              data-cta-location="final-cta"
+              data-service-name="desarrollo-web"
+              data-service-slug="soluciones"
+            >
               O escribenos por WhatsApp
             </Link>
           </Button>

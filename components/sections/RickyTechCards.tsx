@@ -82,7 +82,15 @@ export default function RickyTechCards() {
                 </div>
               </div>
 
-              <Link href={c.href} className={styles.cta}>
+              <Link
+                href={c.href}
+                className={styles.cta}
+                data-cta="view_stack"
+                data-cta-location="stack-cards"
+                data-service-name="desarrollo-web"
+                data-service-slug="soluciones"
+                data-stack={c.title.toLowerCase()}
+              >
                 Ver más
               </Link>
             </div>

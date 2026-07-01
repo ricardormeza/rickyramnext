@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { BlogPreview, type BlogPreviewPost } from "@/components/sections/blog-preview";
@@ -14,33 +15,68 @@ import { OrganicDivider } from "@/components/sections/organic-divider";
 import { StarterIncludes } from "@/components/sections/starter-includes";
 import { StarterPricingPreview } from "@/components/sections/starter-pricing-preview";
 import ShinyText from "@/components/ui/ShinyText";
-import TextType from "@/components/ui/TextType";
 
 type SolucionesClientProps = {
   blogPosts: BlogPreviewPost[];
 };
 
+declare global {
+  interface Window {
+    dataLayer?: Array<Record<string, unknown>>;
+  }
+}
+
 export default function SolucionesClient({ blogPosts }: SolucionesClientProps) {
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "view_service_page",
+      page_type: "service",
+      service_category: "web",
+      service_name: "desarrollo web",
+      service_slug: "soluciones",
+    });
+  }, []);
+
   return (
     <>
-      <section className="mx-auto max-w-6xl px-4 pb-6 pt-12 text-center md:px-6 md:pt-16">
-        <h1 className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-          Diseño de Landing pages y Sitios web
-        </h1>
-        <motion.h2
+      <section
+        className="mx-auto max-w-6xl px-4 pb-6 pt-12 text-center md:px-6 md:pt-16"
+        data-page-type="service"
+        data-service-category="web"
+        data-service-name="desarrollo-web"
+        data-service-slug="soluciones"
+        data-section="hero"
+      >
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+          Desarrollo web, landing pages y sitios web
+        </p>
+        <motion.h1
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mx-auto mt-4 max-w-[90%] text-2xl font-semibold tracking-tight text-foreground md:text-5xl font-black"
+          className="mx-auto mt-4 max-w-[90%] text-2xl font-black tracking-tight text-foreground md:text-5xl"
+        >
+          Desarrollo web y creacion de sitios web que convierten
+        </motion.h1>
+        <motion.h2
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.08 }}
+          className="mx-auto mt-4 max-w-[90%] text-lg font-semibold tracking-tight text-foreground md:text-3xl"
         >
           <ShinyText
-            text="Branding potente y sitios web que convierten en WordPress, Astro y Next.js para negocios que quieren crecer."
+            text="Desarrollo e implementación de páginas web, landing pages y sitios web para negocios que buscan atraer clientes, comunicar mejor su oferta y vender más.."
             color="#1881ff"
             shineColor="#000000"
           />
         </motion.h2>
+        <p className="mx-auto mt-4 max-w-3xl text-pretty text-muted-foreground md:text-xl">
+          Si buscas desarrollo web, diseño web o creación de sitios web, aquí encontrarás una solución pensada para la etapa y las metas de tu negocio.
+          
+        </p>
       </section>
-      <section className="mx-auto max-w-6xl px-4 py-12 text-center md:px-6">
+      {/* <section className="mx-auto max-w-6xl px-4 py-12 text-center md:px-6">
         <h2 className="text-2xl font-semibold tracking-tight md:text-4xl">
           <TextType
             text={[
@@ -56,11 +92,15 @@ export default function SolucionesClient({ blogPosts }: SolucionesClientProps) {
             cursorCharacter="|"
           />
         </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-muted-foreground md:text-2xl">
-          No todo negocio necesita lo mismo. Te guio para elegir la mejor tecnología para ti.
-        </p>
-      </section>
+        
+      </section> */}
       <OrganicDivider className="my-10 md:my-14" />
+      <p
+        className="mx-auto m-4 max-w-2xl text-center text-muted-foreground md:text-2xl"
+        data-section="stack-summary"
+      >
+                Trabajo con WordPress, Astro y Next.js, eligiendo la tecnología adecuada según tus necesidades de contenido, velocidad, SEO, rendimiento y objetivos de conversión.
+              </p>
       <RickyTechCards />
       <QuickCompare />
       <StarterPricingPreview />

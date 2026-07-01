@@ -16,7 +16,7 @@ type StatItem = {
 
 const items: StatItem[] = [
   {
-    label: "Lineas de codigo",
+    label: "Líneas de código",
     value: 125000,
     icon: FileCode,
   },
@@ -31,7 +31,7 @@ const items: StatItem[] = [
     icon: Laugh,
   },
   {
-    label: "Tazas de cafe",
+    label: "Tazas de café",
     value: 250,
     icon: Coffee,
   },

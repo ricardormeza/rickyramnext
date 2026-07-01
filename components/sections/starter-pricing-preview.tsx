@@ -138,7 +138,16 @@ export function StarterPricingPreview() {
                 </ul>
                 <div className="mt-auto">
                   <Button asChild>
-                    <Link href={card.href}>{card.cta}</Link>
+                    <Link
+                      href={card.href}
+                      data-cta="view_pricing_stack"
+                      data-cta-location="starter-pricing"
+                      data-service-name="desarrollo-web"
+                      data-service-slug="soluciones"
+                      data-stack={card.href.split("/").pop()}
+                    >
+                      {card.cta}
+                    </Link>
                   </Button>
                 </div>
               </CardContent>
