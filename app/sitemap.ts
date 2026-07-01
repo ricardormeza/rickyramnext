@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { wpFetch } from "@/src/lib/wordpress";
-import type { WPPost, WPTerm } from "@/src/types/wp";
+import type { WPPost } from "@/src/types/wp";
 
 const STATIC_ROUTES = [
   "/",
@@ -23,8 +23,8 @@ const STATIC_ROUTES = [
   "/Agendar-llamada",
   "/portafolio",
   "/legal/terminos",
-  "/privacidad",
-  "/cookies",
+  "/legal/privacidad",
+  "/legal/cookies",
 ] as const;
 
 async function fetchAll<T>(path: string, params?: Record<string, string | number>) {
@@ -51,32 +51,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   try {
-    const [posts, categories, tags] = await Promise.all([
-      fetchAll<WPPost>("/posts", { _embed: 1 }),
-      fetchAll<WPTerm>("/categories", { hide_empty: 1 }),
-      fetchAll<WPTerm>("/tags", { hide_empty: 1 }),
-    ]);
+    const posts = await fetchAll<WPPost>("/posts", { _embed: 1 });
 
     posts.forEach((post) => {
       routes.push({
         url: `${siteConfig.siteUrl}/blog/${post.slug}`,
         lastModified: post.modified ? new Date(post.modified) : now,
-      });
-    });
-
-    categories.forEach((category) => {
-      const encoded = encodeURIComponent(category.slug);
-      routes.push({
-        url: `${siteConfig.siteUrl}/blog?category=${encoded}`,
-        lastModified: now,
-      });
-    });
-
-    tags.forEach((tag) => {
-      const encoded = encodeURIComponent(tag.slug);
-      routes.push({
-        url: `${siteConfig.siteUrl}/blog?tag=${encoded}`,
-        lastModified: now,
       });
     });
   } catch {

@@ -127,12 +127,12 @@ export function CookieBanner() {
                 </p>
                 <p className="text-xs text-muted-foreground">
                   Consulta{" "}
-                  <Link href="/cookies" className="text-primary hover:underline">
-                    /cookies
+                  <Link href="/legal/cookies" className="text-primary hover:underline">
+                    /legal/cookies
                   </Link>{" "}
                   y{" "}
-                  <Link href="/privacidad" className="text-primary hover:underline">
-                    /privacidad
+                  <Link href="/legal/privacidad" className="text-primary hover:underline">
+                    /legal/privacidad
                   </Link>
                   .
                 </p>

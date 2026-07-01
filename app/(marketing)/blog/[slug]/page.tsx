@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { ScrollProgress } from "@/components/shared/scroll-progress";
+import { siteConfig } from "@/lib/site";
 import { sanitizeWpHtml, stripHtml, wpFetch } from "@/src/lib/wordpress";
 import type { WPPost, WPTerm } from "@/src/types/wp";
 import { Facebook, Linkedin, Twitter } from "lucide-react";
@@ -154,13 +155,70 @@ export default async function BlogPostPage({
   const author = getAuthor(post);
   const postCategories = getTermsByTaxonomy(post, "category");
   const postTags = getTermsByTaxonomy(post, "post_tag");
-  const siteBase = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "";
-  const canonicalUrl = siteBase ? `${siteBase}/blog/${post.slug}` : `/blog/${post.slug}`;
+  const canonicalUrl = `${siteConfig.siteUrl}/blog/${post.slug}`;
   const shareUrl = encodeURIComponent(canonicalUrl);
   const shareTitle = encodeURIComponent(title);
+  const postDescription = truncate(
+    stripHtml(post.excerpt?.rendered ?? post.content?.rendered ?? ""),
+    160
+  );
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description: postDescription,
+    datePublished: post.date,
+    dateModified: post.modified ?? post.date,
+    mainEntityOfPage: canonicalUrl,
+    url: canonicalUrl,
+    author: author?.name
+      ? {
+          "@type": "Person",
+          name: author.name,
+        }
+      : undefined,
+    image: media?.source_url ? [media.source_url] : undefined,
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.siteUrl,
+    },
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: siteConfig.siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${siteConfig.siteUrl}/blog`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: title,
+        item: canonicalUrl,
+      },
+    ],
+  };
 
   return (
     <section className="body-font text-gray-600">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <ScrollProgress />
       <div className="container mx-auto px-5 py-16 md:py-24">
         <nav className="mb-6 text-sm text-muted-foreground">
@@ -181,13 +239,12 @@ export default async function BlogPostPage({
               <div className="flex flex-wrap gap-2 text-xs uppercase tracking-widest text-muted-foreground">
                 {postCategories.length
                   ? postCategories.map((category) => (
-                      <Link
+                      <span
                         key={category.id}
-                        href={`/blog?category=${category.slug}`}
-                        className="rounded-full border px-3 py-1 hover:text-foreground"
+                        className="rounded-full border px-3 py-1"
                       >
                         {category.name}
-                      </Link>
+                      </span>
                     ))
                   : null}
               </div>
@@ -315,13 +372,12 @@ export default async function BlogPostPage({
               </h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {categories.map((category) => (
-                  <Link
+                  <span
                     key={category.id}
-                    href={`/blog?category=${category.slug}`}
-                    className="rounded-full border px-3 py-1 text-xs text-muted-foreground hover:text-foreground"
+                    className="rounded-full border px-3 py-1 text-xs text-muted-foreground"
                   >
                     {category.name}
-                  </Link>
+                  </span>
                 ))}
               </div>
             </div>
@@ -330,13 +386,12 @@ export default async function BlogPostPage({
               <h3 className="text-lg font-semibold text-foreground">Tags</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {tags.map((tag) => (
-                  <Link
+                  <span
                     key={tag.id}
-                    href={`/blog?tag=${tag.slug}`}
-                    className="rounded-full border px-3 py-1 text-xs text-muted-foreground hover:text-foreground"
+                    className="rounded-full border px-3 py-1 text-xs text-muted-foreground"
                   >
                     #{tag.name}
-                  </Link>
+                  </span>
                 ))}
               </div>
             </div>

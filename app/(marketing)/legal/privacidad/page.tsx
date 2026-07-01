@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: "Aviso de privacidad",
   description: "Politica de privacidad y tratamiento de datos personales.",
   alternates: {
-    canonical: "/privacidad",
+    canonical: "/legal/privacidad",
   },
   openGraph: {
     title: "Aviso de privacidad",
     description: "Politica de privacidad y tratamiento de datos personales.",
-    url: `${siteConfig.siteUrl}/privacidad`,
+    url: `${siteConfig.siteUrl}/legal/privacidad`,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     type: "website",

@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "Politica de cookies",
   description: "Informacion sobre cookies, analitica y preferencias del sitio.",
   alternates: {
-    canonical: "/cookies",
+    canonical: "/legal/cookies",
   },
   openGraph: {
     title: "Politica de cookies",
     description: "Informacion sobre cookies, analitica y preferencias del sitio.",
-    url: `${siteConfig.siteUrl}/cookies`,
+    url: `${siteConfig.siteUrl}/legal/cookies`,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     type: "website",
@@ -42,7 +42,7 @@ export default function CookiesPage() {
         </p>
         <p className="text-sm text-muted-foreground">
           Para información sobre el tratamiento de datos personales, consulta el Aviso
-          de Privacidad en /privacidad.
+          de Privacidad en /legal/privacidad.
         </p>
       </header>
 

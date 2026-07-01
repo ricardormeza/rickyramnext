@@ -26,5 +26,58 @@ export const metadata: Metadata = {
 };
 
 export default function AutomatizacionServicePage() {
-  return <ServiceDetailTemplate content={automatizacionServiceContent} />;
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: automatizacionServiceContent.hero.title,
+    serviceType: "Automatizacion",
+    description: automatizacionServiceContent.hero.lead,
+    url: `${siteConfig.siteUrl}/servicios/automatizacion`,
+    areaServed: "Mexico",
+    provider: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.siteUrl,
+      email: siteConfig.email,
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Planes de Automatizacion",
+      itemListElement: automatizacionServiceContent.plans.cards.map((card) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: card.title,
+          description: card.subtitle,
+        },
+      })),
+    },
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: automatizacionServiceContent.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <ServiceDetailTemplate content={automatizacionServiceContent} />
+    </>
+  );
 }

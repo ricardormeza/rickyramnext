@@ -26,5 +26,58 @@ export const metadata: Metadata = {
 };
 
 export default function ServicioPage() {
-  return <ServiceDetailTemplate content={adsServiceContent} />;
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: adsServiceContent.hero.title,
+    serviceType: "Google Ads y Meta Ads",
+    description: adsServiceContent.hero.lead,
+    url: `${siteConfig.siteUrl}/servicios/ads`,
+    areaServed: "Mexico",
+    provider: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.siteUrl,
+      email: siteConfig.email,
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Planes de Ads",
+      itemListElement: adsServiceContent.plans.cards.map((card) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: card.title,
+          description: card.subtitle,
+        },
+      })),
+    },
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: adsServiceContent.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <ServiceDetailTemplate content={adsServiceContent} />
+    </>
+  );
 }

@@ -3,7 +3,7 @@ export const analiticaServiceContent = {
   hero: {
     kicker: "Analítica",
     title:
-      "Servicio de Analítica (GA4 + GTM + Looker): mide conversiones reales y toma decisiones con datos",
+      "Servicio de Analítica (GA4 + GTM + DataStudio): mide conversiones reales y toma decisiones con datos",
     lead:
       "Sin medición, todo es opinión (y anuncios caros). Configuro GA4 + Tag Manager para que midas leads, WhatsApp, llamadas, formularios y compras con precisión. Luego lo aterrizamos en dashboards claros para tu negocio.",
     ctas: [

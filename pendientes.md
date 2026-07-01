@@ -7,48 +7,49 @@ Fecha: 2026-06-30
 - `desarrollo web` se concentra en `/soluciones`.
 - `marketing digital` se trabaja dentro de `/servicios/ads`.
 - `/servicios/ads` debe cubrir `Google Ads` + `campanas digitales`.
-- Se creara una pagina aparte para `Meta Ads`, `Pixel`, `catalogo` y temas relacionados.
+- `Meta Ads`, `campanas de Facebook`, `cuenta publicitaria`, `portafolio comercial` y `content management` se trabajan dentro de `/servicios/ads`.
 - El blog seguira con `cms.rickyram.dev` + frontend en Next.js.
 - El blog sera el canal principal para nutrir SEO.
 
 ## Pendiente operativo
 
-### `/soluciones`
+### Hecho
 
-- Reforzar el enfoque SEO/comercial para:
+- `/soluciones`: ya se ajusto como pagina objetivo de `desarrollo web`.
+- `/soluciones`: ya se reforzo el enfoque SEO/comercial para:
   - WordPress
   - Astro
   - Next.js
+- `/soluciones`: canonical, breadcrumb visible y schema (`Service`, `FAQPage`, `BreadcrumbList`) listos.
+- `/servicios`: hub con breadcrumb, canonical y fix de enlace interno de `Infraestructura`.
+- `/servicios/seo`, `/servicios/ads`, `/servicios/analitica`, `/servicios/automatizacion`, `/servicios/ciberseguridad`, `/servicios/infraestructura`: schema y SEO tecnico aplicados.
+- `/servicios/ads`: ya se redefinio para cubrir `Google Ads`, `Meta Ads`, `campanas de Facebook`, `campanas digitales`, `cuenta publicitaria`, `portafolio comercial` y `content management`.
+- `/contacto`: SEO base, breadcrumb y schema listos.
+- legales: una sola URL indexable real por documento bajo `/legal/...`.
+- blog: indexacion base lista, canonicals listos, schema de `Blog` y `BlogPosting` agregado.
+- `llms.txt`: creado.
+
+### `/soluciones`
+
+- Hecho.
 
 ### `/servicios/ads`
 
-- Redefinir la pagina para que el foco principal quede claro en:
-  - Google Ads
-  - campanas digitales
-
-### Nueva pagina de Meta
-
-- Definir `slug` final.
-- Definir nombre visible final.
-- Cubrir como minimo:
-  - Meta Ads
-  - Pixel
-  - configuracion de catalogo
+- Hecho.
 
 ### Blog e indexacion
 
-- Confirmar que `/blog` sera indexable.
-- Confirmar que `/blog/[slug]` sera indexable.
-- Decidir si las taxonomias:
-  - se convierten en paginas SEO reales
-  - salen del sitemap y quedan `noindex` si no aportan valor
-- Sacar del sitemap URLs con query string si no tendran contenido/indexacion propia.
+- `/blog`: indexable con canonical propio.
+- `/blog/[slug]`: indexable con canonical propio.
+- Hecho por ahora: taxonomias fuera de indexacion real mientras no existan landings dedicadas.
+- Hecho: sitemap sin URLs con query string.
 
 ### Tecnico SEO
 
-- Dejar una sola URL indexable real por cada documento legal.
-- Revisar `canonical` y sitemap de legales para que coincidan.
-- Crear `llms.txt`.
+- Hecho: `/home-v2` ya apunta canonico a `/`.
+- Hecho: una sola URL indexable real por legal (`/legal/...`), con redirects desde aliases.
+- Hecho: `canonical` y sitemap de legales ya coinciden.
+- Hecho: `llms.txt`.
 - No tocar por ahora textos con acentos/encoding raro; el usuario los revisara manualmente si hace falta.
 
 ## Keywords acordadas
@@ -59,12 +60,7 @@ Fecha: 2026-06-30
 - SEO
 - campanas digitales
 
-## Checklist de manana
+## Pendiente real
 
-- Ajustar `/soluciones` como pagina objetivo de `desarrollo web`.
-- Ajustar `/servicios/ads` para `Google Ads + campanas digitales`.
-- Definir `slug` y nombre final de la nueva pagina de Meta Ads.
-- Crear `llms.txt`.
-- Revisar sitemap y canonicals del blog.
-- Resolver decision final sobre taxonomias del blog.
-- Limpiar duplicados legales.
+- Si mas adelante se quieren taxonomias SEO, crear rutas dedicadas tipo categoria/tag y no volver a query strings.
+- Validar en Search Console / Rich Results que el schema de `Blog` y `BlogPosting` quede bien detectado.

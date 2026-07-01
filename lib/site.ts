@@ -12,5 +12,5 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/rickyram.dev/",
     linkedin: "https://www.linkedin.com/in/ricardo-ramirez-meza/",
   },
-  blogEnabled: false,
+  blogEnabled: true,
 } as const;

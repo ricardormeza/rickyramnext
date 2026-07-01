@@ -1,0 +1,26 @@
+# Rickyram.dev
+
+Sitio oficial de Rickyram.dev
+
+URL: https://rickyram.dev/
+Contacto: https://rickyram.dev/contacto
+
+Servicios:
+- Desarrollo web: https://rickyram.dev/soluciones
+- SEO: https://rickyram.dev/servicios/seo
+- Ads: https://rickyram.dev/servicios/ads
+- Analitica: https://rickyram.dev/servicios/analitica
+- Automatizacion: https://rickyram.dev/servicios/automatizacion
+- Ciberseguridad: https://rickyram.dev/servicios/ciberseguridad
+- Infraestructura: https://rickyram.dev/servicios/infraestructura
+
+Blog:
+- https://rickyram.dev/blog
+
+Legal:
+- https://rickyram.dev/legal/privacidad
+- https://rickyram.dev/legal/cookies
+- https://rickyram.dev/legal/terminos
+
+Resumen:
+Rickyram.dev ofrece desarrollo web, SEO, Google Ads, Meta Ads, analitica, automatizacion, ciberseguridad e infraestructura para negocios en Mexico.

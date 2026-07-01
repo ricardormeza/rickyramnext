@@ -145,8 +145,8 @@ const servicesOverview = {
         "Instalaci\u00f3n de Certificados SSL",
         "Migraci\u00f3n de correos y sitios web",
       ],
-      href: "/servicios/ciberseguridad",
-      cta: "Ver Ciberseguridad",
+      href: "/servicios/infraestructura",
+      cta: "Ver Infraestructura",
     },
   ],
 };

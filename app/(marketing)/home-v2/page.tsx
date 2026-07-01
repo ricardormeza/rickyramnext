@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   description:
     "Desarrollo web, SEO, analitica y soluciones en WordPress, Astro y Next.js para negocios que necesitan mas leads, mejor medicion y mejor conversion.",
   alternates: {
-    canonical: "/home-v2",
+    canonical: "/",
   },
   openGraph: {
     title: "Desarrollo web para negocios que quieren vender más",
     description:
       "Desarrollo web, SEO, analítica, marketing digital, ia, y soluciones en WordPress, Astro y Next.js para negocios que necesitan mas leads, mejor medicion y mejor conversion.",
-    url: `${siteConfig.siteUrl}/home-v2`,
+    url: siteConfig.siteUrl,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     type: "website",
@@ -283,7 +283,7 @@ export default function HomeV2Page() {
             </ScrollReveal>
             <SplitTextReveal
               as="h2"
-              text="Con presencia en Tijuana y Veracruz, y atencion remota para clientes en todo Mexico."
+              text="Con presencia en Tijuana y Veracruz, y atencion remota para clientes en todo México."
               className="text-xl font-semibold text-muted-foreground md:text-2xl"
             />
             <ScrollReveal className="fade-up text-base text-muted-foreground md:text-lg">

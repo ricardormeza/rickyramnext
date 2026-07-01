@@ -348,8 +348,8 @@ export default function TerminosPage() {
           </h2>
           <p>
             El tratamiento de datos personales se rige por el Aviso de Privacidad publicado
-            en /privacidad. Para información sobre cookies y tecnologías de medición,
-            consulta /cookies.
+            en /legal/privacidad. Para información sobre cookies y tecnologías de medición,
+            consulta /legal/cookies.
           </p>
         </div>
 

@@ -59,8 +59,49 @@ export default async function BlogPage() {
     { revalidate: 300 }
   );
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Blog",
+    description:
+      "Guias, estrategias y aprendizajes reales para mejorar performance, SEO y conversion.",
+    url: `${siteConfig.siteUrl}/blog`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: siteConfig.name,
+      url: siteConfig.siteUrl,
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: siteConfig.siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${siteConfig.siteUrl}/blog`,
+      },
+    ],
+  };
+
   return (
     <section className="body-font text-gray-600">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className="container mx-auto px-5 py-24">
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">

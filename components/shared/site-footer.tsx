@@ -54,7 +54,7 @@ export function SiteFooter() {
         </div>
 
         <div className="space-y-3 text-center md:text-left">
-          <div className="text-sm md:text-xl font-medium text-white">Soluciones web</div>
+          <div className="text-sm md:text-xl font-medium text-white underline">Soluciones web</div>
           <ul className="mx-auto w-fit space-y-2 text-sm md:text-xl text-white md:mx-0 md:w-auto">
             {footerNav.solutions.map((item) => (
               <li key={item.href}>
@@ -65,7 +65,7 @@ export function SiteFooter() {
         </div>
 
         <div className="space-y-3 text-center md:text-left">
-          <div className="text-sm md:text-xl font-medium text-white">Servicios</div>
+          <div className="text-sm md:text-xl font-medium text-white underline">Servicios</div>
           <ul className="mx-auto w-fit space-y-2 text-sm md:text-xl text-white md:mx-0 md:w-auto">
             {footerNav.services.map((item) => (
               <li key={item.href}>
@@ -78,7 +78,7 @@ export function SiteFooter() {
         <div className="space-y-3 text-center md:text-left">
           <div className="mx-auto grid w-fit grid-cols-2 gap-6 md:mx-0 md:block md:w-auto">
             <div className="space-y-3">
-              <div className="text-sm md:text-xl font-medium text-white">Recursos</div>
+              <div className="text-sm md:text-xl font-medium text-white underline">Recursos</div>
               <ul className="space-y-2 text-sm md:text-xl text-white">
                 {footerNav.resources.map((item) => (
                   <li key={item.href}>
@@ -88,7 +88,7 @@ export function SiteFooter() {
               </ul>
             </div>
             <div className="space-y-3">
-              <div className="text-sm md:text-xl font-medium text-white">Legal</div>
+              <div className="text-sm md:text-xl font-medium text-white underline">Legal</div>
               <ul className="space-y-2 text-sm md:text-xl text-white">
                 {footerNav.legal.map((item) => (
                   <li key={item.href}>
