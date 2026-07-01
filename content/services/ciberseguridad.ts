@@ -1,4 +1,5 @@
 export const ciberseguridadServiceContent = {
+  slug: "ciberseguridad",
   hero: {
     kicker: "Ciberseguridad",
     title:

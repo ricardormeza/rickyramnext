@@ -1,4 +1,5 @@
 export const automatizacionServiceContent = {
+  slug: "automatizacion",
   hero: {
     kicker: "Automatización",
     title:

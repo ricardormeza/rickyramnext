@@ -6,6 +6,7 @@ import { ScrollReveal } from "@/components/sections/scroll-reveal";
 import { FAQAccordion } from "@/components/sections/faq-accordion";
 import { Button } from "@/components/ui/button";
 import type { ServiceContent } from "@/content/services/types";
+import { siteConfig } from "@/lib/site";
 
 type ServiceDetailTemplateProps = {
   content: ServiceContent;
@@ -18,6 +19,7 @@ const getRevealProps = (index: number) => ({
 
 export function ServiceDetailTemplate({ content }: ServiceDetailTemplateProps) {
   const {
+    slug,
     hero,
     forWho,
     layers,
@@ -34,11 +36,47 @@ export function ServiceDetailTemplate({ content }: ServiceDetailTemplateProps) {
     labels,
   } = content;
 
+  const getContactHref = (label: string, value: string) => {
+    if (value.startsWith("http://") || value.startsWith("https://")) return value;
+    if (value.includes("@")) return `mailto:${value}`;
+    if (label.toLowerCase() === "formulario") return "/contacto";
+    return value;
+  };
+
+  const breadcrumbs = [
+    { label: "Inicio", href: "/" },
+    { label: "Servicios", href: "/servicios" },
+    { label: hero.kicker, href: `/servicios/${slug}` },
+  ];
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      item: `${siteConfig.siteUrl}${item.href}`,
+    })),
+  };
+
   return (
     <div className="space-y-16 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <ScrollReveal {...getRevealProps(0)}>
         <section className="mx-auto max-w-6xl px-4 pt-12 md:px-6 md:pt-16">
           <div className="rounded-3xl border bg-card p-8 md:p-12">
+            <nav className="text-xs text-muted-foreground">
+              {breadcrumbs.map((crumb, index) => (
+                <span key={crumb.href}>
+                  <Link href={crumb.href}>{crumb.label}</Link>
+                  {index < breadcrumbs.length - 1 ? " / " : null}
+                </span>
+              ))}
+            </nav>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
               {hero.kicker}
             </p>
@@ -289,6 +327,30 @@ export function ServiceDetailTemplate({ content }: ServiceDetailTemplateProps) {
               <Button variant="secondary" asChild>
                 <Link href="#auditoria">{finalCta.secondary}</Link>
               </Button>
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal {...getRevealProps(11)}>
+        <section id={contact.id} className="mx-auto max-w-6xl px-4 md:px-6">
+          <div className="rounded-3xl border bg-card p-8 md:p-12">
+            <h2 className="text-2xl font-semibold tracking-tight md:text-4xl">
+              {labels.contactTitle}
+            </h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {contact.items.map((item) => (
+                <div key={`${item.label}-${item.value}`} className="rounded-2xl border bg-background p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                    {item.label}
+                  </p>
+                  <Button className="mt-4 w-full" variant="outline" asChild>
+                    <Link href={getContactHref(item.label, item.value)}>
+                      {item.label === "Formulario" ? "Ir a contacto" : item.value}
+                    </Link>
+                  </Button>
+                </div>
+              ))}
             </div>
           </div>
         </section>

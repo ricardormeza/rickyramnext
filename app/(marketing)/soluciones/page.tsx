@@ -120,6 +120,25 @@ export default async function SolucionesPage() {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: `${siteConfig.siteUrl}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Soluciones",
+        item: `${siteConfig.siteUrl}/soluciones`,
+      },
+    ],
+  };
+
   return (
     <>
       <script
@@ -129,6 +148,10 @@ export default async function SolucionesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <SolucionesClient blogPosts={blogPosts} />
     </>

@@ -7,6 +7,7 @@ import { CheckCircle2 } from "lucide-react";
 import { ScrollReveal } from "@/components/sections/scroll-reveal";
 import { cn } from "@/lib/utils";
 import { StickyPillNav } from "@/components/sections/sticky-pill-nav";
+import { siteConfig } from "@/lib/site";
 
 type BreadcrumbItem = {
   label: string;
@@ -58,8 +59,27 @@ export function SolutionTemplate({
   stickyNav,
   children,
 }: SolutionTemplateProps) {
+  const breadcrumbSchema = hero.breadcrumbs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: hero.breadcrumbs.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.label,
+          item: `${siteConfig.siteUrl}${item.href}`,
+        })),
+      }
+    : null;
+
   return (
     <main className="bg-background text-foreground">
+      {breadcrumbSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      ) : null}
       <section
         id="overview"
         className="mx-auto max-w-6xl px-4 pb-10 pt-12 md:px-6 md:pt-16"

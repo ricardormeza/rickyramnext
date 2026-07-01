@@ -25,5 +25,58 @@ export const metadata: Metadata = {
 };
 
 export default function SeoServicePage() {
-  return <ServiceDetailTemplate content={seoServiceContent} />;
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: seoServiceContent.hero.title,
+    serviceType: "SEO",
+    description: seoServiceContent.hero.lead,
+    url: `${siteConfig.siteUrl}/servicios/seo`,
+    areaServed: "Mexico",
+    provider: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.siteUrl,
+      email: siteConfig.email,
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Planes de SEO",
+      itemListElement: seoServiceContent.plans.cards.map((card) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: card.title,
+          description: card.subtitle,
+        },
+      })),
+    },
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: seoServiceContent.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <ServiceDetailTemplate content={seoServiceContent} />
+    </>
+  );
 }

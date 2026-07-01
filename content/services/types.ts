@@ -1,4 +1,5 @@
 export type ServiceContent = {
+  slug: string;
   hero: {
     kicker: string;
     title: string;

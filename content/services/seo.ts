@@ -1,10 +1,11 @@
 import type { ServiceContent } from "./types";
 
 export const seoServiceContent: ServiceContent = {
+  slug: "seo",
   hero: {
     kicker: "SEO",
     title:
-      "Servicio de SEO (M\u00e9xico): m\u00e1s visibilidad, m\u00e1s leads, mejor conversi\u00f3n",
+      "Servicio de SEO: m\u00e1s visibilidad, m\u00e1s leads, mejor conversi\u00f3n.",
     lead:
       "El SEO no es magia; es ingenier\u00eda + contenido + medici\u00f3n. La meta es simple: que tu negocio aparezca cuando tu cliente te busca, y que tu sitio convierta cuando llegan.",
     ctas: [

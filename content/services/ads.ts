@@ -1,6 +1,7 @@
 ﻿import type { ServiceContent } from "./types";
 
 export const adsServiceContent: ServiceContent = {
+  slug: "ads",
   hero: {
     kicker: "Ads",
     title:

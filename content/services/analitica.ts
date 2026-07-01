@@ -1,4 +1,5 @@
 export const analiticaServiceContent = {
+  slug: "analitica",
   hero: {
     kicker: "Analítica",
     title:

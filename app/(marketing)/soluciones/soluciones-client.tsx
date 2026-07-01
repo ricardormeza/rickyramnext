@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 import { BlogPreview, type BlogPreviewPost } from "@/components/sections/blog-preview";
@@ -48,6 +49,9 @@ export default function SolucionesClient({ blogPosts }: SolucionesClientProps) {
         data-service-slug="soluciones"
         data-section="hero"
       >
+        <nav className="text-left text-xs text-muted-foreground">
+          <Link href="/">Inicio</Link> / <Link href="/soluciones">Soluciones</Link>
+        </nav>
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
           Desarrollo web, landing pages y sitios web
         </p>

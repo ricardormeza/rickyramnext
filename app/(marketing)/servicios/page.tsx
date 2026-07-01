@@ -39,6 +39,25 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Inicio",
+      item: `${siteConfig.siteUrl}/`,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Servicios",
+      item: `${siteConfig.siteUrl}/servicios`,
+    },
+  ],
+};
+
 const hero = {
   title:
     "Servicios para crecer tu web: SEO, Ads, Anal\u00edtica, Automatizaci\u00f3n y Seguridad",
@@ -385,8 +404,15 @@ const contact = {
 export default function ServiciosPage() {
   return (
     <div className="space-y-16 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="mx-auto max-w-6xl px-4 pt-12 md:px-6 md:pt-16">
         <div className="rounded-3xl border bg-card p-8 md:p-12">
+          <nav className="text-xs text-muted-foreground">
+            <Link href="/">Inicio</Link> / <Link href="/servicios">Servicios</Link>
+          </nav>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
             Servicios
           </p>

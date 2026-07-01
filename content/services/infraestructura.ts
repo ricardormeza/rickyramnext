@@ -1,4 +1,5 @@
 export const infraestructuraServiceContent = {
+  slug: "infraestructura",
   hero: {
     kicker: "Infraestructura",
     title:
