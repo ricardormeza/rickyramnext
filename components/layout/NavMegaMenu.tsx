@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -10,15 +9,6 @@ import { cn } from "@/lib/utils";
 
 export function NavMegaMenu() {
   const router = useRouter();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <NavigationMenu>
@@ -30,8 +20,8 @@ export function NavMegaMenu() {
                 <NavigationMenuTrigger onClick={() => router.push(item.href)}>
                   {item.label}
                 </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-3 p-6 md:w-[520px] md:grid-cols-2">
+                <NavigationMenuContent className="md:min-w-[760px]">
+                  <div className="grid gap-3 p-6 md:min-w-[760px] md:grid-cols-3">
                     {item.children.map((child) => {
                       const Icon = child.icon;
                       const itemClasses = cn(

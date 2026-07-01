@@ -91,8 +91,8 @@ export const homeContent = {
       {
         title: "WordPress Starter",
         bullets: [
-          "Landing: $5,900",
-          "Sitio 6 páginas: $7,900",
+          "Landing: $6,900",
+          "Sitio 6 páginas: $9,900",
           "PyME 10-12 páginas: $12,900",
         ],
         cta: "Ver paquetes WordPress",
@@ -101,8 +101,8 @@ export const homeContent = {
       {
         title: "Astro Starter",
         bullets: [
-          "Landing: $6,900",
-          "Sitio 6 páginas: $8,900",
+          "Landing: $7,900",
+          "Sitio 6 páginas: $11,900",
           "PyME 10-12 secciones: $14,900",
         ],
         cta: "Ver paquetes Astro",
@@ -112,8 +112,8 @@ export const homeContent = {
         title: "Next.js (Premium)",
         bullets: [
           "Landing: $12,900",
-          "Sitio 7 páginas: $16,900",
-          "PyME 10 páginas: Desde $22,900",
+          "Sitio 6 páginas: $16,900",
+          "PyME 10-12 páginas: Desde $22,900",
         ],
         cta: "Ver Next.js",
         href: "/soluciones/nextjs",

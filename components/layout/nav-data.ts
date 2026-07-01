@@ -1,19 +1,15 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  BadgeDollarSign,
   BarChart3,
   BookOpen,
   Bot,
-  Code2,
   Globe,
   Home,
-  Layers,
   Mail,
   Megaphone,
   Search,
   Shield,
   Wrench,
-  Zap,
 } from "lucide-react";
 
 type NavChildItem = {
@@ -39,35 +35,17 @@ export const navItems: NavItem[] = [
     icon: Home,
   },
   {
-    label: "Soluciones",
-    href: "/soluciones",
-    icon: Layers,
-    children: [
-      {
-        label: "WordPress",
-        href: "/soluciones/wordpress",
-        description: "Sitios administrables y listos para crecer.",
-        icon: Globe,
-      },
-      {
-        label: "Astro",
-        href: "/soluciones/astro",
-        description: "Marketing ultra rapido con SEO base.",
-        icon: Zap,
-      },
-      {
-        label: "Next.js",
-        href: "/soluciones/nextjs",
-        description: "Webs premium, dashboards y apps a medida.",
-        icon: Code2,
-      },
-    ],
-  },
-  {
     label: "Servicios",
     href: "/servicios",
     icon: Wrench,
     children: [
+      {
+        label: "Sitios Web",
+        href: "/soluciones",
+        description: "WordPress, Astro y Next.js.",
+        icon: Globe,
+        disabled: false,
+      },
       {
         label: "SEO",
         href: "/servicios/seo",
@@ -111,11 +89,6 @@ export const navItems: NavItem[] = [
         disabled: false,
       },
     ],
-  },
-  {
-    label: "Precios",
-    href: "/precios",
-    icon: BadgeDollarSign,
   },
   {
     label: "Blog",

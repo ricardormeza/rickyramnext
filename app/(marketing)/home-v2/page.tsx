@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     canonical: "/home-v2",
   },
   openGraph: {
-    title: "Desarrollo web para negocios que quieren vender mas",
+    title: "Desarrollo web para negocios que quieren vender más",
     description:
-      "Desarrollo web, SEO, analitica y soluciones en WordPress, Astro y Next.js para negocios que necesitan mas leads, mejor medicion y mejor conversion.",
+      "Desarrollo web, SEO, analítica, marketing digital, ia, y soluciones en WordPress, Astro y Next.js para negocios que necesitan mas leads, mejor medicion y mejor conversion.",
     url: `${siteConfig.siteUrl}/home-v2`,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Desarrollo web para negocios que quieren vender mas",
+    title: "Desarrollo web y marketing digital para negocios que quieren vender más",
     description:
-      "Desarrollo web, SEO, analitica y soluciones en WordPress, Astro y Next.js para negocios que necesitan mas leads, mejor medicion y mejor conversion.",
+      "Desarrollo web, SEO, analítica, ia, marketing digital y soluciones en WordPress, Astro y Next.js para negocios que necesitan más leads, mejor medicion y mejor conversión.",
   },
 };
 
@@ -297,7 +297,7 @@ export default function HomeV2Page() {
                 <Link href={siteConfig.whatsapp}>Contactame por WhatsApp</Link>
               </Button>
               <Button asChild size="lg" variant="secondary">
-                <Link href="/contacto">Ver servicios</Link>
+                <Link href="/servicios">Ver servicios</Link>
               </Button>
             </ScrollReveal>
           </div>

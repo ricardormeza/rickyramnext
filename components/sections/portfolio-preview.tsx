@@ -93,6 +93,13 @@ const projects: Project[] = [
     tags: ["Marketing", "GA4", "Nextjs", "Google Cloud Platform", "Cloudflare"],
     href: "https://directoriover.com.mx/",
   },
+  {
+    title: "Yoffigram",
+    description: "Herramienta para copywriter",
+    image: "/portafolio/yoffigram.webp",
+    tags: ["Marketing", "META",],
+    href: "https://yoffimkt.com/yoffigram/",
+  },
 ];
 
 export function PortfolioPreview({

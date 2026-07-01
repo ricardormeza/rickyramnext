@@ -10,9 +10,9 @@ export const mainNav = [
 
 export const footerNav = {
   solutions: [
-    { title: "Astro (Sitios rapidos)", href: "/soluciones/astro" },
-    { title: "WordPress (Sitios administrables)", href: "/soluciones/wordpress" },
-    { title: "Next.js (Web premium + dashboards)", href: "/soluciones/nextjs" },
+    { title: "Astrojs", href: "/soluciones/astro" },
+    { title: "WordPress", href: "/soluciones/wordpress" },
+    { title: "Next.js", href: "/soluciones/nextjs" },
   ],
   services: [
     { title: "SEO", href: "/servicios/seo" },
@@ -24,9 +24,11 @@ export const footerNav = {
   ],
   resources: [
     { title: "Portafolio", href: "/portafolio" },
+    { title: "Programa de lealtad", href: "https://join.rickyram.dev/join" },
+    { title: "Yoffigram", href: "https://yoffimkt.com/yoffigram/" },
     { title: "Blog", href: "/blog" },
-    { title: "Precios", href: "/precios" },
     { title: "Contacto", href: "/contacto" },
+    { title: "Precios", href: "/precios" },
   ],
   legal: [
     { title: "Privacidad", href: "/legal/privacidad" },

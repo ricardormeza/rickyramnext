@@ -36,7 +36,7 @@ export const preciosContent = {
             badge: "Rendimiento + SEO",
             plan: "landing-starter",
             title: "Landing Starter (Astro)",
-            price: "$6,900",
+            price: "$7,900",
             idealFor: "Campañas, servicios, portafolio, oferta directa.",
             includes: [
               "1 página (6 secciones)",
@@ -54,7 +54,7 @@ export const preciosContent = {
             badge: "Editable + flexible",
             plan: "landing-starter",
             title: "Landing Starter (WordPress)",
-            price: "$5,900 ",
+            price: "$6,900 ",
             idealFor: "Landing que tu equipo quiere editar fácil.",
             includes: [
               "1 página (6 a 7 secciones)",
@@ -101,7 +101,7 @@ export const preciosContent = {
             badge: "Rápido + ligero",
             plan: "sitio-basico",
             title: "Sitio Básico Starter (Astro)",
-            price: "$8,900",
+            price: "$11,900",
             idealFor: "Servicios, portafolio, negocio local, captación.",
             includes: [
               "5 a 6 Páginas (Inicio, Servicios, Sobre mí, Promoción, Contacto)",
@@ -121,7 +121,7 @@ export const preciosContent = {
             badge: "Panel para editar",
             plan: "sitio-basico",
             title: "Sitio Básico Starter (WordPress)",
-            price: "$7,900",
+            price: "$9,900",
             idealFor: "Negocio que actualiza contenido sin depender de dev.",
             includes: [
               "5 a 6 páginas (Inicio, Servicios, Sobre mí, Blog, Contacto)",

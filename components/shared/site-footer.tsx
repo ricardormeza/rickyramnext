@@ -21,7 +21,7 @@ export function SiteFooter() {
             <span className="sr-only">{siteConfig.name}</span>
           </div>
           <p className="text-center md:text-left text-sm md:text-xl text-white text-white">
-            Sitios web rapidos, medibles y listos para crecer.
+            Sitios web rápidos, medibles y listos para crecer.
           </p>
           <div className="space-y-1 text-center md:text-left text-sm md:text-xl text-white">
             <div>{siteConfig.city}</div>
@@ -54,7 +54,7 @@ export function SiteFooter() {
         </div>
 
         <div className="space-y-3 text-center md:text-left">
-          <div className="text-sm md:text-xl font-medium text-white">Soluciones</div>
+          <div className="text-sm md:text-xl font-medium text-white">Soluciones web</div>
           <ul className="mx-auto w-fit space-y-2 text-sm md:text-xl text-white md:mx-0 md:w-auto">
             {footerNav.solutions.map((item) => (
               <li key={item.href}>
