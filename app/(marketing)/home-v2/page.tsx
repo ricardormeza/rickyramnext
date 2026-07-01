@@ -62,7 +62,7 @@ const serviceCards = [
   {
     title: "Google Ads",
     description:
-      "Campanas enfocadas en leads y ventas, con medicion clara desde el primer clic.",
+      "Campañas enfocadas en leads y ventas, con medicion clara desde el primer clic.",
     href: "/servicios/ads",
     icon: Megaphone,
   },
@@ -288,8 +288,7 @@ export default function HomeV2Page() {
             />
             <ScrollReveal className="fade-up text-base text-muted-foreground md:text-lg">
               <p>
-                Impulso negocios con sitios web, estrategias digitales y
-                herramientas que facilitan vender, comunicar y crecer.
+                Creo sitios web, estrategias de SEO, marketing digital y campañas en Google Ads y Meta Ads para ayudarte a atraer clientes, comunicar mejor tu oferta y generar oportunidades de venta.
               </p>
             </ScrollReveal>
             <ScrollReveal className="fade-up flex flex-col gap-3 sm:flex-row">
