@@ -154,7 +154,7 @@ const reasons = [
 const testimonials = [
   {
     quote:
-      "El proceso se sintio claro de principio a fin. Hubo orden, seguimiento y una propuesta enfocada en negocio, no solo en diseno.",
+      "El proceso se sintio claro de principio a fin. Hubo orden, seguimiento y una propuesta enfocada en negocio, no solo en diseño.",
     name: "Cliente en desarrollo",
     role: "Negocio de servicios",
   },
@@ -196,7 +196,7 @@ const faqs = [
   {
     question: "¿También puedes mejorar un sitio ya existente?",
     answer:
-      "Si. No todo requiere rehacerse. A veces conviene optimizar estructura, velocidad, tracking o conversión antes de pensar en un rediseno completo.",
+      "Si. No todo requiere rehacerse. A veces conviene optimizar estructura, velocidad, tracking o conversión antes de pensar en un rediseño completo.",
   },
 ] as const;
 
