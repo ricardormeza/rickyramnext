@@ -30,14 +30,14 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Desarrollo web para negocios que quieren vender mas",
   description:
-    "Desarrollo web, SEO, analitica y soluciones en WordPress, Astro y Next.js para negocios que necesitan mas leads, mejor medicion y mejor conversion.",
+    "Desarrollo web, SEO, analitica y soluciones en WordPress, Astro y Next.js para negocios que necesitan mas leads, mejor medicion y mejor conversión.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Desarrollo web para negocios que quieren vender más",
     description:
-      "Desarrollo web, SEO, analítica, marketing digital, ia, y soluciones en WordPress, Astro y Next.js para negocios que necesitan mas leads, mejor medicion y mejor conversion.",
+      "Desarrollo web, SEO, analítica, marketing digital, ia, y soluciones en WordPress, Astro y Next.js para negocios que necesitan mas leads, mejor medicion y mejor conversión.",
     url: siteConfig.siteUrl,
     siteName: siteConfig.name,
     locale: siteConfig.locale,
@@ -55,14 +55,14 @@ const serviceCards = [
   {
     title: "SEO",
     description:
-      "Optimizo tu sitio para que Google entienda mejor tu oferta y obtengamos trafico con intencion.",
+      "Optimizo tu sitio para que Google entienda mejor tu oferta y obtengamos trafico con intención.",
     href: "/servicios/seo",
     icon: Search,
   },
   {
     title: "Google Ads",
     description:
-      "Campañas enfocadas en leads y ventas, con medicion clara desde el primer clic.",
+      "Campañas enfocadas en leads y ventas, con medición clara desde el primer clic.",
     href: "/servicios/ads",
     icon: Megaphone,
   },
@@ -76,14 +76,14 @@ const serviceCards = [
   {
     title: "Automatizacion",
     description:
-      "Flujos, CRM e integraciones para responder mas rapido y no perder seguimiento comercial.",
+      "Flujos, CRM e integraciones para responder más rápido y no perder seguimiento comercial.",
     href: "/servicios/automatizacion",
     icon: Bot,
   },
   {
     title: "Infraestructura",
     description:
-      "DNS, correo, SSL, migraciones y configuracion tecnica para que el sitio no falle en lo basico.",
+      "DNS, correo, SSL, migraciones y configuración técnica para que el sitio no falle en lo básico.",
     href: "/servicios/infraestructura",
     icon: Wrench,
   },
@@ -97,21 +97,21 @@ const serviceCards = [
   {
     title: "WordPress",
     description:
-      "Sitios administrables con blog, landings o WooCommerce cuando necesitas editar sin friccion.",
+      "Sitios administrables con blog, landings o WooCommerce cuando necesitas editar sin fricción.",
     href: "/soluciones/wordpress",
     icon: Globe,
   },
   {
     title: "Astro",
     description:
-      "Sitios rapidos, ligeros y con base tecnica fuerte para marketing, SEO y conversion.",
+      "Sitios rápidos, ligeros y con base tácnica fuerte para marketing, SEO y conversión.",
     href: "/soluciones/astro",
     icon: Zap,
   },
   {
     title: "Next.js",
     description:
-      "Webs premium, dashboards y productos a medida cuando el proyecto necesita mas logica.",
+      "Webs premium, dashboards y productos a medida cuando el proyecto necesita más lógica.",
     href: "/soluciones/nextjs",
     icon: CheckCircle2,
   },
@@ -132,7 +132,7 @@ const workSteps = [
   },
   {
     step: "03",
-    title: "Implementacion",
+    title: "Implementación",
     description:
       "Desarrollo de la solución acordada con comunicación constante, avances claros y atención a los detalles que impactan tu imagen y resultados.",
   },

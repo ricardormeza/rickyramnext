@@ -51,6 +51,10 @@ Fecha: 2026-06-30
 - Hecho: `canonical` y sitemap de legales ya coinciden.
 - Hecho: `llms.txt`.
 - No tocar por ahora textos con acentos/encoding raro; el usuario los revisara manualmente si hace falta.
+- `/contacto`: tracking base para GTM/GA4 agregado.
+- performance:
+  - `layout` marketing ya no es cliente global
+  - mapa embebido de `/contacto` removido
 
 ## Keywords acordadas
 
@@ -64,3 +68,4 @@ Fecha: 2026-06-30
 
 - Si mas adelante se quieren taxonomias SEO, crear rutas dedicadas tipo categoria/tag y no volver a query strings.
 - Validar en Search Console / Rich Results que el schema de `Blog` y `BlogPosting` quede bien detectado.
+- Medir de nuevo mobile performance despues del pase de optimizacion y decidir si hace falta recortar animaciones del home.

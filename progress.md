@@ -1,51 +1,78 @@
 # Progress
 
-Fecha: 2026-06-30 23:27:53 -07:00
+Fecha: 2026-07-01
 
 ## Cambios realizados hoy
 
-- Se creo un home nuevo y se movio a `/`.
-- El home anterior quedo respaldado en `/home-v1`.
-- Se construyo una nueva estructura de home orientada a SEO/comercial:
-  - hero nuevo
-  - servicios/soluciones
-  - metodologia
-  - por que elegirme
-  - testimonios temporales
-  - FAQs
-  - portafolio
-  - formulario
-- Se creo `SplitTextReveal`.
-- Se mezclo `SplitTextReveal` + `ShinyText` en headings clave del home.
-- Se reforzo visualmente el fondo del hero.
-- La imagen del hero ahora cambia en hover.
-- Se activo footer/global CTA tambien en `/`.
-- Se integraron nuevas imagenes al carrusel de portafolio.
-- Se ajusto el carrusel para permitir `h1` o `h2` segun contexto.
-- Se simplifico la navegacion principal:
-  - `Inicio`
-  - `Servicios`
-  - `Blog`
-  - `Contacto`
-- Dentro de `Servicios` se agrego:
-  - `Sitios Web` -> `/soluciones`
-- Se corrigio el mega menu para que el submenu pueda mostrar todas las columnas completas.
+- Se cerro el trabajo SEO/comercial de `/soluciones` como pagina objetivo de `desarrollo web`.
+- Se reforzaron y alinearon las paginas hijas de `/soluciones`:
+  - `/soluciones/wordpress`
+  - `/soluciones/astro`
+  - `/soluciones/nextjs`
+- Se agregaron breadcrumb visible y schema en hubs y paginas clave:
+  - `/soluciones`
+  - `/servicios`
+  - `/servicios/seo`
+  - `/servicios/ads`
+  - `/servicios/analitica`
+  - `/servicios/automatizacion`
+  - `/servicios/ciberseguridad`
+  - `/servicios/infraestructura`
+  - `/contacto`
+- Se redefinio `/servicios/ads` para cubrir:
+  - Google Ads
+  - Meta Ads
+  - campanas de Facebook
+  - campanas digitales
+  - cuenta publicitaria
+  - portafolio comercial
+  - content management
+- Se reviso y ajusto SEO de:
+  - `/servicios/seo`
+  - `/servicios/analitica`
+  - `/servicios/automatizacion`
+  - `/servicios/ciberseguridad`
+  - `/servicios/infraestructura`
+  - `/contacto`
+- Se limpiaron canonicals y sitemap:
+  - `/home-v2` ya apunta canonico a `/`
+  - legales consolidados bajo `/legal/...`
+  - aliases `/privacidad` y `/cookies` ahora redirigen
+  - sitemap sin query strings del blog
+- Se dejo el blog listo para indexacion base:
+  - `/blog` con canonical
+  - `/blog/[slug]` con canonical
+  - schema `CollectionPage` / `BlogPosting`
+  - taxonomias fuera de indexacion real por ahora
+- Se creo `public/llms.txt`.
+- Se activo `blogEnabled`.
+- Se corrigio enlace interno roto en `/servicios`:
+  - la card de `Infraestructura` ya no apuntaba a `Ciberseguridad`
+- Se agregaron señales para GTM/GA4 en `/contacto`:
+  - `view_contact_page`
+  - `form_start`
+  - `generate_lead`
+  - `contact_form_error`
+  - atributos `data-*` para clicks de contacto
+- Se hizo un primer pase de performance:
+  - `app/(marketing)/layout.tsx` volvio a server component
+  - `BotAssist` y `ScrollToTop` se movieron a wrapper cliente
+  - `/contacto` ya no embebe Google Maps; ahora usa bloque ligero + link externo
 
 ## Decisiones tomadas hoy
 
-- `desarrollo web` se trabajara en `/soluciones`.
-- `marketing digital` se trabajara desde la pagina de Ads.
-- `/servicios/ads` debe cubrir Google Ads + campanas digitales.
-- Se creara una pagina aparte para Meta Ads / Pixel / catalogo y relacionados.
+- `desarrollo web` se concentra en `/soluciones`.
+- `marketing digital` se trabaja dentro de `/servicios/ads`.
+- No se creara pagina aparte de Meta Ads; se integra dentro de `/servicios/ads`.
 - El blog seguira viniendo desde `cms.rickyram.dev` por ahora.
 - El blog sera el lugar principal para nutrir SEO.
+- Las taxonomias del blog no se indexan hasta tener landings reales.
+- `join.rickyram.dev` no se agrega al sitemap principal de `rickyram.dev`.
 
 ## Estado
 
-- Hay una rama subida a Vercel en este momento.
-- Manana conviene retomar desde:
-  - arquitectura SEO de `/soluciones`
-  - redefinicion de `/servicios/ads`
-  - nueva pagina de Meta
-  - `llms.txt`
-  - limpieza de sitemap/duplicados legales
+- SEO onsite/técnico de `/soluciones` y `/servicios` quedo esencialmente cerrado.
+- Queda pendiente validar en produccion:
+  - Search Console
+  - Rich Results
+  - impacto real del pase de performance en mobile
