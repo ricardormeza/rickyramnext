@@ -88,7 +88,7 @@ export function SiteFooter() {
               </ul>
             </div>
             <div className="space-y-3">
-              <div className="text-sm md:text-xl font-medium text-white underline">Legal</div>
+              <div className="text-sm md:text-xl font-medium text-white underline">Legales</div>
               <ul className="space-y-2 text-sm md:text-xl text-white">
                 {footerNav.legal.map((item) => (
                   <li key={item.href}>
