@@ -11,6 +11,8 @@ const allowedPrefixes = [
   "/cotizar",
   "/Agendar-llamada",
   "/portafolio",
+  "/paginas-web-para-negocios",
+  "/mapa-del-sitio",
   "/legal",
   "/privacidad",
   "/cookies",

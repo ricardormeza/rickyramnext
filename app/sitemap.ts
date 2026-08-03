@@ -22,6 +22,8 @@ const STATIC_ROUTES = [
   "/cotizar",
   "/Agendar-llamada",
   "/portafolio",
+  "/paginas-web-para-negocios",
+  "/mapa-del-sitio",
   "/legal/terminos",
   "/legal/privacidad",
   "/legal/cookies",

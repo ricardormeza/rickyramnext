@@ -34,5 +34,6 @@ export const footerNav = {
     { title: "Privacidad", href: "/legal/privacidad" },
     { title: "Cookies", href: "/legal/cookies" },
     { title: "Terminos y condiciones", href: "/legal/terminos" },
+    { title: "Mapa del sitio", href: "/mapa-del-sitio" },
   ],
 } as const;
