@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 
 import { LandingLeadForm } from "./landing-lead-form";
+import { TrackedWhatsappLink } from "./tracked-whatsapp-link";
 import heroImage from "@/imagenes/hero-soluciones-digitales-web.webp";
 import solucionesImage from "@/imagenes/soluciones-web-rickyram.webp";
 import projectGgjImage from "@/imagenes/project-ggjcontabilidad.png";
@@ -600,9 +601,14 @@ export default function PaginasWebParaNegociosPage() {
             <h3 className="text-sm font-black">Contacto</h3>
             <div className="mt-4 grid gap-3 text-sm text-slate-300">
               <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              <TrackedWhatsappLink
+                id="landing-whatsapp-footer"
+                href={whatsappUrl}
+                ctaName="whatsapp_footer"
+                ctaLocation="footer"
+              >
                 WhatsApp {siteConfig.whatsappDisplay}
-              </a>
+              </TrackedWhatsappLink>
               <span>{siteConfig.city}</span>
               <Link href="/mapa-del-sitio">Mapa del sitio</Link>
             </div>
@@ -610,16 +616,17 @@ export default function PaginasWebParaNegociosPage() {
         </div>
       </footer>
 
-      <a
+      <TrackedWhatsappLink
+        id="landing-whatsapp-floating"
         href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+        ctaName="cotiza_por_whatsapp"
+        ctaLocation="floating_button"
         className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-3 rounded-full border border-emerald-400/30 bg-emerald-500 px-5 py-4 text-sm font-black text-white shadow-[0_18px_40px_rgba(16,185,129,0.35)] transition hover:bg-emerald-600"
-        aria-label="Cotiza por WhatsApp"
+        ariaLabel="Cotiza por WhatsApp"
       >
         <MessageCircle className="h-5 w-5" />
         <span className="hidden sm:inline">Cotiza por WhatsApp</span>
-      </a>
+      </TrackedWhatsappLink>
     </main>
   );
 }

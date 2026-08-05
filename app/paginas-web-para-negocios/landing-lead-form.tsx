@@ -4,6 +4,7 @@ import * as React from "react";
 import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 
 import { Turnstile, type TurnstileHandle } from "@/components/security/Turnstile";
+import { pushDataLayerEvent } from "@/lib/analytics";
 
 type Step = 1 | 2;
 type Status = "idle" | "loading" | "success" | "error";
@@ -208,6 +209,14 @@ export function LandingLeadForm() {
 
       setStatus("success");
       setMessage("Solicitud enviada. Te responderé con una propuesta.");
+      pushDataLayerEvent({
+        event: "generate_lead",
+        form_name: "paginas_web_para_negocios",
+        form_type: "landing_lead",
+        lead_channel: "website",
+        landing_page: trackingData.landing_page,
+        variant: "paginas-web-para-negocios",
+      });
       setValues(initialFormState);
       setStep(1);
       setTurnstileToken(null);
@@ -391,6 +400,7 @@ export function LandingLeadForm() {
               Regresar
             </button>
             <button
+              id="landing-paginas-web-submit"
               type="button"
               onClick={submit}
               disabled={status === "loading"}

@@ -1,5 +1,54 @@
 # Progress
 
+Fecha: 2026-08-03
+
+## Cambios realizados hoy
+
+- Se creó la landing independiente `/paginas-web-para-negocios`.
+- Se usó el contenido base de `landing/landing.md` para estructurar la página.
+- Se tomó como referencia visual `imagenes/propuestaLanding.png`.
+- Se integraron las imágenes:
+  - `imagenes/hero-soluciones-digitales-web.webp`
+  - `imagenes/soluciones-web-rickyram.webp`
+- Se construyó una landing sin el header/footer global para mantener un enfoque tipo landing page.
+- Se agregó formulario de cotización en dos pasos:
+  - Paso 1: nombre, teléfono, correo y nombre del negocio.
+  - Paso 2: tipo de proyecto, sitio web actual, inversión contemplada y fecha ideal de inicio.
+- Se configuró el formulario para capturar datos de campaña:
+  - `utm_source`
+  - `utm_medium`
+  - `utm_campaign`
+  - `utm_term`
+  - `utm_content`
+  - `gclid`
+  - `landing_page`
+  - `fecha_del_lead`
+- Se amplió `/api/leads` para aceptar y enviar los nuevos campos del formulario.
+- Se agregó la landing `/paginas-web-para-negocios` al sitemap técnico.
+- Se creó la página HTML `/mapa-del-sitio`.
+- Se agregó el enlace "Mapa del sitio" al footer global en la sección Legal.
+- Se agregó `/mapa-del-sitio` al sitemap técnico.
+- Se corrigió `proxy.ts` para permitir las rutas:
+  - `/mapa-del-sitio`
+  - `/paginas-web-para-negocios`
+- Se agregó el enlace "Mapa del sitio" también al footer específico de la landing.
+- Se agregó el funko de `rickyram.dev` arriba del enlace de marca en el footer de la landing.
+
+## Validaciones realizadas
+
+- `npx tsc --noEmit` pasó correctamente.
+- ESLint pasó correctamente en los archivos modificados para la landing, mapa del sitio, sitemap, rutas y proxy.
+- Se detectó que `npm run lint` completo falla por errores preexistentes no relacionados en otros componentes del proyecto.
+- Se intentó `npm run build`, pero quedó sin respuesta durante varios minutos y se detuvo para evitar dejar el proceso colgado.
+
+## Notas
+
+- `/mapa-del-sitio` no sustituye al sitemap XML; funciona como mapa HTML para usuarios.
+- El sitemap técnico sigue siendo necesario para buscadores.
+- El redirect a home en `/mapa-del-sitio` era causado por la allowlist de `proxy.ts`.
+
+---
+
 Fecha: 2026-07-01
 
 ## Cambios realizados hoy
