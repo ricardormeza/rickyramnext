@@ -67,7 +67,6 @@
   --color-ring: var(--ring);
   --radius: var(--radius);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 * {
@@ -147,6 +146,33 @@ body {
 
 .home-v2-surface-fade {
   background-image: linear-gradient(180deg, rgba(217, 233, 255, 0) 0%, rgba(197, 221, 255, 0.7) 100%);
+}
+
+.hero-portrait-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background-position: center;
+  background-size: cover;
+  transition: opacity 300ms ease;
+}
+
+@media (min-width: 768px) {
+  .hero-portrait-group:hover .hero-portrait-base {
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+
+  .hero-portrait-group:hover .hero-portrait-hover {
+    opacity: 1;
+    background-image: url("/images/rickyramsmile.webp");
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-portrait-group {
+    box-shadow: none;
+  }
 }
 
 .dark .home-v2-surface-fade {

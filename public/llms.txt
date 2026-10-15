@@ -1,26 +1,33 @@
 # Rickyram.dev
 
-Sitio oficial de Rickyram.dev
+> Sitio oficial de Rickyram.dev, dedicado a desarrollo web, software, SEO y marketing digital para negocios en México.
 
-URL: https://rickyram.dev/
-Contacto: https://rickyram.dev/contacto
+## Servicios
 
-Servicios:
-- Desarrollo web: https://rickyram.dev/soluciones
-- SEO: https://rickyram.dev/servicios/seo
-- Ads: https://rickyram.dev/servicios/ads
-- Analitica: https://rickyram.dev/servicios/analitica
-- Automatizacion: https://rickyram.dev/servicios/automatizacion
-- Ciberseguridad: https://rickyram.dev/servicios/ciberseguridad
-- Infraestructura: https://rickyram.dev/servicios/infraestructura
+- Desarrollo web: https://www.rickyram.dev/soluciones
+- Desarrollo de software: https://www.rickyram.dev/soluciones/nextjs
+- SEO: https://www.rickyram.dev/servicios/seo
+- Google Ads: https://www.rickyram.dev/servicios/ads
+- Analítica: https://www.rickyram.dev/servicios/analitica
+- Automatización: https://www.rickyram.dev/servicios/automatizacion
+- Ciberseguridad: https://www.rickyram.dev/servicios/ciberseguridad
+- Infraestructura: https://www.rickyram.dev/servicios/infraestructura
 
-Blog:
-- https://rickyram.dev/blog
+## Blog
 
-Legal:
-- https://rickyram.dev/legal/privacidad
-- https://rickyram.dev/legal/cookies
-- https://rickyram.dev/legal/terminos
+- https://www.rickyram.dev/blog
 
-Resumen:
-Rickyram.dev ofrece desarrollo web, SEO, Google Ads, Meta Ads, analitica, automatizacion, ciberseguridad e infraestructura para negocios en Mexico.
+## Legal
+
+- Privacidad: https://www.rickyram.dev/legal/privacidad
+- Cookies: https://www.rickyram.dev/legal/cookies
+- Términos y condiciones: https://www.rickyram.dev/legal/terminos
+
+## Contacto
+
+- Sitio: https://www.rickyram.dev/
+- Contacto: https://www.rickyram.dev/contacto
+
+## Resumen
+
+Rickyram.dev ofrece desarrollo web, desarrollo de software, SEO, Google Ads, Meta Ads, analítica, automatización, ciberseguridad e infraestructura para negocios en México.

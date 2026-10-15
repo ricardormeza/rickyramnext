@@ -13,8 +13,10 @@ import {
   Zap,
 } from "lucide-react";
 
-import { ContactForm } from "@/components/forms/ContactForm";
-import { PortfolioPreview } from "@/components/sections/portfolio-preview";
+import {
+  DeferredContactForm,
+  DeferredPortfolioPreview,
+} from "@/components/shared/DeferredHomeSections";
 import { ScrollReveal } from "@/components/sections/scroll-reveal";
 import { SplitTextReveal } from "@/components/sections/SplitTextReveal";
 import { Button } from "@/components/ui/button";
@@ -231,23 +233,17 @@ export default function HomeV2Page() {
         />
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 md:px-6 md:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <ScrollReveal className="fade-in-left">
-            <div className="group relative mx-auto max-w-md overflow-hidden rounded-[2rem] border bg-card p-3 shadow-[0_24px_70px_rgba(15,23,42,0.12)]">
+            <div className="hero-portrait-group group relative mx-auto max-w-md overflow-hidden rounded-[2rem] border bg-card p-3 shadow-[0_24px_70px_rgba(15,23,42,0.12)]">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-muted">
                 <Image
-                  src="/images/rickyramsmiledos.png"
+                  src="/images/rickyramsmiledos.webp"
                   alt="Ricardo Ramirez, desarrollo web y marketing"
                   fill
                   priority
                   sizes="(min-width: 1024px) 35vw, (min-width: 768px) 50vw, 100vw"
-                  className="object-cover transition-opacity duration-300 group-hover:opacity-0"
+                  className="hero-portrait-base object-cover"
                 />
-                <Image
-                  src="/images/rickyramsmile.png"
-                  alt="Ricardo Ramirez sonriendo"
-                  fill
-                  sizes="(min-width: 1024px) 35vw, (min-width: 768px) 50vw, 100vw"
-                  className="object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                />
+                <div className="hero-portrait-hover" aria-hidden="true" />
               </div>
             </div>
           </ScrollReveal>
@@ -527,7 +523,7 @@ export default function HomeV2Page() {
       </section>
 
       <section>
-        <PortfolioPreview headingAs="h2" />
+        <DeferredPortfolioPreview />
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 md:px-6">
@@ -560,7 +556,7 @@ export default function HomeV2Page() {
           </div>
 
           <div>
-            <ContactForm />
+            <DeferredContactForm />
           </div>
         </div>
       </section>

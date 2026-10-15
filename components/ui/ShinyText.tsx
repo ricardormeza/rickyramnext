@@ -37,6 +37,7 @@ const ShinyText: React.FC<ShinyTextProps> = ({
   delay = 0,
 }) => {
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const progress = useMotionValue(0);
   const elapsedRef = useRef(0);
   const lastTimeRef = useRef<number | null>(null);
@@ -45,8 +46,16 @@ const ShinyText: React.FC<ShinyTextProps> = ({
   const animationDuration = speed * 1000;
   const delayDuration = delay * 1000;
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mediaQuery.matches);
+    update();
+    mediaQuery.addEventListener("change", update);
+    return () => mediaQuery.removeEventListener("change", update);
+  }, []);
+
   useAnimationFrame((time) => {
-    if (disabled || isPaused) {
+    if (disabled || isPaused || isMobile) {
       lastTimeRef.current = null;
       return;
     }
